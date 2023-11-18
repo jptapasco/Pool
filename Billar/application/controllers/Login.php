@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login extends CI_Controller
 {
@@ -13,7 +13,8 @@ class Login extends CI_Controller
 		$this->load->library('session');
 		$this->load->database();
 	}
-	public function index(){
+	public function index()
+	{
 		$this->load->view('Login/login');
 	}
 
@@ -24,10 +25,10 @@ class Login extends CI_Controller
 			$data["passw"] = $this->input->post("passw");
 			$respuesta = $this->LoginModel->validar_ingreso($data["correo"]);
 
-			$alert = array(); 
-			
+			$alert = array();
+
 			if (!empty($respuesta)) {
-				if ($respuesta->correo === $data['correo'] && $respuesta->contrasena === $data['passw']) {	
+				if ($respuesta->correo === $data['correo'] && $respuesta->contrasena === $data['passw']) {
 					$this->session->set_userdata('correo', $data['correo']);
 					redirect("Dashboard", "refresh");
 				} else {
@@ -50,12 +51,9 @@ class Login extends CI_Controller
 	}
 
 
-	public function logOut(){
+	public function logOut()
+	{
 		$this->session->sess_destroy();
-
 		redirect("Login/index", "refresh");
 	}
-
-
-
 }
