@@ -14,15 +14,26 @@ class Usuarios extends CI_Controller
         $this->load->database();
     }
 
-    public function rutaUsuarios()
-    {
-        $this->load->view('Usuarios/usuarios');
-    }
-
-
     public function listado()
     {
         $vdata["respuesta"] = $this->Usuario->lista();
         $this->load->view('Usuarios/usuarios', $vdata);
+    }
+
+    public function insertar()
+    {
+        if ($this->input->server("REQUEST_METHOD") == "POST") {
+            $data = array(
+                'documento' => $this->input->post("documento"),
+                'nombres' => $this->input->post("nombres"),
+                'telefono' => $this->input->post("telefono"),
+                'rol' => $this->input->post("rol"),
+                'correo' => $this->input->post("correo"),
+                'contrasena' => $this->input->post("contrasena")
+            );
+             
+            $this->Usuario->insert($data);
+            redirect('Usuarios/usuarios');         
+        }
     }
 }

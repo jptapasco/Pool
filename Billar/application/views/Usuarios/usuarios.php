@@ -43,7 +43,7 @@
                 <tbody>
                     <?php foreach ($respuesta as $key => $Usuario) : ?>
                         <tr>
-                            <th scope="row"> <?php echo $Usuario->id_usuario ?> </th>
+                            <th scope="row"> <?php echo $Usuario->rol ?> </th>
                             <th> <?php echo $Usuario->nombres ?> </th>
                             <th> <?php echo $Usuario->correo ?> </th>
                             <th> <?php echo $Usuario->telefono ?> </th>
@@ -55,9 +55,7 @@
         <!-- FIN PAGINA USUARIOS -->
     </div>
 
-
-
-    <!-- Modal -->
+    <!-- MODAL AGREGAR -->
     <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -66,7 +64,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <?php echo form_open('');?>
+                <?php echo form_open('Usuarios/insertar');?>
                     <div class="form-group mt-4">                        
                         <?php
                             echo form_label('Documento', 'documento');
@@ -85,7 +83,20 @@
                             echo form_label('Nombres', 'nombres');
 
                             $data = [
-                                'name'      => '',
+                                'name'      => 'nombres',
+                                'type'      => 'text',
+                                'value'     => '',
+                                'class'     => 'form-control input-lg border border-info', 
+                            ];
+                            echo form_input($data);
+                            ?>
+                    </div>
+                    <div class="form-group">                        
+                        <?php
+                            echo form_label('Telefono', 'telefono');
+
+                            $data = [
+                                'name'      => 'telefono',
                                 'type'      => 'number',
                                 'value'     => '',
                                 'class'     => 'form-control input-lg border border-info', 
@@ -94,8 +105,35 @@
                             ?>
                     </div>
                     <div class="form-group">                        
+                    <?php
+                        echo form_label('Rol', 'rol');
+
+                        $options = array(
+                            ''              => 'Seleccionar',                            
+                            'cajero'        => 'cajero',
+                            'mesera'        => 'mesera',
+                        );
+
+                        $attributes = 'class="form-control input-lg border border-info"';
+                        echo form_dropdown('rol', $options, '', $attributes);
+                        ?>
+                    </div>
+                    <div class="form-group mt-4">                        
                         <?php
-                            echo form_label('Contrasena', 'contrasena');
+                            echo form_label('Correo', 'correo');
+
+                            $data = [
+                                'name'      => 'correo',
+                                'type'      => 'email',
+                                'value'     => '',
+                                'class'     => 'form-control input-lg border border-info', 
+                            ];
+                            echo form_input($data);
+                        ?>
+                    </div>
+                    <div class="form-group mt-4">                        
+                        <?php
+                            echo form_label('Contraseña', 'contrasena');
 
                             $data = [
                                 'name'      => 'contrasena',
@@ -104,30 +142,14 @@
                                 'class'     => 'form-control input-lg border border-info', 
                             ];
                             echo form_input($data);
-                            ?>
-                    </div>
-                    <div class="form-group">                        
-                        <?php
-                            echo form_label('Correo', 'correo');
-
-                            $data = [
-                                'name'      => 'correo',
-                                'type'      => 'text',
-                                'value'     => '',
-                                'class'     => 'form-control input-lg border border-info', 
-                            ];
-                            echo form_input($data);
                         ?>
                     </div>
-
-                    <?php echo form_submit('mysubmit', 'Enviar','class="btn btn-primary mt-4"');?> 
-
-                <?php echo form_close();?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Agregar</button>
+                    <?php echo form_submit('mysubmit', 'Agregar','class="btn btn-primary"');?> 
                 </div>
+                <?php echo form_close();?>                               
             </div>
         </div>
     </div>
