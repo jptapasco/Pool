@@ -69,6 +69,7 @@ class Usuario extends CI_Model
         $this->db->or_like('correo', $termino);
         $this->db->or_like('telefono', $termino);
         $this->db->or_like('documento', $termino);
+        $this->db->or_like('rol', $termino);
         $query = $this->db->get();
         return $query->result();
     }
