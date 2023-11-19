@@ -32,8 +32,8 @@ class Usuarios extends CI_Controller
                 'contrasena' => $this->input->post("contrasena")
             );
              
-            $this->Usuario->insert($data);
-            redirect('Usuarios/usuarios');         
+            $this->Usuario->insert($data);  
+            $this->listado();      
         }
     }
 }
