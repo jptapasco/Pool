@@ -35,19 +35,127 @@
                 <thead>
                     <tr>
                         <th scope="col">ROL</th>
+                        <th scope="col">Documento</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Correo</th>
                         <th scope="col">Telefono</th>
+                        <th scope="col">Estado</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($respuesta as $key => $Usuario) : ?>
                         <tr>
                             <th scope="row"> <?php echo $Usuario->rol ?> </th>
+                            <th> <?php echo $Usuario->documento ?> </th>
                             <th> <?php echo $Usuario->nombres ?> </th>
                             <th> <?php echo $Usuario->correo ?> </th>
                             <th> <?php echo $Usuario->telefono ?> </th>
+                            <th>
+                                <button type="button" class="btn btn-primary" href="" data-bs-toggle="modal" data-bs-target="#modalEditar<?php echo $Usuario->id_usuario ?>">Editar</button>
+                            </th>
                         </tr>
+
+                        <!--MODAL EDITAR-->
+                        <div class="modal fade" id="modalEditar<?php echo $Usuario->id_usuario ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Datos de <?php echo $Usuario->nombres ?></h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <?php echo form_open('Usuarios/guardar/'.$Usuario->id_usuario);?>
+                                        <div class="form-group mt-4">
+                                            <label for="basic-url" class="form-label text-info">Rol</label>
+                                            <?php
+                                                echo form_label('', '');
+
+                                                $data = [
+                                                    'name'      => 'rol',
+                                                    'value'     => $Usuario->rol ,
+                                                    'class'     => 'form-control input-lg border border-danger', 
+                                                    'readonly'  => 'readonly',
+                                                ];
+                                                echo form_input($data);
+                                            ?>
+                                        </div>  
+                                        <div class="form-group mt-4">
+                                            <label for="basic-url" class="form-label text-info">Documento</label>
+                                            <?php
+                                                echo form_label('', '');
+
+                                                $data = [
+                                                    'name'      => 'documento',
+                                                    'value'     => $Usuario->documento ,
+                                                    'class'     => 'form-control input-lg border border-danger', 
+                                                    'readonly'  => 'readonly',
+                                                ];
+                                                echo form_input($data);
+                                            ?>
+                                        </div>  
+                                        <div class="form-group mt-4">
+                                            <label for="basic-url" class="form-label text-info">Nombre</label>
+                                            <?php
+                                                echo form_label('', '');
+
+                                                $data = [
+                                                    'name'      => 'nombres',
+                                                    'value'     => $Usuario->nombres ,
+                                                    'class'     => 'form-control input-lg border border-info', 
+                                                ];
+                                                echo form_input($data);
+                                            ?>
+                                        </div>                                        
+                                        <div class="form-group">
+                                            <label for="basic-url" class="form-label text-info">Correo electronico</label>
+                                            <?php
+                                                echo form_label('', '');
+
+                                                $data = [
+                                                    'name'      => 'correo',
+                                                    'type'      => 'email',
+                                                    'value'     => $Usuario->correo,
+                                                    'class'     => 'form-control input-lg border border-info', 
+                                                ];
+                                                echo form_input($data);
+                                            ?>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="basic-url" class="form-label text-info">Telefono</label>
+                                            <?php
+                                                echo form_label('', '');
+
+                                                $data = [
+                                                    'name'      => 'telefono',
+                                                    'type'      => 'number',
+                                                    'value'     => $Usuario->telefono,
+                                                    'class'     => 'form-control input-lg border border-info', 
+                                                ];
+                                                echo form_input($data);
+                                            ?>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="basic-url" class="form-label text-info">Contraseña</label>
+                                            <?php
+                                                echo form_label('', '');
+
+                                                $data = [
+                                                    'name'      => 'contrasena',
+                                                    'type'      => 'password',
+                                                    'value'     => $Usuario->contrasena,
+                                                    'class'     => 'form-control input-lg border border-info', 
+                                                ];
+                                                echo form_input($data);
+                                            ?>
+                                        </div>
+                                        <?php echo form_submit('mysubmit', 'Editar','class="btn btn-primary mt-4"');?> 
+                                    <?php echo form_close();?>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--FIN MODAL EDITAR-->
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -64,7 +172,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <?php echo form_open('Usuarios/insertar');?>
+                <?php echo form_open('Usuarios/guardar');?>
                     <div class="form-group mt-4">                        
                         <?php
                             echo form_label('Documento', 'documento');
