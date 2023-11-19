@@ -34,26 +34,36 @@
             <table class="table table-striped mt-5">
                 <thead>
                     <tr>
-                        <th scope="col">Id Inventario</th>
-                        <th scope="col">Id Producto</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoría</th>
                         <th scope="col">Unidad Medida</th>
                         <th scope="col">Cantidad</th>
+                        <th scope="col">Punto de Reorden</th>
+                        <th scope="col">Valor Compra</th>
+                        <th scope="col">Valor Venta</th>
+                        <th scope="col">Observaciones</th>
                         <th scope="col">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($respuesta as $key => $Inventario) : ?>
-                    <tr>
-                        <th scope="row"> <?php echo $Inventario->id_inventario ?> </th>
-                        <th> <?php echo $Inventario->id_producto ?> </th>
-                        <th> <?php echo $Inventario->unidad_medida ?> </th>
-                        <th> <?php echo $Inventario->cantidad ?> </th>
-                        <th>
-                            <a href="#" class="btn btn-info" onclick="editarInventario(<?php echo $Inventario->id_inventario ?>)" data-bs-toggle="modal" data-bs-target="#modalEditar" data-id="<?php echo $Inventario->id_inventario ?>">Editar</a>
-                            <a href="#" class="btn btn-danger" onclick="eliminarInventario(<?php echo $Inventario->id_inventario ?>)">Eliminar</a>
-                        </th>
-                    </tr>
-                <?php endforeach; ?>
+                    <?php foreach ($respuesta as $key => $Inventario) : ?>
+                        <tr>
+                            <th> <?php echo $Inventario->nombre_producto ?> </th>
+                            <th> <?php echo $Inventario->categoria_producto ?> </th>
+                            <th> <?php echo $Inventario->unidad_medida ?> </th>
+                            <th> <?php echo $Inventario->cantidad ?> </th>
+                            <th> <?php echo $Inventario->punto_reorden ?> </th>
+                            <th> <?php echo $Inventario->valor_compra ?> </th>
+                            <th> <?php echo $Inventario->valor_venta ?> </th>
+                            <th>
+                                <a href="#" class="btn btn-info" onclick="verObservacion('<?php echo $Inventario->nombre_producto ?>', '<?php echo $Inventario->observaciones ?>')">Ver</a>
+                            </th>
+                            <th>
+                                <a href="#" class="btn btn-info" onclick="editarInventario(<?php echo $Inventario->id_inventario ?>)" data-bs-toggle="modal" data-bs-target="#modalEditar" data-id="<?php echo $Inventario->id_inventario ?>">Editar</a>
+                                <a href="#" class="btn btn-danger" onclick="eliminarInventario(<?php echo $Inventario->id_inventario ?>)">Eliminar</a>
+                            </th>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -160,6 +170,23 @@
         </div>
     </div>
 
+    <!-- Modal para ver la observación -->
+    <div class="modal fade" id="modalVerObservacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalTituloObservacion">Observación</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <div class="modal-body">
+                    <p id="observacionTexto"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -178,18 +205,19 @@
     <!-- ./wrapper -->
     <script>
         function editarInventario(idInventario) {
-            // Obtener los datos actuales del inventario mediante AJAX o como prefieras
             var datosActuales = {
-                id_inventario: idInventario, // Puedes usar este ID para obtener los datos del servidor
-                // Otros campos que puedan necesitar actualización
+                id_inventario: idInventario,
             };
 
-            // Rellenar los campos del formulario con los datos actuales
             document.getElementById('id_inventario').value = datosActuales.id_inventario;
-            // Rellenar otros campos según sea necesario
 
-            // Abrir el modal
             $('#modalEditar').modal('show');
+        }
+        function verObservacion(nombreProducto, observacion) {
+            document.getElementById('modalTituloObservacion').innerText = 'Observación - ' + nombreProducto;
+            document.getElementById('observacionTexto').innerText = observacion;
+
+            $('#modalVerObservacion').modal('show');
         }
     </script>
 

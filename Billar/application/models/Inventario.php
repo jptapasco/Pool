@@ -62,4 +62,14 @@ class Inventario extends CI_Model
         $this->db->update($this->table, $data);
         return $data['id_inventario'];
     }
+
+    public function obtenerProducto($idProducto)
+    {
+        $this->db->select('nombre, categoria');
+        $this->db->from('productos');
+        $this->db->where('id_producto', $idProducto);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
 }
