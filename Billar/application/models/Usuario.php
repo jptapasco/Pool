@@ -30,7 +30,17 @@ class Usuario extends CI_Model
     {
     }
 
-    function lista()
+    public function find($id)
+    {
+        $this->db->select();
+        $this->db->from($this->table);
+        $this->db->where($this->table_id,$id);
+
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    public function lista()
     {
         $this->db->select();
         $this->db->from($this->table);
@@ -45,6 +55,12 @@ class Usuario extends CI_Model
         return $this->db->insert_id();
     }
 
+    public function update($id,$data)
+    {
+        $this->db->where($this->table_id,$id);
+        $this->db->update($this->table,$data);
+    }
+  
     public function buscar($termino)
     {
         $this->db->select('*');
