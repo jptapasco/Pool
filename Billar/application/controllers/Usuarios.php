@@ -4,9 +4,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Usuarios extends CI_Controller
 {
 
-    public function __construct()
+    public function construct()
     {
-        parent::__construct();
+        parent::construct();
         $this->load->helper('form');
         $this->load->library('session');
         $this->load->model('Usuario');
@@ -42,21 +42,28 @@ class Usuarios extends CI_Controller
                 'rol' => $this->input->post("rol"),
                 'documento' => $this->input->post("documento"),
                 'nombres' => $this->input->post("nombres"),
-                'telefono' => $this->input->post("telefono"),            
+                'telefono' => $this->input->post("telefono"),
                 'correo' => $this->input->post("correo"),
                 'contrasena' => $this->input->post("contrasena")
             );
-            
+
             if (isset($id_usuario)) {
                 $this->Usuario->update($id_usuario, $data);
             } else {
                 $this->Usuario->insert($data);
-            }            
+            }
         }
         $this->listado();
     }
 
+  public function buscar()
+  {
+      $termino_busqueda = $this->input->post('termino_busqueda');
+
+      $data['respuesta'] = $this->Usuarios->buscar($termino_busqueda);
+
+      $this->load->view('Inventarios/listado', $data);
+  }
 
 
-    
 }

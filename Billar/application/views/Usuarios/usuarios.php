@@ -27,8 +27,8 @@
 
             <div class="mt-5 d-flex justify-content-center">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar</button>
-                <input type="text" class="form-control mx-2">
-                <button class="btn btn-primary">Buscar</button>
+                <input type="text" id="txtBuscar" class="form-control mx-2">
+                <button class="btn btn-primary" id="btnBuscar">Buscar</button>
             </div>
 
             <table class="table table-striped mt-5">
@@ -135,7 +135,7 @@
                                             ?>
                                         </div>
                                         <div class="form-group">
-                                            <label for="basic-url" class="form-label text-info">Contraseña</label>
+                                            <label for="basic-url" class="form-label text-info">ContraseÃ±a</label>
                                             <?php
                                                 echo form_label('', '');
 
@@ -241,7 +241,7 @@
                     </div>
                     <div class="form-group mt-4">                        
                         <?php
-                            echo form_label('Contraseña', 'contrasena');
+                            echo form_label('ContraseÃ±a', 'contrasena');
 
                             $data = [
                                 'name'      => 'contrasena',
@@ -287,5 +287,4 @@
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo base_url() ?>/assets/dist/js/demo.js"></script>
 </body>
-
 </html>
