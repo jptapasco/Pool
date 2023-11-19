@@ -27,10 +27,12 @@
 
             <div class="mt-5 d-flex justify-content-center">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar</button>
-                <input type="text" class="form-control mx-2">
-                <button class="btn btn-primary">Buscar</button>
+                <input type="text" id="txtBuscar" class="form-control mx-2">
+                <button class="btn btn-primary" id="btnBuscar">Buscar</button>
             </div>
-
+            <div class="alert alert-dark mt-3" role="alert" id="alertaNoResultados" style="display: none;">
+                No se encontraron resultados.
+            </div>
             <table class="table table-striped mt-5">
                 <thead>
                     <tr>
@@ -203,7 +205,55 @@
     <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="<?php echo base_url() ?>/assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="<?php echo base_url() ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="<?php echo base_url() ?>/assets/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="<?php echo base_url() ?>/assets/dist/js/demo.js"></script>
     <script>
+        $(document).ready(function () {
+            // Manejar el evento de clic en el botón de búsqueda
+            $("#btnBuscar").click(function () {
+                buscar();
+            });
+
+            // Manejar el evento de presionar "Enter" en el campo de búsqueda
+            $("#txtBuscar").keypress(function (e) {
+                if (e.which === 13) { // 13 es el código de tecla para "Enter"
+                    buscar();
+                }
+            });
+
+            function buscar() {
+                // Obtener el valor de la barra de búsqueda
+                var searchTerm = $("#txtBuscar").val().toLowerCase();
+
+                var resultadosEncontrados = false;
+
+                // Filtrar las filas de la tabla según el término de búsqueda
+                $("tbody tr").each(function () {
+                    var textoFila = $(this).text().toLowerCase();
+                    if (textoFila.includes(searchTerm)) {
+                        $(this).show();
+                        resultadosEncontrados = true;
+                    } else {
+                        $(this).hide();
+                    }
+                });
+
+                // Mostrar u ocultar la alerta según los resultados
+                if (resultadosEncontrados) {
+                    $("#alertaNoResultados").hide();
+                } else {
+                    $("#alertaNoResultados").show();
+                }
+            }
+        });
+
         function editarInventario(idInventario) {
             var datosActuales = {
                 id_inventario: idInventario,
@@ -220,15 +270,6 @@
             $('#modalVerObservacion').modal('show');
         }
     </script>
-
-    <!-- jQuery -->
-    <script src="<?php echo base_url() ?>/assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?php echo base_url() ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?php echo base_url() ?>/assets/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="<?php echo base_url() ?>/assets/dist/js/demo.js"></script>
 </body>
 
 </html>

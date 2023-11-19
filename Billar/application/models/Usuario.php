@@ -60,7 +60,7 @@ class Usuario extends CI_Model
         $this->db->where($this->table_id,$id);
         $this->db->update($this->table,$data);
     }
-  
+
     public function buscar($termino)
     {
         $this->db->select('*');

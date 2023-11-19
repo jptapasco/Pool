@@ -30,7 +30,9 @@
                 <input type="text" id="txtBuscar" class="form-control mx-2">
                 <button class="btn btn-primary" id="btnBuscar">Buscar</button>
             </div>
-
+            <div class="alert alert-dark mt-3" role="alert" id="alertaNoResultados" style="display: none;">
+                No se encontraron resultados.
+            </div>
             <table class="table table-striped mt-5">
                 <thead>
                     <tr>

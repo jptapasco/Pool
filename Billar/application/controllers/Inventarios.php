@@ -33,4 +33,10 @@ class Inventarios extends CI_Controller
 
         $this->load->view('Inventarios/inventario', $data);
     }
+
+    public function buscarInventario() {
+        $buscar = $this->input->post('buscar');
+        $data['respuesta'] = $this->TuModelo->buscarInventario($buscar);
+        $this->load->view('tu_vista', $data);
+    }
 }

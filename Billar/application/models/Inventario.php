@@ -72,4 +72,23 @@ class Inventario extends CI_Model
         return $query->row();
     }
 
+    public function buscarInventario($buscar) {
+        $this->db->select('productos.nombre AS producto_nombre, productos.categoria, inventario.unidad_medida, inventario.cantidad');
+    
+        // Realiza la unión entre las tablas productos e inventario
+        $this->db->from('productos');
+        $this->db->join('inventario', 'productos.id_producto = inventario.id_producto', 'left');
+    
+        // Aplica la condición de búsqueda en ambos campos (nombre y categoría)
+        $this->db->group_start();
+        $this->db->like('productos.nombre', $buscar);
+        $this->db->or_like('productos.categoria', $buscar);
+        $this->db->or_like('inventario.unidad_medida', $buscar);
+        $this->db->or_like('inventario.cantidad', $buscar);
+        $this->db->group_end();
+    
+        $query = $this->db->get();
+    
+        return $query->result();
+    }
 }
