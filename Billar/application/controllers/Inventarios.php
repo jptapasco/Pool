@@ -39,14 +39,4 @@ class Inventarios extends CI_Controller
         $this->load->view('Inventarios/inventario', $data);
     }
 
-    public function obtenerDetalleProducto($idProducto)
-    {
-        $producto = $this->Inventario->obtenerProducto($idProducto);
-
-        if ($producto) {
-            echo json_encode(array('status' => 'success', 'data' => $producto));
-        } else {
-            echo json_encode(array('status' => 'error', 'message' => 'Error al obtener detalles del producto.'));
-        }
-    }
 }

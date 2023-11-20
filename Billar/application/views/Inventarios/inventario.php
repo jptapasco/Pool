@@ -347,24 +347,6 @@
                 }
             }
 
-            $("#id_producto").change(function () {
-                var selectedProductId = $(this).val();
-                
-                $.ajax({
-                    type: "GET",
-                    url: "<?php echo site_url('obtenerDetalleProducto/'); ?>" + selectedProductId,
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.status === 'success') {
-                            $("#nombre").val(response.data.nombre);
-                            $("#categoria").val(response.data.categoria);
-                        } else {
-                            console.error(response.message);
-                        }
-                    }
-                });
-            });
-
             function agregarInventario() {
                 var formData = {
                     id_producto: $("#id_producto").val(),
