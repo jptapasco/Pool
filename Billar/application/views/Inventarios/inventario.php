@@ -79,45 +79,140 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Usuario</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Inventario</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <?php echo form_open('');?>
-                    <div class="form-group mt-4">                        
+                    <?php echo form_open(''); ?>
+                    <div class="form-group mt-4">
                         <?php
-                            echo form_label('Id_inventario', 'id_inventario');
+                        echo form_label('Id producto', 'id_producto');
+
+                        $options = array('' => 'Selecciona Producto');
+
+                        foreach ($respuesta as $inventario) {
+                            $options[$inventario->id_producto] = $inventario->id_producto . ' - ' . $inventario->nombre_producto;
+                        }
+
+                        echo form_dropdown('id_producto', $options, '', 'id="id_producto" class="form-control input-lg border border-info"');
+                        ?>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <?php
+                        echo form_label('Nombre', 'nombre');
+
+                        $data = [
+                            'name'  => 'nombre',
+                            'type'  => 'text',
+                            'value' => '',
+                            'class' => 'form-control input-lg border border-dark',
+                            'readonly'  => 'readonly',
+                        ];
+                        echo form_input($data);
+                        ?>
+                    </div>
+                    <div class="form-group mt-4">
+                        <?php
+                        echo form_label('Categoría', 'categoria');
+
+                        $data = [
+                            'name'  => 'categoria',
+                            'type'  => 'text',
+                            'value' => '',
+                            'class' => 'form-control input-lg border border-dark',
+                            'readonly'  => 'readonly',
+                        ];
+                        echo form_input($data);
+                        ?>
+                    </div>
+                    <div class="form-group mt-4">
+                        <?php
+                        echo form_label('Unidad de medida', 'unidad_medida');
+
+                        $data = [
+                            'name'  => 'unidad_medida',
+                            'type'  => 'text',
+                            'value' => '',
+                            'class' => 'form-control input-lg border border-info',
+                        ];
+                        echo form_input($data);
+                        ?>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="form-group col-6">
+                            <?php
+                            echo form_label('Cantidad', 'cantidad');
 
                             $data = [
-                                'name'      => 'id_inventario',
-                                'type'      => 'number',
-                                'value'     => '',
-                                'class'     => 'form-control input-lg border border-info', 
+                                'name'  => 'cantidad',
+                                'type'  => 'number',
+                                'value' => '',
+                                'class' => 'form-control input-lg border border-info',
                             ];
                             echo form_input($data);
                             ?>
-                    </div>
-                    <div class="form-group mt-4">                        
-                        <?php
-                            echo form_label('Id_producto', 'id_producto');
+                        </div>
+                        <div class="form-group col-6">
+                            <?php
+                            echo form_label('Punto de reorden', 'punto_reorden');
 
                             $data = [
-                                'name'      => 'id_producto',
-                                'type'      => 'number',
-                                'value'     => '',
-                                'class'     => 'form-control input-lg border border-info', 
+                                'name'  => 'punto_reorden',
+                                'type'  => 'number',
+                                'value' => '',
+                                'class' => 'form-control input-lg border border-info',
                             ];
                             echo form_input($data);
                             ?>
+                        </div>
                     </div>
-                    
-                    <?php echo form_submit('mysubmit', 'Enviar','class="btn btn-primary mt-4"');?> 
+                    <div class="row mt-4">
+                        <div class="form-group col-6">
+                            <?php
+                            echo form_label('Valor compra', 'valor_compra');
 
-                <?php echo form_close();?>
+                            $data = [
+                                'name'  => 'valor_compra',
+                                'type'  => 'number',
+                                'value' => '',
+                                'class' => 'form-control input-lg border border-info',
+                            ];
+                            echo form_input($data);
+                            ?>
+                        </div>
+                        <div class="form-group col-6">
+                            <?php
+                            echo form_label('Valor venta', 'valor_venta');
+
+                            $data = [
+                                'name'  => 'valor_venta',
+                                'type'  => 'number',
+                                'value' => '',
+                                'class' => 'form-control input-lg border border-info',
+                            ];
+                            echo form_input($data);
+                            ?>
+                        </div>
+                    </div>
+                    <div class="form-group mt-4">
+                        <?php
+                        echo form_label('Observaciones', 'observaciones');
+
+                        $data = [
+                            'name'  => 'observaciones',
+                            'type'  => 'text',
+                            'value' => '',
+                            'class' => 'form-control input-lg border border-info',
+                        ];
+                        echo form_input($data);
+                        ?>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Agregar</button>
+                    <?php echo form_submit('mysubmit', 'Enviar', 'class="btn btn-primary"'); ?>
+                    <?php echo form_close(); ?>
                 </div>
             </div>
         </div>
@@ -245,12 +340,52 @@
                     }
                 });
 
-                // Mostrar u ocultar la alerta según los resultados
                 if (resultadosEncontrados) {
                     $("#alertaNoResultados").hide();
                 } else {
                     $("#alertaNoResultados").show();
                 }
+            }
+
+            $("#id_producto").change(function () {
+                var selectedProductId = $(this).val();
+                
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo site_url('obtenerDetalleProducto/'); ?>" + selectedProductId,
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.status === 'success') {
+                            $("#nombre").val(response.data.nombre);
+                            $("#categoria").val(response.data.categoria);
+                        } else {
+                            console.error(response.message);
+                        }
+                    }
+                });
+            });
+
+            function agregarInventario() {
+                var formData = {
+                    id_producto: $("#id_producto").val(),
+                    unidad_medida: $("#unidad_medida").val(),
+                    cantidad: $("#cantidad").val(),
+                    punto_reorden: $("#punto_reorden").val(),
+                    valor_compra: $("#valor_compra").val(),
+                    valor_venta: $("#valor_venta").val(),
+                    observaciones: $("#observaciones").val(),
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo site_url('agregar-inventario'); ?>",
+                    data: formData,
+                    dataType: "json",
+                    success: function (response) {
+                    },
+                    error: function (error) {
+                    }
+                });
             }
         });
 

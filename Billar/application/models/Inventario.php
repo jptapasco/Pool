@@ -9,19 +9,11 @@ class Inventario extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper('form');
         $this->load->database();
-    }
-
-    public function index()
-    {
-        // Lógica para la página principal si es necesario
     }
 
     public function guardar($data)
     {
-        // Lógica para guardar (crear o actualizar) un registro en el inventario
-        // Si $data contiene un 'id_inventario', se actualiza; de lo contrario, se inserta uno nuevo
         if (isset($data['id_inventario'])) {
             return $this->update($data);
         } else {
@@ -31,17 +23,15 @@ class Inventario extends CI_Model
 
     public function borrar($id)
     {
-        // Lógica para borrar un registro del inventario por ID
         $this->db->where($this->table_id, $id);
         $this->db->delete($this->table);
     }
 
     public function editar($id)
     {
-        // Lógica para obtener los datos de un registro del inventario por ID
         $this->db->where($this->table_id, $id);
         $query = $this->db->get($this->table);
-        return $query->row(); // Devuelve un solo objeto con los datos del registro
+        return $query->row();
     }
 
     public function lista()
@@ -72,23 +62,18 @@ class Inventario extends CI_Model
         return $query->row();
     }
 
-    public function buscarInventario($buscar) {
-        $this->db->select('productos.nombre AS producto_nombre, productos.categoria, inventario.unidad_medida, inventario.cantidad');
-    
-        // Realiza la unión entre las tablas productos e inventario
+    public function buscarInventario($buscar)
+    {
+        $this->db->select('productos.nombre AS nombre_producto, productos.categoria, inventario.unidad_medida, inventario.cantidad');
         $this->db->from('productos');
         $this->db->join('inventario', 'productos.id_producto = inventario.id_producto', 'left');
-    
-        // Aplica la condición de búsqueda en ambos campos (nombre y categoría)
         $this->db->group_start();
         $this->db->like('productos.nombre', $buscar);
         $this->db->or_like('productos.categoria', $buscar);
         $this->db->or_like('inventario.unidad_medida', $buscar);
         $this->db->or_like('inventario.cantidad', $buscar);
         $this->db->group_end();
-    
         $query = $this->db->get();
-    
         return $query->result();
     }
 }
