@@ -217,23 +217,23 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+              with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/billar/index.php/Inicio/listar" class="nav-link">
+            <a href="<?php echo site_url('Inicio/listar') ?>" class="nav-link">
               <i class="fa-solid fa-house"> </i> 
               <p>Inicio</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?php echo site_url('Usuarios/listado') ?>" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Dashboard 2</p>
+              <p>Usuarios</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?php echo site_url('Inventarios/listado') ?>" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Dashboard 2</p>
+              <p>Inventario</p>
             </a>
           </li>
         </ul>
