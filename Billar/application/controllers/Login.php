@@ -1,9 +1,11 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller{
 
 	public function __construct(){
+
 		parent::__construct();
 		$this->load->helper('form');
 		$this->load->helper('url');
@@ -17,10 +19,12 @@ class Login extends CI_Controller{
 	}
 
 	public function validar_datos(){
+
 		if ($this->input->server("REQUEST_METHOD") == "POST") {
 			$data["correo"] = $this->input->post("correo");
 			$data["passw"] = $this->input->post("passw");
 			$respuesta = $this->LoginModel->validar_ingreso($data["correo"]);
+
 			$alert = array(); 
 
 			if (!empty($respuesta)) {
@@ -44,6 +48,7 @@ class Login extends CI_Controller{
 									];
 						echo json_encode($respuesta);
 					}
+
 				} else {
 					$alert = array(
 						'mensaje' => 'La contraseña es incorrecta.',
@@ -63,13 +68,9 @@ class Login extends CI_Controller{
 		$this->load->view('Login/login');
 	}
 
-
 	public function logOut(){
 		$this->session->sess_destroy();
 
 		redirect("Login/index", "refresh");
 	}
-
-
-
 }
