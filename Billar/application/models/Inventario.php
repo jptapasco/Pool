@@ -35,16 +35,21 @@ class Inventario extends CI_Model
         return $query->row();
     }
 
-    public function lista()
+    public function lista_p()
     {
         $query = $this->db->get($this->table_p);
+        return $query->result();
+    }
+
+    public function lista_i()
+    {
         $query = $this->db->get($this->table_i);
         return $query->result();
     }
 
     public function insert($data)
     {
-        $this->db->insert($this->table_p, $data);
+        $this->db->insert($this->table_i, $data);
         return $this->db->insert_id();
     }
 

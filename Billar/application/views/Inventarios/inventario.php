@@ -48,7 +48,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($respuesta as $key => $Inventario) : ?>
+                    <?php foreach ($respuesta_i as $key => $Inventario) : ?>
                         <tr>
                             <th> <?php echo $Inventario->nombre_producto ?> </th>
                             <th> <?php echo $Inventario->categoria_producto ?> </th>
@@ -90,8 +90,8 @@
 
                         $options = array('' => 'Selecciona Producto');
 
-                        foreach ($respuesta as $inventario) {
-                            $options[$inventario->id_producto] = $inventario->id_producto . ' - ' . $inventario->nombre_producto;
+                        foreach ($respuesta_p as $inventario) {
+                            $options[$inventario->id_producto] = $inventario->id_producto . ' - ' . $inventario->nombre;
                         }
 
                         echo form_dropdown('id_producto', $options, '', 'id="id_producto" class="form-control input-lg border border-info"');
