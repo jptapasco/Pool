@@ -3,7 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Inventario extends CI_Model
 {
-    public $table = 'inventario';
+    public $table_p = 'productos';
+    public $table_i = 'inventario';
     public $table_id = 'id_inventario';
 
     public function __construct()
@@ -24,32 +25,33 @@ class Inventario extends CI_Model
     public function borrar($id)
     {
         $this->db->where($this->table_id, $id);
-        $this->db->delete($this->table);
+        $this->db->delete($this->table_i);
     }
 
     public function editar($id)
     {
         $this->db->where($this->table_id, $id);
-        $query = $this->db->get($this->table);
+        $query = $this->db->get($this->table_i);
         return $query->row();
     }
 
     public function lista()
     {
-        $query = $this->db->get($this->table);
+        $query = $this->db->get($this->table_p);
+        $query = $this->db->get($this->table_i);
         return $query->result();
     }
 
     public function insert($data)
     {
-        $this->db->insert($this->table, $data);
+        $this->db->insert($this->table_p, $data);
         return $this->db->insert_id();
     }
 
     public function update($data)
     {
         $this->db->where($this->table_id, $data['id_inventario']);
-        $this->db->update($this->table, $data);
+        $this->db->update($this->table_p, $data);
         return $data['id_inventario'];
     }
 
