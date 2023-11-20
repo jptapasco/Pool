@@ -23,8 +23,11 @@ class Inventarios extends CI_Controller
         $data_p["respuesta_p"] = $this->Inventario->lista_p();
         $data_i["respuesta_i"] = $this->Inventario->lista_i();
 
-
-        
+        foreach ($data_i["respuesta_i"] as &$inventario) {
+            $producto = $this->Inventario->obtenerProducto($inventario->id_producto);
+            $inventario->nombre_producto = $producto->nombre;
+            $inventario->categoria_producto = $producto->categoria;
+        }
 
         $this->load->view('Inventarios/inventario', $data_i + $data_p);
     }
