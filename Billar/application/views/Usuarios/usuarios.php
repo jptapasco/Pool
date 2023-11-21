@@ -283,47 +283,7 @@
     <script src="<?php echo base_url() ?>/assets/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo base_url() ?>/assets/dist/js/demo.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            // Manejar el evento de clic en el botón de búsqueda
-            $("#btnBuscar").click(function () {
-                buscar();
-            });
-
-            // Manejar el evento de presionar "Enter" en el campo de búsqueda
-            $("#txtBuscar").keypress(function (e) {
-                if (e.which === 13) { // 13 es el código de tecla para "Enter"
-                    buscar();
-                }
-            });
-
-            function buscar() {
-                // Obtener el valor de la barra de búsqueda
-                var searchTerm = $("#txtBuscar").val().toLowerCase();
-
-                var resultadosEncontrados = false;
-
-                // Filtrar las filas de la tabla según el término de búsqueda
-                $("tbody tr").each(function () {
-                    var textoFila = $(this).text().toLowerCase();
-                    if (textoFila.includes(searchTerm)) {
-                        $(this).show();
-                        resultadosEncontrados = true;
-                    } else {
-                        $(this).hide();
-                    }
-                });
-
-                // Mostrar u ocultar la alerta según los resultados
-                if (resultadosEncontrados) {
-                    $("#alertaNoResultados").hide();
-                } else {
-                    $("#alertaNoResultados").show();
-                }
-            }
-        });
-    </script>
-
+    <!-- Buscar -->
+    <script src="<?php echo base_url() ?>/assets/dist/js/buscar.js"></script>
 </body>
 </html>
