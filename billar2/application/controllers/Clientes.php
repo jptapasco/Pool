@@ -20,12 +20,13 @@ class Clientes extends CI_Controller {
         if($_POST){
             $busqueda = $this->input->post('busqueda');
 
-            $data['respuesta'] = $this->clientes_model->buscar_clientes($busqueda);
+            $data['clientes'] = $this->clientes_model->buscar_clientes($busqueda);
             $this->load->view('admin/Clientes', $data);
-
         } else {
-            redirect('Welcome');
+            $data['clientes'] = $this->clientes_model->obtener_clientes();
+            $this->load->view('admin/Clientes', $data);
         }
+
     }
 
 }

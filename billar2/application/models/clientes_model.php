@@ -27,8 +27,8 @@ class clientes_model extends CI_Model {
         $this->db->or_like('nombres', $busqueda);
         $this->db->or_like('telefono', $busqueda);
         $this->db->or_like('horas_jugadas', $busqueda);
-        $query = $this->db->get();
-        return $query->result();
+        // $query = $this->db->get();
+        return $this->db->get()->result();
     }
 }
 

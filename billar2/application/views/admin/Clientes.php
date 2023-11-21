@@ -11,9 +11,9 @@
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="<?php echo base_url('assets/plugins/fontawesome-free/css/all.min.css'); ?>">
 	<!-- Theme style -->
-	<link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+	<link rel="stylesheet" href="<?php echo base_url('assets/dist/css/adminlte.min.css'); ?>">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -248,10 +248,10 @@
 				<!-- Barra de búsqueda -->
 				<div class="container mt-5">
 
-					<form action="<?php base_url('Clientes/buscar'); ?>" method="post">
+					<form action="<?php echo base_url('Clientes/buscar'); ?>" method="post">
 						<div class="form-group">
 							<input type="text" class="form-control" id="search" name="busqueda"
-								placeholder="Ingrese documento o teléfono..." required>
+								placeholder="Ingrese documento o teléfono...">
 						</div>
 						<div class="text-center">
 							<input type="submit" class="btn btn-primary" value="Buscar">
@@ -273,18 +273,18 @@
 									<th>Registrado en</th>
 								</tr>
 							</thead>
-							
+
 							<tbody>
 								<?php foreach ($clientes as $key => $cliente): ?>
-									<tr>
-										<td><?php echo $cliente->id_cliente; ?></td>
-										<td><?php echo $cliente->documento; ?></td>
-										<td><?php echo $cliente->nombres; ?></td>
-										<td><?php echo $cliente->telefono; ?></td>
-										<td><?php echo $cliente->horas_jugadas; ?></td>
-										<td><?php echo $cliente->horas_regalo; ?></td>
-										<td><?php echo $cliente->created_at; ?></td>
-									</tr>
+								<tr>
+									<td><?php echo $cliente->id_cliente; ?></td>
+									<td><?php echo $cliente->documento; ?></td>
+									<td><?php echo $cliente->nombres; ?></td>
+									<td><?php echo $cliente->telefono; ?></td>
+									<td><?php echo $cliente->horas_jugadas; ?></td>
+									<td><?php echo $cliente->horas_regalo; ?></td>
+									<td><?php echo $cliente->created_at; ?></td>
+								</tr>
 								<?php endforeach; ?>
 							</tbody>
 						</table>
@@ -318,7 +318,7 @@
 	<!-- AdminLTE App -->
 	<script src="../../dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
-	<script src="../../dist/js/demo.js"></script>
+	<script src="../../dist/js/demo.js"></script>																	
 
 </body>
 
