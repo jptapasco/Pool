@@ -30,7 +30,9 @@
                 <input type="text" id="txtBuscar" class="form-control mx-2">
                 <button class="btn btn-primary" id="btnBuscar">Buscar</button>
             </div>
-
+            <div class="alert alert-dark mt-3" role="alert" id="alertaNoResultados" style="display: none;">
+                No se encontraron resultados.
+            </div>
             <table class="table table-striped mt-5">
                 <thead>
                     <tr>
@@ -135,7 +137,7 @@
                                             ?>
                                         </div>
                                         <div class="form-group">
-                                            <label for="basic-url" class="form-label text-info">ContraseÃ±a</label>
+                                            <label for="basic-url" class="form-label text-info">Contraseña</label>
                                             <?php
                                                 echo form_label('', '');
 
@@ -241,7 +243,7 @@
                     </div>
                     <div class="form-group mt-4">                        
                         <?php
-                            echo form_label('ContraseÃ±a', 'contrasena');
+                            echo form_label('Contraseña', 'contrasena');
 
                             $data = [
                                 'name'      => 'contrasena',

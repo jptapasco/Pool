@@ -55,15 +55,4 @@ class Usuarios extends CI_Controller
         }
         $this->listado();
     }
-
-  public function buscar()
-  {
-      $termino_busqueda = $this->input->post('termino_busqueda');
-
-      $data['respuesta'] = $this->Usuarios->buscar($termino_busqueda);
-
-      $this->load->view('Inventarios/listado', $data);
-  }
-
-
 }

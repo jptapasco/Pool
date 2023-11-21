@@ -60,17 +60,4 @@ class Usuario extends CI_Model
         $this->db->where($this->table_id,$id);
         $this->db->update($this->table,$data);
     }
-  
-    public function buscar($termino)
-    {
-        $this->db->select('*');
-        $this->db->from($this->table);
-        $this->db->like('nombres', $termino);
-        $this->db->or_like('correo', $termino);
-        $this->db->or_like('telefono', $termino);
-        $this->db->or_like('documento', $termino);
-        $this->db->or_like('rol', $termino);
-        $query = $this->db->get();
-        return $query->result();
-    }
 }
