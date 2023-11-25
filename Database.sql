@@ -20,6 +20,7 @@ CREATE TABLE usuarios (
     rol ENUM('admin', 'cajero', 'mesera'),
     correo VARCHAR(50),
     contrasena VARCHAR(50),
+    estado ENUM('activo','inactivo');
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
