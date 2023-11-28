@@ -31,6 +31,12 @@ class Usuarios extends CI_Controller
         }
     }
 
+    public function listadoEstado()
+    {
+        $vdata["estado"] = $this->Usuario->obtenerPorEstado();
+        $this->load->view('Usuarios/listado', $vdata);
+    }
+
     public function guardar($id_usuario = null)
     {
         $vdata["rol"] = $vdata["documento"] = $vdata["nombres"] = $vdata["telefono"] = $vdata["correo"] = $vdata["contrasena"] = "";
@@ -55,7 +61,8 @@ class Usuarios extends CI_Controller
                 'nombres' => $this->input->post("nombres"),
                 'telefono' => $this->input->post("telefono"),
                 'correo' => $this->input->post("correo"),
-                'contrasena' => $this->input->post("contrasena")
+                'contrasena' => $this->input->post("contrasena"),
+                'estado' => "activo"
             );
 
             if (isset($id_usuario)) {
@@ -64,6 +71,7 @@ class Usuarios extends CI_Controller
                 $this->Usuario->insert($data);
             }
         }
-        $this->listado();
+        redirect('Usuarios/listado','refresh');
     }
+
 }

@@ -42,7 +42,7 @@ class Producto extends CI_Model
 
     public function update($id,$data)
     {
-        $allowed_keys = ['nombre', 'categoria'];
+        $allowed_keys = ['nombre', 'categoria', 'unidad_medida', 'cantidad', 'punto_reorden', 'precio_compra', 'valor_venta', 'created_at', 'observaciones'];
         $filtered_data = array_intersect_key($data, array_flip($allowed_keys));
 
         $this->db->where($this->table_id, $id);
