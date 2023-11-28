@@ -35,6 +35,7 @@ class Login extends CI_Controller{
 					$this->session->set_userdata('rol', $respuesta->rol);
 					$this->session->set_userdata('nombres', $respuesta->nombres);
 
+
 					$user_data = array(
 						'documento' => $respuesta->documento,
 						'nombres' => $respuesta->nombres,
@@ -43,17 +44,18 @@ class Login extends CI_Controller{
 						'correo' => $respuesta->correo
 					);
 
-					try {
-						$rol = $this->session->userdata('rol');
-						$this->session->set_userdata('user_data',$user_data);
-						if ($rol === "admin") {
-							redirect("DashboardAdmin", "refresh");
+					$this->session->set_userdata('user_data',$user_data);
 
-						} else if($rol === "cajero"){
+					$rol = $this->session->userdata('rol');
+					try {
+						if ($rol === ROL_ADMIN) {
+							redirect("DashboardAdmin", "refresh");
+						} else if($rol === ROL_CAJERO){
+
 							redirect("DashboardCajero", "refresh");
 
 						}else{
-							$this->load->view('Login/login');
+							redirect('Login', 'refresh');
 						}
 					} catch (Exception $e) {
 						$respuesta = [

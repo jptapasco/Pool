@@ -1,5 +1,6 @@
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
   <!-- Left navbar links -->
   <ul class="navbar-nav">
     <li class="nav-item">
@@ -20,29 +21,33 @@
       }
     ?>
     <!-- <li class="nav-item d-none d-sm-inline-block">
+
         <a href="#" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li> -->
-  </ul>
 
+    </ul>
 
-  <!-- Right navbar links -->
-  <ul class="navbar-nav ml-auto">
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+       <?php
+                $alert = $this->session->flashdata('alert');
+                if (!empty($alert)) {
+                    ?>
+                    <div class="alert alert-<?php echo $alert['color']; ?>" role="alert">
+                        <?php echo $alert['mensaje']; ?>
+                    </div>
+                    <?php
+                }
+              ?>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
 
-    <!-- Notifications Dropdown Menu -->
-    <li class="nav-item dropdown">
-      <a class="nav-link" data-toggle="dropdown" href="#">
-        <i class="far fa-bell"></i>
-        <span class="badge badge-warning navbar-badge">15</span>
-      </a>
-      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <span class="dropdown-item dropdown-header">15 Notifications</span>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <i class="fas fa-envelope mr-2"></i> 4 new messages
-          <span class="float-right text-muted text-sm">3 mins</span>
         </a>
         <div class="dropdown-divider"></div>
         <a href="#" class="dropdown-item">
@@ -65,85 +70,79 @@
     </li>
     <li id="custom-controls">
 
-    </li>
-  </ul>
-</nav>
-<!-- /.navbar -->
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="<?php 
+                if ($this->session->userdata('rol') === ROL_ADMIN) {
+                  echo site_url('DashboardAdmin');
+                } else if ($this->session->userdata('rol') === ROL_CAJERO) {
+                  echo site_url('DashboardCajero');
+                }else{
+                  
+                }
+              ?>" class="brand-link">
+      <img src="<?php echo base_url() ?>/assets/dist/img/icons8-mesa-de-billar-96.png" alt="Billar Logo" class="brand-image">
+      <span class="brand-text font-weight-light">InovaByte</span>
+    </a>
 
-<!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-  <!-- Brand Logo -->
-  <a href="<?php
-            if ($this->session->userdata('rol') === 'admin') {
-              echo "/billar/index.php/DashboardAdmin";
-            } else if ($this->session->userdata('rol') === 'cajero') {
-              echo "/billar/index.php/DashboardCajero";
-            } else {
-            }
-            ?>" class="brand-link">
-    <img src="<?php echo base_url() ?>/assets/dist/img/icons8-mesa-de-billar-96.png" alt="Billar Logo" class="brand-image">
-    <span class="brand-text font-weight-light">InovaByte</span>
-  </a>
-
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <!-- Sidebar user (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
-        <img src="<?php echo base_url() ?>/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-      </div>
-      <div class="info">
-        <a href="#" class="d-block">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="<?php echo base_url() ?>/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">
           <?php
-          $nombre = $this->session->userdata('nombres');
-          if ($nombre != null && $rol === 'admin') {
-            echo $nombre;
-          } else if ($nombre != null && $rol === 'cajero') {
-            echo $nombre;
-          } else {
-            echo "Error";
-          }
+            $rol = $this->session->userdata('rol');
+            $nombre = $this->session->userdata('nombres');
+            if ($nombre != null && $rol === ROL_ADMIN) {
+                echo $nombre;
+            }else if($nombre != null && $rol === ROL_CAJERO){
+                echo $nombre;
+            }else{
+                echo "Anonymous";
+            }
           ?></a>
-        <span class="text-primary"><?php
-                                    if ($rol === 'admin') {
-                                      echo "Admin";
-                                    } else if ($rol === 'cajero') {
-                                      echo "Cajero";
-                                    } else {
-                                      echo "Error";
-                                    }
-                                    ?></span>
+          <span class="text-primary"><?php 
+            $rol = $this->session->userdata('rol');
+            if ($rol === ROL_ADMIN) {
+                echo "Admin";
+            }else if($rol === ROL_CAJERO){
+                echo "Cajero";
+            }else{
+                echo "Anonymous";
+            }
+          ?></span>
+        </div>
       </div>
-    </div>
-    <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
-
-
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
-        <li class="nav-item">
-          <a href="<?php echo site_url('DashboardAdmin/perfil') ?>"" class="nav-link">
-            <i class="fa-solid fa-user-gear nav-icon"></i>
-            <p>Perfil</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo site_url('Login/logOut') ?>" class="nav-link">
-            <i class="fa-solid fa-right-from-bracket nav-icon"></i>
-            <p>Cerrar Sesión</p>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <hr class="bg-gray">
-    <!-- Sidebar Menu -->
-    <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa-solid fa-user-gear nav-icon"></i>
+              <p>Perfil</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo site_url('Login/logOut') ?>" class="nav-link">
+              <i class="fa-solid fa-right-from-bracket nav-icon"></i>
+              <p>Cerrar Sesión</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <hr class="bg-gray">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
 
-        <?php
-        if ($rol == 'admin') { ?>
           <li class="nav-item">
             <a href="<?php echo site_url('Inicio/listar') ?>" class="nav-link">
               <i class="fa-solid fa-house nav-icon"> </i>
@@ -167,16 +166,19 @@
             <a href="<?php echo site_url('Clientes/listado') ?>" class="nav-link">
               <i class="fa-solid fa-users nav-icon"></i>
               <p>Clientes</p>                                                  
+
             </a>
           </li>
         <?php
         } elseif ($rol == 'cajero') { ?>
           <li class="nav-item">
+
                               
                               
             <a href="<?php echo site_url('Caja/indexCaja') ?>" class="nav-link">
               <i class="fa-solid fa-shop"></i>
               <p>Caja</p>
+
             </a>
           </li>
         <?php

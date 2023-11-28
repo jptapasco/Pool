@@ -11,18 +11,16 @@ class DashboardAdmin extends CI_Controller {
         $this->load->database();
     }
 
-	public function index(){
+    public function index(){
         if (!$this->session->userdata('correo')) {
+            $this->session->set_flashdata('mensaje', 'Por favor, inicia sesión para acceder.');
             redirect('Login/index', 'refresh');
 
-        } else if ($this->session->userdata('rol') === 'admin'){
-            $data["usuarios"] = $this->Usuario->lista();
-            $jsonData = json_encode($data);
-            echo "<script>console.log('JSON Data:', $jsonData);</script>";
-            $this->load->view('Inicio/inicio',$data);
-
-        }else {
-            echo "No tienes Permisos como cajero";
+        } else if ($this->session->userdata('rol') === ROL_ADMIN) {
+            $this->load->view('DashboardAdmin/plantillaAdmin');
+        } else {
+            $this->session->set_flashdata('mensaje', 'No tienes permisos como cajero.');
+            redirect('Login/index', 'refresh');
         }
     }
 
