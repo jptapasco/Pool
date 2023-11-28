@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// variables constantes de rol
+define('ROL_ADMIN', 'admin');
+define('ROL_CAJERO', 'cajero');
+
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

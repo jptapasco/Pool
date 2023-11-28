@@ -33,15 +33,13 @@ class Login extends CI_Controller{
 					$this->session->set_userdata('rol', $respuesta->rol);
 					$this->session->set_userdata('nombres', $respuesta->nombres);
 
+					$rol = $this->session->userdata('rol');
 					try {
-						$rol = $this->session->userdata('rol');
-						if ($rol === "admin") {
+						if ($rol === ROL_ADMIN) {
 							redirect("DashboardAdmin", "refresh");
-						} else if($rol === "cajero"){
+						} else if($rol === ROL_CAJERO){
 							redirect("DashboardCajero", "refresh");
-						}else{
-							$this->load->view('Login/login');
-						}
+						}else{echo "mal";}
 					} catch (Exception $e) {
 						$respuesta = [
 										'exeception' => $e
