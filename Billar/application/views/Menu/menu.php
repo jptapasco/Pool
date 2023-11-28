@@ -118,6 +118,8 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
+
+
               with font-awesome or any other icon font library -->
         <li class="nav-item">
           <a href="<?php echo site_url('DashboardAdmin/perfil') ?>"" class="nav-link">
@@ -139,6 +141,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
+
         <?php
         if ($rol == 'admin') { ?>
           <li class="nav-item">
@@ -154,6 +157,7 @@
             </a>
           </li>
           <li class="nav-item">
+
             <a href="<?php echo site_url('Productos/listado') ?>" class="nav-link">
               <i class="fa-solid fa-beer-mug-empty nav-icon"></i>
               <p>Productos</p>
@@ -162,18 +166,23 @@
           <li class="nav-item">
             <a href="<?php echo site_url('Clientes/listado') ?>" class="nav-link">
               <i class="fa-solid fa-users nav-icon"></i>
-              <p>Clientes</p>
+              <p>Clientes</p>                                                  
             </a>
           </li>
         <?php
         } elseif ($rol == 'cajero') { ?>
           <li class="nav-item">
+                              
+                              
             <a href="<?php echo site_url('Caja/indexCaja') ?>" class="nav-link">
               <i class="fa-solid fa-shop"></i>
               <p>Caja</p>
             </a>
           </li>
         <?php
+
+          
+          
         }
         ?>
       </ul>
