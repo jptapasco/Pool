@@ -9,7 +9,6 @@ class Productos extends CI_Controller
         $this->load->helper('form');
         $this->load->library('session');
         $this->load->model('Producto');
-        $this->load->model('Inventario');
         $this->load->helper('url');
         $this->load->database();
     }
