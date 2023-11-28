@@ -39,7 +39,9 @@ class Login extends CI_Controller{
 							redirect("DashboardAdmin", "refresh");
 						} else if($rol === ROL_CAJERO){
 							redirect("DashboardCajero", "refresh");
-						}else{echo "mal";}
+						}else{
+							redirect('Login', 'refresh');
+						}
 					} catch (Exception $e) {
 						$respuesta = [
 										'exeception' => $e
