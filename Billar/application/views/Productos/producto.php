@@ -38,9 +38,14 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Categoría</th>
-                        <th scope="col">Fecha Registro</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Opciones</th>
+                        <th scope="col">Unidad medida</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Punto reorden</th>
+                        <th scope="col">Precio compra</th>
+                        <th scope="col">Precio venta</th>
+                        <th scope="col">Fecha registro</th>
+                        <th scope="col">Observaciones</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,7 +53,12 @@
                         <tr>
                             <th> <?php echo $Producto->nombre ?> </th>
                             <th> <?php echo $Producto->categoria ?> </th>
-                            <th> <?php echo $Producto->fecha_registro ?> </th>
+                            <th> <?php echo $Producto->unidad_medida ?> </th>
+                            <th> <?php echo $Producto->cantidad?> </th>
+                            <th> <?php echo $Producto->punto_reorden?> </th>
+                            <th> <?php echo $Producto->precio_compra?> </th>
+                            <th> <?php echo $Producto->valor_venta?> </th>
+                            <th> <?php echo $Producto->created_at?> </th>
                             <th>
                                 <button type="button" class="btn btn-primary" href="" data-bs-toggle="modal" data-bs-target="#modalverDescripcion<?php echo $Producto->id_producto ?>">Ver</button>
                             </th>
@@ -66,7 +76,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                     <div class="modal-body">
-                                        <p id="descripcionTexto"><?php echo $Producto->descripcion ?></p>
+                                        <p id="descripcionTexto"><?php echo $Producto->observaciones ?></p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -106,15 +116,96 @@
                                                     $options = array(
                                                         ''                  => 'Seleccionar',                            
                                                         'alcoholicas'       => 'alcoholicas',
-                                                        'no alcoholicas'    => 'no alcoholicas',
+                                                        'no_alcoholicas'    => 'no alcoholicas',
                                                         'snacks'            => 'snacks',
-                                                        'bocadillos'        => 'bocadillos',
+                                                        'comida'        => 'comida',
                                                     );                                                
                                                     $selectedCategoria = isset($Producto->categoria) ? $Producto->categoria : '';
 
                                                     $attributes = 'class="form-control input-lg border border-info"';
                                                     echo form_dropdown('categoria', $options, $selectedCategoria, $attributes);
                                                     ?>
+                                            </div>
+                                            <div class="form-group col-6">                        
+                                                <?php
+                                                    echo form_label('Unidad de medida', 'unidad_medida');
+
+                                                    $options = array(
+                                                        ''           => 'Seleccionar',                            
+                                                        'unidad'     => 'unidad',
+                                                        'paquete'    => 'paquete',
+                                                        'canasta'    => 'canasta',
+                                                    );                                                
+                                                    $selectedMedida = isset($Producto->unidad_medida) ? $Producto->unidad_medida : '';
+
+                                                    $attributes = 'class="form-control input-lg border border-info"';
+                                                    echo form_dropdown('unidad_medida', $options, $selectedMedida, $attributes);
+                                                    ?>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <?php
+                                                echo form_label('Cantidad', 'cantidad');
+
+                                                $data = [
+                                                    'name'  => 'cantidad',
+                                                    'type'  => 'number',
+                                                    'value' =>  $Producto->cantidad,
+                                                    'class' => 'form-control input-lg border border-info',
+                                                ];
+                                                echo form_input($data);
+                                                ?>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <?php
+                                                echo form_label('Punto reorden', 'punto_reorden');
+
+                                                $data = [
+                                                    'name'  => 'punto_reorden',
+                                                    'type'  => 'number',
+                                                    'value' =>  $Producto->punto_reorden,
+                                                    'class' => 'form-control input-lg border border-info',
+                                                ];
+                                                echo form_input($data);
+                                                ?>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <?php
+                                                echo form_label('Precio compra', 'precio_compra');
+
+                                                $data = [
+                                                    'name'  => 'precio_compra',
+                                                    'type'  => 'number',
+                                                    'value' =>  $Producto->precio_compra,
+                                                    'class' => 'form-control input-lg border border-info',
+                                                ];
+                                                echo form_input($data);
+                                                ?>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <?php
+                                                echo form_label('Valor venta', 'valor_venta');
+
+                                                $data = [
+                                                    'name'  => 'valor_venta',
+                                                    'type'  => 'number',
+                                                    'value' =>  $Producto->valor_venta,
+                                                    'class' => 'form-control input-lg border border-info',
+                                                ];
+                                                echo form_input($data);
+                                                ?>
+                                            </div>
+                                            <div class="form-group col-12">
+                                                <?php
+                                                echo form_label('Observaciones', 'observaciones');
+
+                                                $data = [
+                                                    'name'  => 'observaciones',
+                                                    'type'  => 'text',
+                                                    'value' =>  $Producto->observaciones,
+                                                    'class' => 'form-control input-lg border border-info',
+                                                ];
+                                                echo form_input($data);
+                                                ?>
                                             </div>
                                         </div>
                                     </div>                                    
@@ -135,23 +226,55 @@
 
 
 
-    <!-- Modal agregar -->
-    <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Producto</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <?php echo form_open('Productos/guardar');?>
-                    <div class="row mt-4">
-                        <div class="form-group col-6">
+        <!-- Modal agregar productos-->
+        <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Producto</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <?php echo form_open('Productos/guardar');?>
+                        <div class="row mt-4">
+                            <div class="form-group col-6">
+                                <?php
+                                echo form_label('Nombre', 'nombre');
+
+                                $data = [
+                                    'name'  => 'nombre',
+                                    'type'  => 'text',
+                                    'value' => '',
+                                    'class' => 'form-control input-lg border border-info',
+                                ];
+                                echo form_input($data);
+                                ?>
+                            </div>
+                            <div class="form-group col-6">                        
+                                <?php
+                                    echo form_label('Categoría', 'categoria');
+
+                                    $options = array(
+                                        ''                  => 'Seleccionar',                            
+                                        'alcoholicas'       => 'alcoholicas',
+                                        'no_alcoholicas'    => 'no alcoholicas',
+                                        'snacks'            => 'snacks',
+                                        'comida'        => 'comida',
+                                    );
+
+                                    $attributes = 'class="form-control input-lg border border-info"';
+                                    echo form_dropdown('categoria', $options, '', $attributes);
+                                    ?>
+                            </div>
+                        </div>
+                        <!-- ESPACIO PARA DIV DE 'FECHA DE REGISTRO' -->
+
+                        <div class="form-group mt-4">
                             <?php
-                            echo form_label('Nombre', 'nombre');
+                            echo form_label('Observaciones', 'observaciones');
 
                             $data = [
-                                'name'  => 'nombre',
+                                'name'  => 'observaciones',
                                 'type'  => 'text',
                                 'value' => '',
                                 'class' => 'form-control input-lg border border-info',
@@ -159,131 +282,86 @@
                             echo form_input($data);
                             ?>
                         </div>
-                        <div class="form-group col-6">                        
+
+                        <div class="form-group ">                        
                             <?php
-                                echo form_label('Categoría', 'categoria');
+                                echo form_label('Unidad de medida', 'unidad_medida');
 
                                 $options = array(
-                                    ''                  => 'Seleccionar',                            
-                                    'alcoholicas'       => 'alcoholicas',
-                                    'no alcoholicas'    => 'no alcoholicas',
-                                    'snacks'            => 'snacks',
-                                    'bocadillos'        => 'bocadillos',
+                                    ''          => 'Seleccionar',                            
+                                    'pack'      => 'pack',
+                                    'canasta'   => 'canasta',
+                                    'unidad'    => 'unidad',
                                 );
 
                                 $attributes = 'class="form-control input-lg border border-info"';
-                                echo form_dropdown('categoria', $options, '', $attributes);
+                                echo form_dropdown('unidad_medida', $options, '', $attributes);
                                 ?>
                         </div>
-                    </div>
+                        <div class="row mt-4">
+                            <div class="form-group col-6">
+                                <?php
+                                echo form_label('Cantidad', 'cantidad');
 
-                    <div class="form-group mt-2">
-                        <?php
-                        echo form_label('Fecha registro', 'fecha_registro');
+                                $data = [
+                                    'name'  => 'cantidad',
+                                    'type'  => 'number',
+                                    'value' => '',
+                                    'class' => 'form-control input-lg border border-info',
+                                ];
+                                echo form_input($data);
+                                ?>
+                            </div>
+                            <div class="form-group col-6">
+                                <?php
+                                echo form_label('Punto de reorden', 'punto_reorden');
 
-                        $data = [
-                            'name'  => 'fecha_registro',
-                            'type'  => 'date',
-                            'value' => '',
-                            'class' => 'form-control input-lg border border-info',
-                        ];
-                        echo form_input($data);
-                        ?>
-                    </div>
-                    
-                    <div class="form-group mt-4">
-                        <?php
-                        echo form_label('Descripción', 'descripcion');
-
-                        $data = [
-                            'name'  => 'descripcion',
-                            'type'  => 'text',
-                            'value' => '',
-                            'class' => 'form-control input-lg border border-info',
-                        ];
-                        echo form_input($data);
-                        ?>
-                    </div>
-
-                    <div class="form-group ">                        
-                        <?php
-                            echo form_label('Unidad de medida', 'unidad_medida');
-
-                            $options = array(
-                                ''          => 'Seleccionar',                            
-                                'pack'      => 'pack',
-                                'canasta'   => 'canasta',
-                                'unidad'    => 'unidad',
-                            );
-
-                            $attributes = 'class="form-control input-lg border border-info"';
-                            echo form_dropdown('unidad_medida', $options, '', $attributes);
-                            ?>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="form-group col-6">
-                            <?php
-                            echo form_label('Cantidad', 'cantidad');
-
-                            $data = [
-                                'name'  => 'cantidad',
-                                'type'  => 'number',
-                                'value' => '',
-                                'class' => 'form-control input-lg border border-info',
-                            ];
-                            echo form_input($data);
-                            ?>
+                                $data = [
+                                    'name'  => 'punto_reorden',
+                                    'type'  => 'number',
+                                    'value' => '',
+                                    'class' => 'form-control input-lg border border-info',
+                                ];
+                                echo form_input($data);
+                                ?>
+                            </div>
                         </div>
-                        <div class="form-group col-6">
-                            <?php
-                            echo form_label('Punto de reorden', 'punto_reorden');
+                        <div class="row mt-2">
+                            <div class="form-group col-6">
+                                <?php
+                                echo form_label('Valor compra', 'precio_compra');
 
-                            $data = [
-                                'name'  => 'punto_reorden',
-                                'type'  => 'number',
-                                'value' => '',
-                                'class' => 'form-control input-lg border border-info',
-                            ];
-                            echo form_input($data);
-                            ?>
+                                $data = [
+                                    'name'  => 'precio_compra',
+                                    'type'  => 'number',
+                                    'value' => '',
+                                    'class' => 'form-control input-lg border border-info',
+                                ];
+                                echo form_input($data);
+                                ?>
+                            </div>
+                            <div class="form-group col-6">
+                                <?php
+                                echo form_label('Valor venta', 'valor_venta');
+
+                                $data = [
+                                    'name'  => 'valor_venta',
+                                    'type'  => 'number',
+                                    'value' => '',
+                                    'class' => 'form-control input-lg border border-info',
+                                ];
+                                echo form_input($data);
+                                ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="row mt-2">
-                        <div class="form-group col-6">
-                            <?php
-                            echo form_label('Valor compra', 'valor_compra');
-
-                            $data = [
-                                'name'  => 'valor_compra',
-                                'type'  => 'number',
-                                'value' => '',
-                                'class' => 'form-control input-lg border border-info',
-                            ];
-                            echo form_input($data);
-                            ?>
-                        </div>
-                        <div class="form-group col-6">
-                            <?php
-                            echo form_label('Valor venta', 'valor_venta');
-
-                            $data = [
-                                'name'  => 'valor_venta',
-                                'type'  => 'number',
-                                'value' => '',
-                                'class' => 'form-control input-lg border border-info',
-                            ];
-                            echo form_input($data);
-                            ?>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <?php echo form_submit('mysubmit', 'Agregar','class="btn btn-primary"');?> 
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <?php echo form_submit('mysubmit', 'Agregar','class="btn btn-primary"');?> 
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Footer -->
     <?php $this->load->view('Footer/footer'); ?>

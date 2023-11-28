@@ -30,15 +30,28 @@ class Login extends CI_Controller{
 			if (!empty($respuesta)) {
 				if ($respuesta->correo === $data['correo'] && $respuesta->contrasena === $data['passw']) {	
 					$this->session->set_userdata('correo', $data['correo']);
+					$this->session->set_userdata('documento', $respuesta->documento);
+					$this->session->set_userdata('telefono', $respuesta->telefono);
 					$this->session->set_userdata('rol', $respuesta->rol);
 					$this->session->set_userdata('nombres', $respuesta->nombres);
 
+					$user_data = array(
+						'documento' => $respuesta->documento,
+						'nombres' => $respuesta->nombres,
+						'telefono' => $respuesta->telefono,
+						'rol' => $respuesta->rol,
+						'correo' => $respuesta->correo
+					);
+
 					try {
 						$rol = $this->session->userdata('rol');
+						$this->session->set_userdata('user_data',$user_data);
 						if ($rol === "admin") {
 							redirect("DashboardAdmin", "refresh");
+
 						} else if($rol === "cajero"){
 							redirect("DashboardCajero", "refresh");
+
 						}else{
 							$this->load->view('Login/login');
 						}

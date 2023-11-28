@@ -62,4 +62,5 @@ class Usuarios extends CI_Controller
         }
         redirect('Usuarios/listado','refresh');
     }
+
 }

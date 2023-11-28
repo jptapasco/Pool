@@ -120,7 +120,7 @@
         <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="<?php echo site_url('DashboardAdmin/perfil') ?>"" class="nav-link">
             <i class="fa-solid fa-user-gear nav-icon"></i>
             <p>Perfil</p>
           </a>
@@ -154,21 +154,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo site_url('Clientes/listado') ?>" class="nav-link">
-              <i class="fa-solid fa-users nav-icon"></i>
-              <p>Clientes</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?php echo site_url('Inventarios/listado') ?>" class="nav-link">
-              <i class="fa-solid fa-boxes-stacked nav-icon"></i>
-              <p>Inventario</p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="<?php echo site_url('Productos/listado') ?>" class="nav-link">
               <i class="fa-solid fa-beer-mug-empty nav-icon"></i>
               <p>Productos</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo site_url('Clientes/listado') ?>" class="nav-link">
+              <i class="fa-solid fa-users nav-icon"></i>
+              <p>Clientes</p>
             </a>
           </li>
         <?php
