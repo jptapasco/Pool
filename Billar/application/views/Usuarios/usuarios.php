@@ -23,8 +23,7 @@
         <?php $this->load->view('Menu/menu'); ?>
         <!-- PAGINA USUARIOS -->
         <div class="container">
-            <h1 class="text-center mt-3">Usuarios</h1>
-
+            <h1 class="text-center mt-3">Lista de usuarios</h1>
             <div class="mt-5 d-flex justify-content-center">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar</button>
                 <input type="text" id="txtBuscar" class="form-control mx-2">
@@ -33,6 +32,19 @@
             <div class="alert alert-dark mt-3" role="alert" id="alertaNoResultados" style="display: none;">
                 No se encontraron resultados.
             </div>
+            <form action="" method="post">
+                <div class="mt-5 row">
+                    <div class="col-6">
+                        <h2>Filtrar Usuarios por: </h2>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-primary" name="activos">Usuarios Activos</button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-primary" name="inactivos">Usuarios Inactivos</button>
+                    </div>
+                </div>
+            </form>
             <table class="table table-striped mt-5">
                 <thead>
                     <tr>
@@ -41,22 +53,74 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Correo</th>
                         <th scope="col">Telefono</th>
-                        <th scope="col">Estado</th>
+                        <th scope="col">Opción</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($respuesta as $key => $Usuario) : ?>
+                <?php
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        if (isset($_POST["activos"])) { ?>
+                            <?php
+                            if($Usuario->estado == 'activo' && $Usuario->rol !='admin'){?>
+                            <!--LISTA DE LOS USUARIOS QUE ESTAN ACTIVOS-->
+                            <tr>
+                                <th scope="row"> <?php echo $Usuario->rol ?> </th>
+                                <th> <?php echo $Usuario->documento ?> </th>
+                                <th> <?php echo $Usuario->nombres ?> </th>
+                                <th> <?php echo $Usuario->correo ?> </th>
+                                <th> <?php echo $Usuario->telefono ?> </th>
+                                <th><button class="btn btn-danger">Desactivar</button></th>
+                                <th>
+                                    <button type="button" class="btn btn-primary" href="" data-bs-toggle="modal" data-bs-target="#modalEditar<?php echo $Usuario->id_usuario ?>">Editar</button>
+                                </th>
+                            </tr>
+                            <!--FIN DE LISTA-->
+                            <?php
+                            }
+                            ?>
+                <?php   } elseif (isset($_POST["inactivos"])) {  ?>
+                            <?php
+                            if($Usuario->estado == 'inactivo'&& $Usuario->rol !='admin'){?>
+                            <!--LISTA DE LOS USUARIOS QUE ESTAN INACTIVOS-->
+                            <tr>
+                                <th scope="row"> <?php echo $Usuario->rol ?> </th>
+                                <th> <?php echo $Usuario->documento ?> </th>
+                                <th> <?php echo $Usuario->nombres ?> </th>
+                                <th> <?php echo $Usuario->correo ?> </th>
+                                <th> <?php echo $Usuario->telefono ?> </th>
+                                <th><button class="btn btn-success">Activar</button></th>
+                            </tr>   
+                            <!--FIN DE LISTA-->
+                            <?php
+                            }
+                        }
+                    }else{  ?>
+                        <?php
+                        if($Usuario->rol !='admin'){?>
+                        <!--LISTA DE TODOS LOS USUARIOS-->
                         <tr>
                             <th scope="row"> <?php echo $Usuario->rol ?> </th>
                             <th> <?php echo $Usuario->documento ?> </th>
                             <th> <?php echo $Usuario->nombres ?> </th>
                             <th> <?php echo $Usuario->correo ?> </th>
                             <th> <?php echo $Usuario->telefono ?> </th>
+                            <?php
+                            if($Usuario->estado == 'activo'){ ?>
+                                <th><button class="btn btn-danger">Desactivar</button></th> <?php
+                            }else{ ?>
+                                <th><button class="btn btn-success">Activar</button></th> <?php
+                            }
+                            ?>
                             <th>
                                 <button type="button" class="btn btn-primary" href="" data-bs-toggle="modal" data-bs-target="#modalEditar<?php echo $Usuario->id_usuario ?>">Editar</button>
                             </th>
-                        </tr>
-
+                        </tr>   
+                        <!--FIN DE LISTA-->
+                        <?php
+                        }
+                    }
+                ?>
                         <!--MODAL EDITAR-->
                         <div class="modal fade" id="modalEditar<?php echo $Usuario->id_usuario ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -150,7 +214,9 @@
                                                 echo form_input($data);
                                             ?>
                                         </div>
-                                        <?php echo form_submit('mysubmit', 'Editar','class="btn btn-primary mt-4"');?> 
+                                        <div class="text-center">
+                                            <?php echo form_submit('mysubmit', 'Editar','class="btn btn-primary mt-4"');?> 
+                                        </div>
                                     <?php echo form_close();?>
 
                                     </div>
@@ -264,13 +330,8 @@
         </div>
     </div>
 
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.2.0
-        </div>
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+    <!-- Footer -->
+    <?php $this->load->view('Footer/footer'); ?>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -288,47 +349,7 @@
     <script src="<?php echo base_url() ?>/assets/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo base_url() ?>/assets/dist/js/demo.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            // Manejar el evento de clic en el botón de búsqueda
-            $("#btnBuscar").click(function () {
-                buscar();
-            });
-
-            // Manejar el evento de presionar "Enter" en el campo de búsqueda
-            $("#txtBuscar").keypress(function (e) {
-                if (e.which === 13) { // 13 es el código de tecla para "Enter"
-                    buscar();
-                }
-            });
-
-            function buscar() {
-                // Obtener el valor de la barra de búsqueda
-                var searchTerm = $("#txtBuscar").val().toLowerCase();
-
-                var resultadosEncontrados = false;
-
-                // Filtrar las filas de la tabla según el término de búsqueda
-                $("tbody tr").each(function () {
-                    var textoFila = $(this).text().toLowerCase();
-                    if (textoFila.includes(searchTerm)) {
-                        $(this).show();
-                        resultadosEncontrados = true;
-                    } else {
-                        $(this).hide();
-                    }
-                });
-
-                // Mostrar u ocultar la alerta según los resultados
-                if (resultadosEncontrados) {
-                    $("#alertaNoResultados").hide();
-                } else {
-                    $("#alertaNoResultados").show();
-                }
-            }
-        });
-    </script>
-
+    <!-- Buscar -->
+    <script src="<?php echo base_url() ?>/assets/dist/js/buscar.js"></script>
 </body>
 </html>

@@ -14,22 +14,6 @@ class Usuario extends CI_Model
         $this->load->database();
     }
 
-    public function index()
-    {
-    }
-
-    public function guardar()
-    {
-    }
-
-    public function borrar()
-    {
-    }
-
-    public function editar()
-    {
-    }
-
     public function find($id)
     {
         $this->db->select();
@@ -60,4 +44,5 @@ class Usuario extends CI_Model
         $this->db->where($this->table_id,$id);
         $this->db->update($this->table,$data);
     }
+
 }
