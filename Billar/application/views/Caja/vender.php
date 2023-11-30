@@ -22,6 +22,47 @@
     <div class="wrapper">
         <?php $this->load->view('Menu/menu'); ?>
         <h1 class="text-center mt-3">Venta de productos</h1>
+        <div class="container">
+            <?php echo form_open('productos/obtenerPorCategoria'); ?>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <?php
+                        echo form_label('Elije la categoria del producto', '');
+
+                        $options = array(
+                            ''                  => 'Categoria',                            
+                            'alcoholicas'       => 'alcoholicas',
+                            'no_alcoholicas'    => 'no_alcoholicas',
+                            'comida'            => 'comida',
+                            'snacks'            => 'snacks',
+                        );
+
+                        $attributes = 'class="form-control input-lg border border-info"';
+                        echo form_dropdown('categoria', $options, '', $attributes);
+                    ?>
+                </div>
+                <div class="col-6 d-flex align-items-end">
+                    <button class="btn btn-primary" type="submit">Obtener Productos</button>
+                </div>
+            </div>
+            <?php echo form_close(); ?>
+            <div class=" mt-4">
+                <?php if (!empty($respuesta_productos)):                     
+                    ?>           
+                    <?php foreach ($respuesta_productos as $producto): ?>
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://www.cocinacaserayfacil.net/wp-content/uploads/2020/03/Platos-de-comida-que-pides-a-domicilio-y-puedes-hacer-en-casa.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $producto->nombre; ?></h5>
+                                <p class="card-text">$ <?php echo $producto->valor_venta; ?></p>
+                                <a href="#" class="btn btn-primary">cantidad: <?php echo $producto->cantidad; ?></a>
+                            </div>
+                        </div>     
+                        <br>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->

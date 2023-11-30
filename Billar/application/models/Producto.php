@@ -57,4 +57,14 @@ class Producto extends CI_Model
         $query = $this->db->get();
         return $query->row();
     }
+
+    public function obtenerProductoPorCategoria($categoriaElegida)
+    {
+        $this->db->select('*');
+        $this->db->from('productos');
+        $this->db->where('categoria',$categoriaElegida);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
 }

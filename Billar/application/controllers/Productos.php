@@ -86,4 +86,12 @@ class Productos extends CI_Controller
             $this->load->view('productos/editarProducto', $data);
         }
     }
+
+    public function obtenerPorCategoria()
+    {
+        $categoriaELegida = $this->input->post('categoria');
+        $respuesta = $this->Producto->obtenerProductoPorCategoria($categoriaELegida);
+        $data['respuesta_productos']=$respuesta;
+        $this->load->view('Caja/vender', $data);
+    }
 }
