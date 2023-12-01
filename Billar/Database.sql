@@ -107,7 +107,7 @@ INSERT INTO clientes (documento, nombres, telefono, horas_jugadas, horas_regalo)
 
 
 INSERT INTO usuarios (documento, nombres, telefono, rol, correo, contrasena, estado) VALUES
-('111', 'JP', '3136320559', 'admin', 'jp@gmail.com.com', '123', 'activo'),
+('111', 'JP', '3136320559', 'admin', 'jp@gmail.com', '123', 'activo'),
 ('222', 'erick', '555-2222', 'cajero', 'erick@gmail.com', '123', 'activo'),
 ('333', 'Franchesca', '555-3333', 'mesera', 'ms@gmail.com', '123', 'activo'),
 ('444', 'Usuario Inactivo', '555-4444', 'mesera', 'voce@gmail.com', 'inactivo123', 'inactivo'),
