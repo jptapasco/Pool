@@ -223,7 +223,7 @@ public class CreateParking extends javax.swing.JFrame {
             comprobarParqueadero.put("nit", nit);
 
             // Hacemos la petición POST para verificar si el parqueadero ya existe
-            String verificarParqueadero = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/VerificarParqueadero.php", comprobarParqueadero);
+            String verificarParqueadero = consumo.consumoPOST("http://localhost:8080/verificarParqueadero", comprobarParqueadero);
 
             JsonObject jsonResponse = gson.fromJson(verificarParqueadero, JsonObject.class);
 
@@ -247,8 +247,8 @@ public class CreateParking extends javax.swing.JFrame {
                 insertData.put("direccion", direccion);
                 insertData.put("telefono", telefono);
 
-                // Hacemos la petición para insertar la nueva empresa
-                String crearEmpresa = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/Insert.php", insertData);
+                // Hacemos la petición para insertar la nueva empresa  
+                String crearEmpresa = consumo.consumoPOST("http://localhost:8080/insertarParqueadero", insertData);
 
                 System.out.println("Respuesta: " + crearEmpresa);
 

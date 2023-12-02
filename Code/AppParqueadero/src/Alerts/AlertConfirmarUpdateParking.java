@@ -183,7 +183,7 @@ public class AlertConfirmarUpdateParking extends javax.swing.JFrame {
         UpdateData.put("telefono", telefono);
         
         // El nombre no existe, proceder con la actualización
-        String update = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/Update.php", UpdateData);
+        String update = consumo.consumoPOST("http://localhost:8080/actualizarParqueadero", UpdateData);
 
         System.out.println("Lo que llegó" + update);
 

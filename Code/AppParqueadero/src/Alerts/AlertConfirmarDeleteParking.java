@@ -141,7 +141,7 @@ public class AlertConfirmarDeleteParking extends javax.swing.JFrame {
         Map<String, String> insertData = new HashMap<>();
         insertData.put("nit",nit);
 
-        String delete = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/Delete.php", insertData);
+        String delete = consumo.consumoPOST("http://localhost:8080/eliminarParqueadero", insertData);
 
         System.out.println("Lo que llego"+delete);
 

@@ -220,10 +220,9 @@ public class DeleteParking extends javax.swing.JFrame {
         ConsumoApi consumo = new ConsumoApi();
         Map<String, String> insertData = new HashMap<>();
         insertData.put("nit",nit);
-        insertData.put("nombre",nombre);
         
         //HACER LA PETICION
-        String obtenerDatos = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/VerificarParqueadero.php", insertData);
+        String obtenerDatos = consumo.consumoGET("http://localhost:8080/VerificarParqueadero", insertData);
         
         if(obtenerDatos != null ){
           

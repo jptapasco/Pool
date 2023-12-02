@@ -217,7 +217,7 @@ public class Parqueaderos extends javax.swing.JPanel {
 
     public void mostrarParqueaderos(){
         // PETICION PARA OBTENER TODOS LOS PARQUEADEROS 
-        String obtenerParkings = consumo.consumoGET("http://localhost/APIenPHP/API-parqueadero/Obtener.php");
+        String obtenerParkings = consumo.consumoGET("http://localhost:8080/obtenerParqueaderos");
         
         if( obtenerParkings != null ){
             JsonObject jsonTemp  = gson.fromJson(obtenerParkings, JsonObject.class);
@@ -286,9 +286,8 @@ public class Parqueaderos extends javax.swing.JPanel {
         //VERIFICAR QUE LA EMPRESA QUE QUEREMOS EDITAR SI EXISTA
         Map<String, String> insertData = new HashMap<>();
         insertData.put("nit",nit);
-        insertData.put("nombre",nombre);
         
-        String consultarParqueadero = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/VerificarParqueadero.php", insertData);
+        String consultarParqueadero = consumo.consumoGET("http://localhost:8080/verificarParqueadero", insertData);
         
         if( consultarParqueadero != null ){
               
@@ -321,9 +320,8 @@ public class Parqueaderos extends javax.swing.JPanel {
         //VERIFICAR QUE LA EMPRESA QUE QUEREMOS EDITAR SI EXISTA
         Map<String, String> insertData = new HashMap<>();
         insertData.put("nit",nit);
-        insertData.put("nombre",nombre);
         
-        String verificar = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/VerificarParqueadero.php", insertData);
+        String verificar = consumo.consumoGET("http://localhost:8080/verificarParqueadero", insertData);
         
          if( verificar != null ){
               
