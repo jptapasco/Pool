@@ -67,6 +67,7 @@ public final class Parqueadero extends javax.swing.JPanel {
         etq_vendedor = new javax.swing.JLabel();
         etq_nit = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabelTarifas = new javax.swing.JLabel();
 
         nitParqueadero2.setText("NO DISPONIBLE");
 
@@ -74,8 +75,9 @@ public final class Parqueadero extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(241, 230, 253));
 
+        tabVehiculosActuales.setBackground(new java.awt.Color(241, 230, 253));
         tabVehiculosActuales.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tabVehiculosActuales.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,6 +90,8 @@ public final class Parqueadero extends javax.swing.JPanel {
                 "TIKECT", "VEHÍCULO", "PLACA", "TITULAR", "TARIFA", "INGRESO", "TIEMPO/H", "SALIDA"
             }
         ));
+        tabVehiculosActuales.setSelectionBackground(new java.awt.Color(227, 204, 251));
+        tabVehiculosActuales.setShowGrid(true);
         jScrollPane1.setViewportView(tabVehiculosActuales);
 
         inputBuscarUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +100,7 @@ public final class Parqueadero extends javax.swing.JPanel {
             }
         });
 
-        btnBuscarVehiculoParqueadero.setBackground(new java.awt.Color(73, 59, 114));
+        btnBuscarVehiculoParqueadero.setBackground(new java.awt.Color(113, 0, 234));
         btnBuscarVehiculoParqueadero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBuscarVehiculoParqueadero.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarVehiculoParqueadero.setText("BUSCAR VEHÍCULO");
@@ -107,19 +111,19 @@ public final class Parqueadero extends javax.swing.JPanel {
         });
 
         jLabelDireccion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelDireccion.setForeground(new java.awt.Color(15, 11, 25));
+        jLabelDireccion.setForeground(new java.awt.Color(113, 0, 234));
         jLabelDireccion.setText("DIRECCIÓN:");
 
         jLabelNombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelNombre.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelNombre.setForeground(new java.awt.Color(113, 0, 234));
         jLabelNombre.setText("NOMBRE:");
 
         jLabelTelefono.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelTelefono.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelTelefono.setForeground(new java.awt.Color(113, 0, 234));
         jLabelTelefono.setText("TELÉFONO:");
 
         jLabelVendedores.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelVendedores.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelVendedores.setForeground(new java.awt.Color(113, 0, 234));
         jLabelVendedores.setText("VENDEDORES:");
 
         etq_nombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -140,75 +144,80 @@ public final class Parqueadero extends javax.swing.JPanel {
 
         etq_nit.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         etq_nit.setForeground(new java.awt.Color(0, 0, 0));
-        etq_nit.setText("NO DISPONIBLE");
+        etq_nit.setText("00");
 
         jLabel1.setBackground(new java.awt.Color(15, 11, 25));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(15, 11, 25));
+        jLabel1.setForeground(new java.awt.Color(113, 0, 234));
         jLabel1.setText("NIT:");
+
+        jLabelTarifas.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabelTarifas.setForeground(new java.awt.Color(113, 0, 234));
+        jLabelTarifas.setText("PARQUEADERO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(inputBuscarUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarVehiculoParqueadero)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(264, 264, 264)
+                .addComponent(jLabelTarifas)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(inputBuscarUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarVehiculoParqueadero))))
+                        .addComponent(jLabelDireccion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(etq_direccion)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelTelefono)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(etq_telefono))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(etq_nit)
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabelNombre))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelDireccion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(etq_direccion)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelTelefono)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(etq_telefono))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(etq_nombre)
-                                .addGap(47, 47, 47)
-                                .addComponent(jLabelVendedores)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(etq_vendedor)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(etq_nit)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelVendedores)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(etq_vendedor)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(etq_nombre)))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelTarifas)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etq_nit, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabelNombre)
                     .addComponent(etq_nombre)
-                    .addComponent(jLabelVendedores)
-                    .addComponent(etq_vendedor))
+                    .addComponent(etq_vendedor)
+                    .addComponent(jLabelVendedores))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDireccion)
                     .addComponent(etq_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelTelefono)
-                        .addComponent(etq_telefono)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                    .addComponent(jLabelTelefono)
+                    .addComponent(etq_telefono))
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputBuscarUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarVehiculoParqueadero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -407,8 +416,8 @@ public final class Parqueadero extends javax.swing.JPanel {
                 final int posicion = i;
                 
                 JButton btnSalida = new JButton("Salida");
-                btnSalida.setBackground(new Color(207, 191, 255));
-                btnSalida.setForeground(new Color(0,0,0));
+                btnSalida.setBackground(new Color(113,0,234));
+                btnSalida.setForeground(Color.WHITE);  
                 
                 btnSalida.addActionListener(new ActionListener() {
                       @Override
@@ -439,6 +448,7 @@ public final class Parqueadero extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelTarifas;
     private javax.swing.JLabel jLabelTelefono;
     private javax.swing.JLabel jLabelVendedores;
     private javax.swing.JScrollPane jScrollPane1;

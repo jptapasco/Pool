@@ -56,9 +56,9 @@ public final class Entrada extends javax.swing.JPanel {
 
         jCheckBox1.setText("jCheckBox1");
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(241, 230, 253));
 
-        btnEntrada.setBackground(new java.awt.Color(73, 59, 114));
+        btnEntrada.setBackground(new java.awt.Color(113, 0, 234));
         btnEntrada.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnEntrada.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrada.setText("INGRESAR");
@@ -69,24 +69,26 @@ public final class Entrada extends javax.swing.JPanel {
         });
 
         jLabelPlaca.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabelPlaca.setForeground(new java.awt.Color(15, 11, 25));
+        jLabelPlaca.setForeground(new java.awt.Color(113, 0, 234));
         jLabelPlaca.setText("TITULAR:");
 
         jLabelVehiculo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabelVehiculo.setForeground(new java.awt.Color(15, 11, 25));
+        jLabelVehiculo.setForeground(new java.awt.Color(113, 0, 234));
         jLabelVehiculo.setText("PLACA:");
 
         jLabelTitular.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabelTitular.setForeground(new java.awt.Color(15, 11, 25));
+        jLabelTitular.setForeground(new java.awt.Color(113, 0, 234));
         jLabelTitular.setText("VEHÍCULO:");
 
-        jLabel1.setBackground(new java.awt.Color(73, 59, 114));
+        jLabel1.setBackground(new java.awt.Color(113, 0, 234));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(15, 11, 25));
+        jLabel1.setForeground(new java.awt.Color(113, 0, 234));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("REGISTRAR ENTRADA DE VEHICULOS");
 
+        selectVehiculo.setBackground(new java.awt.Color(255, 255, 255));
         selectVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectVehiculo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         selectVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectVehiculoActionPerformed(evt);
@@ -113,10 +115,6 @@ public final class Entrada extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(283, 283, 283)
-                .addComponent(btnEntrada)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,27 +127,31 @@ public final class Entrada extends javax.swing.JPanel {
                     .addComponent(inputPlaca)
                     .addComponent(inputTitular))
                 .addGap(182, 182, 182))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEntrada)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelVehiculo)
                     .addComponent(inputPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(selectVehiculo)
                     .addComponent(jLabelTitular))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPlaca)
-                    .addComponent(inputTitular, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(btnEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(inputTitular, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPlaca))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addComponent(btnEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

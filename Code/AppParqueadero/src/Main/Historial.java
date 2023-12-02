@@ -48,11 +48,13 @@ public final class Historial extends javax.swing.JPanel {
         btnBuscarHistorial = new javax.swing.JButton();
         jLabelDireccion = new javax.swing.JLabel();
         etq_fecha = new javax.swing.JLabel();
+        jLabelTarifas = new javax.swing.JLabel();
 
         nitParqueadero2.setText("NO DISPONIBLE");
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(241, 230, 253));
 
+        tablaHistorial.setBackground(new java.awt.Color(241, 230, 253));
         tablaHistorial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,6 +75,8 @@ public final class Historial extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tablaHistorial.setSelectionBackground(new java.awt.Color(227, 204, 251));
+        tablaHistorial.setShowGrid(true);
         jScrollPane1.setViewportView(tablaHistorial);
         if (tablaHistorial.getColumnModel().getColumnCount() > 0) {
             tablaHistorial.getColumnModel().getColumn(0).setResizable(false);
@@ -84,7 +88,7 @@ public final class Historial extends javax.swing.JPanel {
             }
         });
 
-        btnBuscarHistorial.setBackground(new java.awt.Color(73, 59, 114));
+        btnBuscarHistorial.setBackground(new java.awt.Color(113, 0, 234));
         btnBuscarHistorial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBuscarHistorial.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarHistorial.setText("BUSCAR");
@@ -95,9 +99,14 @@ public final class Historial extends javax.swing.JPanel {
         });
 
         jLabelDireccion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(113, 0, 234));
         jLabelDireccion.setText("FECHA:");
 
         etq_fecha.setText("NO DISPONIBLE");
+
+        jLabelTarifas.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabelTarifas.setForeground(new java.awt.Color(113, 0, 234));
+        jLabelTarifas.setText("HISTORIAL");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -106,7 +115,7 @@ public final class Historial extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabelDireccion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -116,18 +125,24 @@ public final class Historial extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscarHistorial)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(282, 282, 282)
+                .addComponent(jLabelTarifas)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(8, 8, 8)
+                .addComponent(jLabelTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscarHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inputBuscarHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etq_fecha)
                     .addComponent(jLabelDireccion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -309,8 +324,8 @@ public final class Historial extends javax.swing.JPanel {
                 final int posicion = i;
                 
                 JButton btnImprimir = new JButton("IMPRIMIR");
-                btnImprimir.setBackground(new Color(207,191,255));
-                btnImprimir.setForeground(new Color(0,0,0));
+                btnImprimir.setBackground(new Color(113,0,234));
+                btnImprimir.setForeground(Color.WHITE);  
                 
                 btnImprimir.addActionListener(new ActionListener() {
                     @Override
@@ -335,6 +350,7 @@ public final class Historial extends javax.swing.JPanel {
     private javax.swing.JLabel etq_fecha;
     private javax.swing.JTextField inputBuscarHistorial;
     private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelTarifas;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nitParqueadero2;
     private javax.swing.JTable tablaHistorial;
