@@ -194,7 +194,7 @@
                 setTimeout(function() {
                     console.log('Datos que se están enviando:', $('#inputVentas').val());
                     $('#formFacturar').submit();
-                }, 10000);
+                }, 0);
             });
 
             var btnEliminarTodo = $('#btnEliminarTodo');

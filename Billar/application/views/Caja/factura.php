@@ -41,6 +41,7 @@
                                 <td><?php echo $venta['nombre']; ?></td>
                                 <td><?php echo $venta['valor']; ?></td>
                                 <td><?php echo $venta['cantidad']; ?></td>
+                                <td><?php echo $venta['cantidad'] * $venta['valor']; ?></td>
                                 <!-- Agrega más columnas según sea necesario -->
                             </tr>
                         <?php endforeach; ?>
