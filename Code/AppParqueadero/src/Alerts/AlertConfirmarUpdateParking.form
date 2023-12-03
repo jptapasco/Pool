@@ -88,7 +88,7 @@
                   <Component id="jLabel2" min="-2" pref="26" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnConfirmar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -108,7 +108,7 @@
               <Color blue="ea" green="0" red="71" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&#xbf;ESTAS SEGURO?"/>
+            <Property name="text" type="java.lang.String" value="&#xbf;EST&#xc1;S SEGURO?"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -132,7 +132,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="NO HAY VUELTA ATRAS."/>
+            <Property name="text" type="java.lang.String" value="NO HAY VUELTA ATR&#xc1;S."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">

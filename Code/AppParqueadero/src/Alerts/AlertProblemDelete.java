@@ -33,12 +33,12 @@ public class AlertProblemDelete extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("ES POSIBLE QUE EL FALLO SEA POR QUE");
+        jLabel8.setText("ES POSIBLE QUE EL FALLO SEA PORQUE");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("EL PARQUEADERO ESTA ASOCIADO A");
+        jLabel9.setText("EL PARQUEADERO ESTÁ ASOCIADO A");
 
         jButton3.setBackground(new java.awt.Color(113, 0, 234));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

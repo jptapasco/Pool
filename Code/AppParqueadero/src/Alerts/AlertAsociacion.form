@@ -44,13 +44,13 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="49" max="32767" attributes="0"/>
+                  <EmptySpace pref="35" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
                       <Component id="jLabel7" alignment="2" max="32767" attributes="0"/>
-                      <Component id="jLabel8" alignment="2" pref="262" max="32767" attributes="0"/>
+                      <Component id="jLabel8" alignment="2" max="32767" attributes="0"/>
                       <Component id="jButton3" alignment="2" min="-2" pref="140" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="57" max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -61,7 +61,7 @@
                   <Component id="jLabel7" min="-2" pref="47" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="51" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
                   <Component id="jButton3" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -78,7 +78,7 @@
               <Color blue="ea" green="0" red="71" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="EXITO"/>
+            <Property name="text" type="java.lang.String" value="&#xc9;XITO!"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">

@@ -33,11 +33,11 @@ public class AlertTarifaUpdate extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(113, 0, 234));
-        jLabel1.setText("Tarifa actualizada");
+        jLabel1.setText("TARIFA ACTUALIZADA");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(113, 0, 234));
-        jLabel2.setText("correctamente");
+        jLabel2.setText("CORRECTAMENTE");
 
         Aceptar.setBackground(new java.awt.Color(113, 0, 234));
         Aceptar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -54,12 +54,12 @@ public class AlertTarifaUpdate extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
+                .addContainerGap(55, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel2)
                     .addComponent(Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

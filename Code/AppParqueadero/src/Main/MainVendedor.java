@@ -71,7 +71,7 @@ public class MainVendedor extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(227, 204, 251));
 
         btnEntrada.setBackground(new java.awt.Color(113, 0, 234));
-        btnEntrada.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEntrada.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnEntrada.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrada.setText("ENTRADA");
         btnEntrada.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -84,7 +84,7 @@ public class MainVendedor extends javax.swing.JFrame {
         });
 
         btnParqueadero.setBackground(new java.awt.Color(113, 0, 234));
-        btnParqueadero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnParqueadero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnParqueadero.setForeground(new java.awt.Color(255, 255, 255));
         btnParqueadero.setText("PARQUEADERO");
         btnParqueadero.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -97,7 +97,7 @@ public class MainVendedor extends javax.swing.JFrame {
         });
 
         btnCerrarSesion.setBackground(new java.awt.Color(212, 179, 249));
-        btnCerrarSesion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCerrarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrarSesion.setText("CERRAR SESION");
         btnCerrarSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -110,7 +110,7 @@ public class MainVendedor extends javax.swing.JFrame {
         });
 
         btnTarifas.setBackground(new java.awt.Color(113, 0, 234));
-        btnTarifas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnTarifas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnTarifas.setForeground(new java.awt.Color(255, 255, 255));
         btnTarifas.setText("TARIFAS");
         btnTarifas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -123,7 +123,7 @@ public class MainVendedor extends javax.swing.JFrame {
         });
 
         btnHistorial.setBackground(new java.awt.Color(113, 0, 234));
-        btnHistorial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnHistorial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
         btnHistorial.setText("HISTORIAL");
         btnHistorial.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -168,7 +168,7 @@ public class MainVendedor extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(btnTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         panelPrincipal.setBackground(new java.awt.Color(255, 255, 255));

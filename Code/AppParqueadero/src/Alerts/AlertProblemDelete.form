@@ -96,7 +96,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="ES POSIBLE QUE EL FALLO SEA POR QUE"/>
+            <Property name="text" type="java.lang.String" value="ES POSIBLE QUE EL FALLO SEA PORQUE"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -108,7 +108,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="EL PARQUEADERO ESTA ASOCIADO A"/>
+            <Property name="text" type="java.lang.String" value="EL PARQUEADERO EST&#xc1; ASOCIADO A"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">

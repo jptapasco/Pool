@@ -66,13 +66,11 @@
                                       <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel9" alignment="0" pref="94" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel5" max="32767" attributes="0"/>
-                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel5" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="tarif" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                               <Component id="time" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
@@ -342,7 +340,7 @@
               <Color blue="ea" green="0" red="71" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
+              <Font name="Segoe UI" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>

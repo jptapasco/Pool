@@ -39,20 +39,26 @@ public class Parqueaderos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelTarifas = new javax.swing.JLabel();
         inputBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         bntCreateParking = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaParqueadero = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(15, 11, 25));
+        setBackground(new java.awt.Color(241, 230, 253));
+        setForeground(new java.awt.Color(241, 230, 253));
 
-        inputBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTarifas.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabelTarifas.setForeground(new java.awt.Color(113, 0, 234));
+        jLabelTarifas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTarifas.setText("PARQUEADERO");
+
         inputBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         inputBuscar.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnBuscar.setBackground(new java.awt.Color(123, 47, 152));
-        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBuscar.setBackground(new java.awt.Color(113, 0, 234));
+        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("BUSCAR");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -61,8 +67,8 @@ public class Parqueaderos extends javax.swing.JPanel {
             }
         });
 
-        bntCreateParking.setBackground(new java.awt.Color(123, 47, 152));
-        bntCreateParking.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bntCreateParking.setBackground(new java.awt.Color(113, 0, 234));
+        bntCreateParking.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         bntCreateParking.setForeground(new java.awt.Color(255, 255, 255));
         bntCreateParking.setText("CREAR PARQUEADERO");
         bntCreateParking.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +77,7 @@ public class Parqueaderos extends javax.swing.JPanel {
             }
         });
 
+        tablaParqueadero.setBackground(new java.awt.Color(241, 230, 253));
         tablaParqueadero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tablaParqueadero.setForeground(new java.awt.Color(0, 0, 0));
         tablaParqueadero.setModel(new javax.swing.table.DefaultTableModel(
@@ -84,6 +91,8 @@ public class Parqueaderos extends javax.swing.JPanel {
                 "NIT", "NOMBRE", "DIRECCION", "EDITAR", "ELIMINAR"
             }
         ));
+        tablaParqueadero.setSelectionBackground(new java.awt.Color(113, 0, 234));
+        tablaParqueadero.setShowGrid(true);
         jScrollPane1.setViewportView(tablaParqueadero);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -91,30 +100,31 @@ public class Parqueaderos extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTarifas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(inputBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(inputBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bntCreateParking, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(bntCreateParking)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabelTarifas)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscar)
-                    .addComponent(bntCreateParking)
-                    .addComponent(inputBuscar))
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bntCreateParking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -338,6 +348,7 @@ public class Parqueaderos extends javax.swing.JPanel {
     private javax.swing.JButton bntCreateParking;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JTextField inputBuscar;
+    private javax.swing.JLabel jLabelTarifas;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaParqueadero;
     // End of variables declaration//GEN-END:variables

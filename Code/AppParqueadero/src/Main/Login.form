@@ -174,7 +174,7 @@
               <Color blue="ea" green="0" red="71" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="INICIAR SESION"/>
+            <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N"/>
           </Properties>
         </Component>
       </SubComponents>

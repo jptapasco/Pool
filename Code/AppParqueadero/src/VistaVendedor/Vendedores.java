@@ -50,13 +50,14 @@ public class Vendedores extends javax.swing.JPanel {
         inputBuscar = new javax.swing.JTextField();
         btnBuscarSeller = new javax.swing.JButton();
         BtnConAsignar = new javax.swing.JButton();
-        TituloInformativo = new javax.swing.JLabel();
         BtnSinAsignar = new javax.swing.JButton();
+        TituloInformativo = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(15, 11, 25));
+        setBackground(new java.awt.Color(241, 230, 253));
+        setForeground(new java.awt.Color(241, 230, 253));
 
-        jButton2.setBackground(new java.awt.Color(123, 47, 152));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(113, 0, 234));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("CREAR VENDEDOR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +66,7 @@ public class Vendedores extends javax.swing.JPanel {
             }
         });
 
+        tablaVendedor.setBackground(new java.awt.Color(241, 230, 253));
         tablaVendedor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tablaVendedor.setForeground(new java.awt.Color(0, 0, 0));
         tablaVendedor.setModel(new javax.swing.table.DefaultTableModel(
@@ -78,14 +80,20 @@ public class Vendedores extends javax.swing.JPanel {
                 "DOCUMENTO", "NOMBRE", "APELLIDO", "VER", "EDITAR", "OPCION"
             }
         ));
+        tablaVendedor.setSelectionBackground(new java.awt.Color(113, 0, 234));
+        tablaVendedor.setShowGrid(true);
         jScrollPane1.setViewportView(tablaVendedor);
 
-        inputBuscar.setBackground(new java.awt.Color(255, 255, 255));
         inputBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         inputBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        inputBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputBuscarActionPerformed(evt);
+            }
+        });
 
-        btnBuscarSeller.setBackground(new java.awt.Color(123, 47, 152));
-        btnBuscarSeller.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBuscarSeller.setBackground(new java.awt.Color(113, 0, 234));
+        btnBuscarSeller.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBuscarSeller.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarSeller.setText("BUSCAR");
         btnBuscarSeller.addActionListener(new java.awt.event.ActionListener() {
@@ -94,8 +102,8 @@ public class Vendedores extends javax.swing.JPanel {
             }
         });
 
-        BtnConAsignar.setBackground(new java.awt.Color(123, 47, 152));
-        BtnConAsignar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BtnConAsignar.setBackground(new java.awt.Color(113, 0, 234));
+        BtnConAsignar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnConAsignar.setForeground(new java.awt.Color(255, 255, 255));
         BtnConAsignar.setText("VENDEDORES CON ASIGNACION");
         BtnConAsignar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,12 +112,8 @@ public class Vendedores extends javax.swing.JPanel {
             }
         });
 
-        TituloInformativo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        TituloInformativo.setForeground(new java.awt.Color(255, 255, 255));
-        TituloInformativo.setText("USUARIO CON PARQUEADEROS ASIGNADOS: ");
-
-        BtnSinAsignar.setBackground(new java.awt.Color(123, 47, 152));
-        BtnSinAsignar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BtnSinAsignar.setBackground(new java.awt.Color(113, 0, 234));
+        BtnSinAsignar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnSinAsignar.setForeground(new java.awt.Color(255, 255, 255));
         BtnSinAsignar.setText("VENDEDORES SIN ASIGNACION");
         BtnSinAsignar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,48 +122,49 @@ public class Vendedores extends javax.swing.JPanel {
             }
         });
 
+        TituloInformativo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        TituloInformativo.setForeground(new java.awt.Color(113, 0, 234));
+        TituloInformativo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TituloInformativo.setText("VENDEDORES");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TituloInformativo)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TituloInformativo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(inputBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscarSeller, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(BtnConAsignar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnSinAsignar)))
-                .addGap(18, 18, 18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                        .addComponent(BtnSinAsignar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(inputBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarSeller)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscarSeller)
-                    .addComponent(jButton2)
-                    .addComponent(inputBuscar))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnConAsignar, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(BtnSinAsignar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(TituloInformativo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscarSeller, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnConAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnSinAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -209,6 +214,10 @@ public class Vendedores extends javax.swing.JPanel {
     private void btnBuscarSellerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarSellerActionPerformed
         
     }//GEN-LAST:event_btnBuscarSellerActionPerformed
+
+    private void inputBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputBuscarActionPerformed
 
     public void mostrarVendedores(){
               

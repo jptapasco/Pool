@@ -75,7 +75,7 @@ public final class Historial extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tablaHistorial.setSelectionBackground(new java.awt.Color(227, 204, 251));
+        tablaHistorial.setSelectionBackground(new java.awt.Color(113, 0, 234));
         tablaHistorial.setShowGrid(true);
         jScrollPane1.setViewportView(tablaHistorial);
         if (tablaHistorial.getColumnModel().getColumnCount() > 0) {

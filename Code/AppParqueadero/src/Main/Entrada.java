@@ -59,7 +59,7 @@ public final class Entrada extends javax.swing.JPanel {
         setBackground(new java.awt.Color(241, 230, 253));
 
         btnEntrada.setBackground(new java.awt.Color(113, 0, 234));
-        btnEntrada.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnEntrada.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnEntrada.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrada.setText("INGRESAR");
         btnEntrada.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +84,7 @@ public final class Entrada extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(113, 0, 234));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("REGISTRAR ENTRADA DE VEHICULOS");
+        jLabel1.setText("REGISTRAR ENTRADA DE VEHÍCULOS");
 
         selectVehiculo.setBackground(new java.awt.Color(255, 255, 255));
         selectVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
