@@ -214,7 +214,9 @@
                                                 echo form_input($data);
                                             ?>
                                         </div>
-                                        <?php echo form_submit('mysubmit', 'Editar','class="btn btn-primary mt-4"');?> 
+                                        <div class="text-center">
+                                            <?php echo form_submit('mysubmit', 'Editar','class="btn btn-primary mt-4"');?> 
+                                        </div>
                                     <?php echo form_close();?>
 
                                     </div>

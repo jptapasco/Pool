@@ -16,8 +16,19 @@ class Usuarios extends CI_Controller
 
     public function listado()
     {
-        $vdata["respuesta"] = $this->Usuario->lista();
-        $this->load->view('Usuarios/usuarios', $vdata);
+        if (!$this->session->userdata('correo')) {
+            redirect('Login/index', 'refresh');
+        }elseif ($this->session->userdata('rol') === ROL_ADMIN) {
+            $vdata["respuesta"] = $this->Usuario->lista();
+            $this->load->view('Usuarios/usuarios', $vdata);
+        }else {
+            $alert = array(
+                'mensaje' => 'No tienes permisos.',
+                'color' => 'warning'
+            );
+            $this->session->set_flashdata('alert', $alert);
+            $this->load->view('DashboardCajero/plantillaCajero');
+        }
     }
 
     public function listadoEstado()
@@ -62,4 +73,5 @@ class Usuarios extends CI_Controller
         }
         redirect('Usuarios/listado','refresh');
     }
+
 }

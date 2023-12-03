@@ -9,12 +9,11 @@ class Productos extends CI_Controller
         $this->load->helper('form');
         $this->load->library('session');
         $this->load->model('Producto');
-        $this->load->model('Inventario');
         $this->load->helper('url');
         $this->load->database();
     }
 
-    public function rutaInventario()
+    public function rutaProductos()
     {
         $this->load->view('Productos/producto');
     }
@@ -27,7 +26,7 @@ class Productos extends CI_Controller
 
     public function guardar($id_producto = null)
     {
-        $vdata["nombre"] = $vdata["categoria"] = $vdata["fecha_registro"] = $vdata["descripcion"] = "";
+        $vdata["nombre"] = $vdata["categoria"] = $vdata["unidad_medida"] = $vdata["cantidad"] = $vdata["punto_reorden"] = $vdata["precio_compra"] = $vdata["valor_venta"] = $vdata["created_at"] = $vdata["observaciones"] = "";
 
         if(isset($id_producto))
         {
@@ -35,8 +34,13 @@ class Productos extends CI_Controller
             if(isset($id_producto)){
                 $vdata["nombre"]= $producto->nombre;
                 $vdata["categoria"]= $producto->categoria;
-                $vdata["fecha_registro"]= $producto->fecha_registro;
-                $vdata["descripcion"]= $producto->descripcion;
+                $vdata["unidad_medida"]= $producto->unidad_medida;
+                $vdata["cantidad"]= $producto->cantidad;
+                $vdata["punto_reorden"]= $producto->punto_reorden;
+                $vdata["precio_compra"]= $producto->precio_compra;
+                $vdata["valor_venta"]= $producto->valor_venta;
+                $vdata["created_at"]= $producto->created_at;
+                $vdata["observaciones"]= $producto->observaciones;
             }
         }        
         
@@ -44,28 +48,19 @@ class Productos extends CI_Controller
             $data_producto = array(
                 'nombre'            => $this->input->post("nombre"),
                 'categoria'         => $this->input->post("categoria"),
-                'fecha_registro'    => $this->input->post("fecha_registro"),
-                'descripcion'       => $this->input->post("descripcion")
-            );
-
-            $data_inventario = array(
                 'unidad_medida'     => $this->input->post("unidad_medida"),
                 'cantidad'          => $this->input->post("cantidad"),
                 'punto_reorden'     => $this->input->post("punto_reorden"),
-                'valor_compra'      => $this->input->post("valor_compra"),
+                'precio_compra'     => $this->input->post("precio_compra"),
                 'valor_venta'       => $this->input->post("valor_venta"),
-                'observaciones'     => $this->input->post("descripcion")
+                'created_at'        => $this->input->post("created_at"),
+                'observaciones'     => $this->input->post("observaciones")
             );
 
             if (isset($id_producto)) {
                 $this->Producto->update($id_producto, $data_producto);
             } else {
                 $id_producto_inserted = $this->Producto->insert($data_producto);
-
-                if ($id_producto_inserted) {
-                    $data_inventario['id_producto'] = $id_producto_inserted;
-                    $this->Inventario->insert($data_inventario);
-                }
             }
             redirect('Productos/listado', 'refresh');
         }
@@ -90,5 +85,13 @@ class Productos extends CI_Controller
 
             $this->load->view('productos/editarProducto', $data);
         }
+    }
+
+    public function obtenerPorCategoria()
+    {
+        $categoriaELegida = $this->input->post('categoria');
+        $respuesta = $this->Producto->obtenerProductoPorCategoria($categoriaELegida);
+        $data['respuesta_productos']=$respuesta;
+        $this->load->view('Caja/vender', $data);
     }
 }
