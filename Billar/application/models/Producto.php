@@ -67,4 +67,33 @@ class Producto extends CI_Model
 
         return $query->result();
     }
+
+    public function obtenerProductosAlcoholicos()
+    {
+        $this->db->select('*');
+        $this->db->from('productos');
+        $this->db->where('categoria', 'alcoholicos');
+        $query = $this->db->get();
+
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+
+    public function obtenerProductosNoAlcoholicos()
+    {
+        $this->db->select('*');
+        $this->db->from('productos');
+        $this->db->where('categoria', 'no_alcoholicos');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
 }

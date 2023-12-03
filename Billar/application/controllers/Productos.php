@@ -87,11 +87,36 @@ class Productos extends CI_Controller
         }
     }
 
-    public function obtenerPorCategoria()
+    public function obtener()
     {
-        $categoriaELegida = $this->input->post('categoria');
-        $respuesta = $this->Producto->obtenerProductoPorCategoria($categoriaELegida);
-        $data['respuesta_productos']=$respuesta;
+        $respuesta = $this->Producto->obtenerTodosLosProductos();
+        $data['respuesta_productos'] = $respuesta;
+        $this->load->view('Caja/vender', $data);
+    }
+
+    public function obtenerProductosAlcoholicos()
+    {
+        // Llamas al modelo Producto_model para obtener productos no alcohólicos
+        $this->load->model('Producto_model');
+        $respuesta_productos_alcoholicos = $this->Producto_model->obtenerProductosAlcoholicos();
+
+        // Pasas los datos a la vista
+        $data['respuesta_productos_alcoholicos'] = $respuesta_productos_alcoholicos;
+
+        // Cargas la vista 'Caja/vender' con los datos
+        $this->load->view('Caja/vender', $data);
+    }
+
+    public function obtenerProductosNoAlcoholicos()
+    {
+        // Llamas al modelo Producto_model para obtener productos no alcohólicos
+        $this->load->model('Producto_model');
+        $respuesta_productos_no_alcoholicos = $this->Producto_model->obtenerProductosNoAlcoholicos();
+
+        // Pasas los datos a la vista
+        $data['respuesta_productos_no_alcoholicos'] = $respuesta_productos_no_alcoholicos;
+
+        // Cargas la vista 'Caja/vender' con los datos
         $this->load->view('Caja/vender', $data);
     }
 }
