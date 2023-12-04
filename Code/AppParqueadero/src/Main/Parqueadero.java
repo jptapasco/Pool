@@ -128,19 +128,19 @@ public final class Parqueadero extends javax.swing.JPanel {
 
         etq_nombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         etq_nombre.setForeground(new java.awt.Color(0, 0, 0));
-        etq_nombre.setText("NO DISPONIBLE");
+        etq_nombre.setText("Null");
 
         etq_telefono.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         etq_telefono.setForeground(new java.awt.Color(0, 0, 0));
-        etq_telefono.setText("NO DISPONIBLE");
+        etq_telefono.setText("Null");
 
         etq_direccion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         etq_direccion.setForeground(new java.awt.Color(0, 0, 0));
-        etq_direccion.setText("NO DISPONIBLE");
+        etq_direccion.setText("Null");
 
         etq_vendedor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         etq_vendedor.setForeground(new java.awt.Color(0, 0, 0));
-        etq_vendedor.setText("NO DISPONIBLE");
+        etq_vendedor.setText("Null");
 
         etq_nit.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         etq_nit.setForeground(new java.awt.Color(0, 0, 0));
@@ -160,6 +160,31 @@ public final class Parqueadero extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(190, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelDireccion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(etq_direccion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelTelefono)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(etq_telefono))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(etq_nit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelVendedores)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(etq_vendedor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(etq_nombre))
+                    .addComponent(jLabelTarifas))
+                .addContainerGap(190, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
@@ -169,34 +194,6 @@ public final class Parqueadero extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscarVehiculoParqueadero)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(264, 264, 264)
-                .addComponent(jLabelTarifas)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelDireccion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(etq_direccion)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelTelefono)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(etq_telefono))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(etq_nit)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelVendedores)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(etq_vendedor)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelNombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(etq_nombre)))
-                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
