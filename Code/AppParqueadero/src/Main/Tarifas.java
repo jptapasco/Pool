@@ -67,7 +67,7 @@ public final class Tarifas extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tabTarifas.setSelectionBackground(new java.awt.Color(227, 204, 251));
+        tabTarifas.setSelectionBackground(new java.awt.Color(113, 0, 234));
         tabTarifas.setShowGrid(true);
         jScrollPane1.setViewportView(tabTarifas);
 

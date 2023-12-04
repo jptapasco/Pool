@@ -118,10 +118,11 @@ public class Parqueaderos extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabelTarifas)
                 .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bntCreateParking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bntCreateParking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                 .addContainerGap())
@@ -227,7 +228,7 @@ public class Parqueaderos extends javax.swing.JPanel {
 
     public void mostrarParqueaderos(){
         // PETICION PARA OBTENER TODOS LOS PARQUEADEROS 
-        String obtenerParkings = consumo.consumoGET("http://localhost:8080/obtenerParqueaderos");
+        String obtenerParkings = consumo.consumoGET("http://localhost/APIenPHP/API-parqueadero/Obtener.php");
         
         if( obtenerParkings != null ){
             JsonObject jsonTemp  = gson.fromJson(obtenerParkings, JsonObject.class);
@@ -242,7 +243,8 @@ public class Parqueaderos extends javax.swing.JPanel {
                 String nombre = viewParking.get("nombre").getAsString();
                 String direccion = viewParking.get("direccion").getAsString();       
                 JButton btnEditar = new JButton("EDITAR");
-                btnEditar.setBackground(new Color(123,47,152));
+                btnEditar.setBackground(new Color(255,204,204));
+                
                 btnEditar.setForeground(new Color(0, 0 ,0));
                 btnEditar.setFont(font);
                 JButton btnEliminar = new JButton("ELIMINAR");
@@ -297,7 +299,7 @@ public class Parqueaderos extends javax.swing.JPanel {
         Map<String, String> insertData = new HashMap<>();
         insertData.put("nit",nit);
         
-        String consultarParqueadero = consumo.consumoGET("http://localhost:8080/verificarParqueadero", insertData);
+        String consultarParqueadero = consumo.consumoGET("http://localhost/APIenPHP/API-parqueadero/verificarParqueadero.php", insertData);
         
         if( consultarParqueadero != null ){
               
@@ -331,7 +333,7 @@ public class Parqueaderos extends javax.swing.JPanel {
         Map<String, String> insertData = new HashMap<>();
         insertData.put("nit",nit);
         
-        String verificar = consumo.consumoGET("http://localhost:8080/verificarParqueadero", insertData);
+        String verificar = consumo.consumoGET("http://localhost/APIenPHP/API-parqueadero/verificarParqueadero.php", insertData);
         
          if( verificar != null ){
               

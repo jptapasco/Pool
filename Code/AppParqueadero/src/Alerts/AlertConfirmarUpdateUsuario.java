@@ -60,6 +60,7 @@ public class AlertConfirmarUpdateUsuario extends javax.swing.JFrame {
         btnConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(241, 230, 253));
 
@@ -103,33 +104,31 @@ public class AlertConfirmarUpdateUsuario extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
                         .addComponent(jButton1)
-                        .addGap(47, 47, 47)
-                        .addComponent(btnConfirmar)
-                        .addGap(35, 35, 35))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(45, 45, 45)
+                        .addComponent(btnConfirmar)))
+                .addGap(35, 35, 35))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfirmar)
                     .addComponent(jButton1))
-                .addGap(29, 29, 29))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,17 +145,6 @@ public class AlertConfirmarUpdateUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //MOSTRAMOS VENTA PRINCIPAL CON EL CONTENEDOR DEL PARUQEADERO
-        this.ventanaUpdate.contentVendedor.main.setVisible(true);
-        
-        //CERRAMOS VENTA DE UPDATE
-        this.ventanaUpdate.dispose();
-
-        //CERRAMOS VENTANA DE ALERTA PARA CONFIRMAR UPDATE 
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
 
         Map<String, String> UpdateData = new HashMap<>();
@@ -167,15 +155,14 @@ public class AlertConfirmarUpdateUsuario extends javax.swing.JFrame {
         UpdateData.put("email", email);
         UpdateData.put("contrasenia", contrasenia);
 
-        
         String update = consumo.consumoPOST("http://localhost/APIenPHP/API-Personas/Update.php", UpdateData);
         System.out.println("reponde update user "+update);
         JsonObject responseUpdate = gson.fromJson(update, JsonObject.class);
-        
+
         boolean status = responseUpdate.get("status").getAsBoolean();
-        
+
         if(status){
-            
+
             this.ventanaUpdate.contentVendedor.main.setVisible(true);
             this.ventanaUpdate.contentVendedor.mostrarVendedores();
             // MOSTRAMOS MENSAJE DE EXITO DE UPDATE
@@ -185,12 +172,23 @@ public class AlertConfirmarUpdateUsuario extends javax.swing.JFrame {
             // CERRAMOS VENTANA DE UPDATE
             this.ventanaUpdate.dispose();
 
-            // CERRAR VENTANA ACTUAL 
-            this.dispose(); 
-            
+            // CERRAR VENTANA ACTUAL
+            this.dispose();
+
         }
-      
+
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //MOSTRAMOS VENTA PRINCIPAL CON EL CONTENEDOR DEL PARUQEADERO
+        this.ventanaUpdate.contentVendedor.main.setVisible(true);
+
+        //CERRAMOS VENTA DE UPDATE
+        this.ventanaUpdate.dispose();
+
+        //CERRAMOS VENTANA DE ALERTA PARA CONFIRMAR UPDATE
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     
 

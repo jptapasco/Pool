@@ -90,7 +90,7 @@ public final class Parqueadero extends javax.swing.JPanel {
                 "TIKECT", "VEHÍCULO", "PLACA", "TITULAR", "TARIFA", "INGRESO", "TIEMPO/H", "SALIDA"
             }
         ));
-        tabVehiculosActuales.setSelectionBackground(new java.awt.Color(227, 204, 251));
+        tabVehiculosActuales.setSelectionBackground(new java.awt.Color(113, 0, 234));
         tabVehiculosActuales.setShowGrid(true);
         jScrollPane1.setViewportView(tabVehiculosActuales);
 

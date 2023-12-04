@@ -40,6 +40,7 @@ public class AlertConfirmarDesligar extends javax.swing.JFrame {
         btnDesligar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(241, 230, 253));
 
@@ -83,31 +84,31 @@ public class AlertConfirmarDesligar extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnCancelar)
-                        .addGap(32, 32, 32)
+                        .addGap(74, 74, 74)
                         .addComponent(btnDesligar))
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(35, 35, 35))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDesligar)
                     .addComponent(btnCancelar))
-                .addGap(28, 28, 28))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,15 +124,6 @@ public class AlertConfirmarDesligar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        //CERRAMOS VENTANA DE ALERTA PARA CONFIRMAR UPDATE
-        this.dispose();
-        
-        Main main = new Main();
-        main.setVisible(true);
-        
-    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnDesligarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesligarActionPerformed
 
@@ -150,28 +142,34 @@ public class AlertConfirmarDesligar extends javax.swing.JFrame {
         if( status ){
 
             this.contentVendedores.mostrarVendedores();
-            
+
             Main main = new Main();
             main.setVisible(true);
-            
-            
-            
+
             //MOSTRAMOS MENSAJE DE EXITO DE UPDATE
             AlertExitoDesvinculo mostrar = new AlertExitoDesvinculo();
             mostrar.setVisible(true);
-            
+
             //CERRA VETANA ACTUAL
             this.dispose();
         }else{
-            
+
             Main main = new Main();
             main.setVisible(true);
-            
+
             GeneratingAlert alert = new GeneratingAlert("ERROR", "PARECE QUE ESTA ASOCIADO");
             alert.setVisible(true);
         }
-
     }//GEN-LAST:event_btnDesligarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        //CERRAMOS VENTANA DE ALERTA PARA CONFIRMAR UPDATE
+        this.dispose();
+
+        Main main = new Main();
+        main.setVisible(true);
+
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void centrarPantalla(){
         // Centrar la ventana en la pantalla

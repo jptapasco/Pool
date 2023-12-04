@@ -156,13 +156,20 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void btnSellerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSellerActionPerformed
         // ACA VA EL CODIGO PARA EL INTERCAMBIO DE PANEL VENDEDOR
-        
+
         System.out.println("SE DIO AL BOTONO VENDEDORES");
-        
+
         panelPrincipal.removeAll();
-        
+
         Vendedores mostrarPanel = new Vendedores(this);
 
         mostrarPanel.setSize(panelPrincipal.getSize() );
@@ -173,12 +180,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSellerActionPerformed
 
     private void btnParkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParkingActionPerformed
-         // ACA VA EL CODIGO PARA EL INTERCAMBIO DE PANEL PARQUEADEROS
-        
+        // ACA VA EL CODIGO PARA EL INTERCAMBIO DE PANEL PARQUEADEROS
+
         System.out.println("SE DIO AL BOTONO PARQUEADERO");
-        
+
         panelPrincipal.removeAll();
-        
+
         Parqueaderos mostrarPanel = new Parqueaderos(this);
 
         mostrarPanel.setSize(panelPrincipal.getSize() );
@@ -187,13 +194,6 @@ public class Main extends javax.swing.JFrame {
         repaint();
         revalidate();
     }//GEN-LAST:event_btnParkingActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         this.dispose();
-         
-        Login login = new Login();
-        login.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
     
     private void centrarPantalla(){
         // Centrar la ventana en la pantalla

@@ -140,59 +140,66 @@ public class AsignarParqueadero extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campoCedula)
-                            .addComponent(campoNombre)
-                            .addComponent(campoApellido)
-                            .addComponent(btnCrear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(selectParking, javax.swing.GroupLayout.Alignment.TRAILING, 0, 219, Short.MAX_VALUE)
-                            .addComponent(campoTelefono, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(43, 43, 43))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6)
+                        .addComponent(campoCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6)
+                        .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6)
+                        .addComponent(campoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(12, 12, 12)
+                        .addComponent(campoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(12, 12, 12)
+                        .addComponent(selectParking, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(91, 91, 91)
+                        .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(selectParking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -209,9 +216,52 @@ public class AsignarParqueadero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoApellidoActionPerformed
+    private void selectParkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectParkingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoApellidoActionPerformed
+    }//GEN-LAST:event_selectParkingActionPerformed
+
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+
+        cedula = campoCedula.getText();
+        nombre = campoNombre.getText();
+        apellidos = campoApellido.getText();
+        celular = campoTelefono.getText();
+        String parqueadero = selectParking.getSelectedItem().toString();
+
+        System.out.println("CEDULA "+cedula);
+        System.out.println("PARQEUADERO "+parqueadero);
+
+        // Verificamos que los campos no estén vacíos
+        if (!cedula.isEmpty() && !nombre.isEmpty() && !celular.isEmpty() && !selectParking.getSelectedItem().equals("Seleccionar Parqueadero")) {
+
+            Map<String, String> insertPersona = new HashMap<>();
+            insertPersona.put("cedula", cedula);
+            insertPersona.put("parqueadero", parqueadero);
+
+            String insert = consumo.consumoPOST("http://localhost/APIenPHP/API-Personas/AsociarParqueadero.php", insertPersona);
+
+            System.out.println("RESPUESTA ASOCIACION: "+insert);
+
+            JsonObject respuestaInsert = gson.fromJson(insert, JsonObject.class);
+
+            boolean statusInsert = respuestaInsert.get("status").getAsBoolean();
+
+            if(statusInsert){
+
+                Main main = new Main();
+                main.setVisible(true);
+                contentVendedor.mostrarVendedores();
+                dispose();
+
+                AlertAsociacion alert = new AlertAsociacion();
+                alert.setVisible(true);
+            }
+
+        } else {
+            GeneratingAlert alert = new GeneratingAlert("ERROR","DATOS INCOMPLETOS");
+            alert.setVisible(true);
+        }
+    }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // ACA VA EL CODIGO PARA REGRESAR A LA VENTANA DE INICIO
@@ -220,11 +270,15 @@ public class AsignarParqueadero extends javax.swing.JFrame {
 
         Main main = new Main();
         main.setVisible(true);
-        
+
         this.contentVendedor.mostrarVendedores();
 
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void campoApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoApellidoActionPerformed
 
         private void mostrarContenido() {
             Map<String, String> queryPerson = new HashMap<>();
@@ -254,53 +308,6 @@ public class AsignarParqueadero extends javax.swing.JFrame {
 
     
     
-    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-
-        cedula = campoCedula.getText();
-        nombre = campoNombre.getText();
-        apellidos = campoApellido.getText();
-        celular = campoTelefono.getText();
-        String parqueadero = selectParking.getSelectedItem().toString();
-        
-        System.out.println("CEDULA "+cedula);
-        System.out.println("PARQEUADERO "+parqueadero);
-        
-        // Verificamos que los campos no estén vacíos
-        if (!cedula.isEmpty() && !nombre.isEmpty() && !celular.isEmpty() && !selectParking.getSelectedItem().equals("Seleccionar Parqueadero")) {
-            
-            Map<String, String> insertPersona = new HashMap<>();
-            insertPersona.put("cedula", cedula);
-            insertPersona.put("parqueadero", parqueadero);  
-
-            String insert = consumo.consumoPOST("http://localhost/APIenPHP/API-Personas/AsociarParqueadero.php", insertPersona);
-            
-            System.out.println("RESPUESTA ASOCIACION: "+insert);
-            
-            JsonObject respuestaInsert = gson.fromJson(insert, JsonObject.class);
-
-            boolean statusInsert = respuestaInsert.get("status").getAsBoolean();
-
-            if(statusInsert){
-
-                Main main = new Main();
-                main.setVisible(true);
-                contentVendedor.mostrarVendedores();
-                dispose();
-
-                AlertAsociacion alert = new AlertAsociacion();
-                alert.setVisible(true);
-            }
-            
-        } else {
-            GeneratingAlert alert = new GeneratingAlert("ERROR","DATOS INCOMPLETOS");
-            alert.setVisible(true);
-        }
-    }//GEN-LAST:event_btnCrearActionPerformed
-
-    private void selectParkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectParkingActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_selectParkingActionPerformed
-
     private void centrarPantalla(){
          // Centrar la ventana en la pantalla
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

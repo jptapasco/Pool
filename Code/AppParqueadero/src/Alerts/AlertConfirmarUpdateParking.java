@@ -111,33 +111,31 @@ public class AlertConfirmarUpdateParking extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
                         .addComponent(jButton1)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnConfirmar)
-                        .addGap(34, 34, 34))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(71, 71, 71)
+                        .addComponent(btnConfirmar)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(35, 35, 35)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(btnConfirmar))
-                .addGap(31, 31, 31))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -154,20 +152,8 @@ public class AlertConfirmarUpdateParking extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        //MOSTRAMOS VENTA PRINCIPAL CON EL CONTENEDOR DEL PARUQEADERO
-        this.ventanaUpdate.contentParqueadero.main.setVisible(true);
-        
-        //CERRAMOS VENTA DE UPDATE
-        this.ventanaUpdate.dispose();
-
-        //CERRAMOS VENTANA DE ALERTA PARA CONFIRMAR UPDATE 
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        
+
         // CODIGO PARA HACER EL UPDATE DEL PARQUEADERO
 
         Map<String, String> UpdateData = new HashMap<>();
@@ -175,7 +161,7 @@ public class AlertConfirmarUpdateParking extends javax.swing.JFrame {
         UpdateData.put("nombre", nombre);
         UpdateData.put("direccion", direccion);
         UpdateData.put("telefono", telefono);
-        
+
         // El nombre no existe, proceder con la actualización
         String update = consumo.consumoPOST("http://localhost:8080/actualizarParqueadero", UpdateData);
 
@@ -191,16 +177,28 @@ public class AlertConfirmarUpdateParking extends javax.swing.JFrame {
             this.ventanaUpdate.contentParqueadero.mostrarParqueaderos();
             // MOSTRAMOS MENSAJE DE EXITO DE UPDATE
             GeneratingAlert mostrar = new GeneratingAlert("EXITO", "ACTUALIZACION COMPLETADA");
-            mostrar.setVisible(true); 
+            mostrar.setVisible(true);
 
             // CERRAMOS VENTANA DE UPDATE
             this.ventanaUpdate.dispose();
 
             // CERRAR VENTANA ACTUAL
             this.dispose();
-            
+
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        //MOSTRAMOS VENTA PRINCIPAL CON EL CONTENEDOR DEL PARUQEADERO
+        this.ventanaUpdate.contentParqueadero.main.setVisible(true);
+
+        //CERRAMOS VENTA DE UPDATE
+        this.ventanaUpdate.dispose();
+
+        //CERRAMOS VENTANA DE ALERTA PARA CONFIRMAR UPDATE
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
