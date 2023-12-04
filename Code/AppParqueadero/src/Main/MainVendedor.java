@@ -26,6 +26,16 @@ public class MainVendedor extends javax.swing.JFrame {
         this.id_asignacion = id_asignacion;
         initComponents();
         
+        panelPrincipal.removeAll();
+
+        Parqueadero mostrarPanel = new Parqueadero(this, nit, nombre, direccion, telefono, user);
+
+        mostrarPanel.setSize(panelPrincipal.getSize() );
+        panelPrincipal.add( mostrarPanel );
+
+        repaint();
+        revalidate();
+        
         try {
             // Cargar la imagen desde el archivo en el directorio de recursos
             BufferedImage originalImage = ImageIO.read(getClass().getResource("/Img/carrito.png"));

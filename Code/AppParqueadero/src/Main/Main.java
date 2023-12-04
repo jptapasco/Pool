@@ -16,6 +16,16 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         centrarPantalla();
         
+        panelPrincipal.removeAll();
+
+        Parqueaderos mostrarPanel = new Parqueaderos(this);
+
+        mostrarPanel.setSize(panelPrincipal.getSize() );
+        panelPrincipal.add( mostrarPanel );
+        
+        repaint();
+        revalidate();
+        
         try {
             // Cargar la imagen desde el archivo en el directorio de recursos
             BufferedImage originalImage = ImageIO.read(getClass().getResource("/Img/carrito.png"));
