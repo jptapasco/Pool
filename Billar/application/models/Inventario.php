@@ -1,15 +1,25 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Producto extends CI_Model
+class Inventario extends CI_Model
 {
-    public $table = 'productos';
-    public $table_id = 'id_producto';
+    public $table_i = 'inventario';
+    public $table_p = 'productos';
+    public $table_id = 'id_inventario';
 
     public function __construct()
     {
         parent::__construct();
         $this->load->database();
+    }
+
+    public function guardar($data)
+    {
+        if (isset($data['id_inventario'])) {
+            return $this->update($data);
+        } else {
+            return $this->insert($data);
+        }
     }
 
     public function borrar($id)
@@ -18,35 +28,38 @@ class Producto extends CI_Model
         $this->db->delete($this->table);
     }
 
+    public function lista_p()
+    {
+        $query = $this->db->get($this->table_p);
+        return $query->result();
+    }
+
+    public function lista_i()
+    {
+        $query = $this->db->get($this->table_i);
+        return $query->result();
+    }
+
     public function find($id)
     {
         $this->db->select();
-        $this->db->from($this->table);
+        $this->db->from($this->table_i);
         $this->db->where($this->table_id,$id);
 
         $query = $this->db->get();
         return $query->row();
     }
 
-    public function lista()
+    public function insert($data)
     {
-        $query = $this->db->get($this->table);
-        return $query->result();
-    }
-
-    public function insert($data)      
-    {
-        $this->db->insert($this->table, $data);
+        $this->db->insert($this->table_i, $data);
         return $this->db->insert_id();
     }
 
-    public function update($id,$data)
+    public function update($id, $data)
     {
-        $allowed_keys = ['nombre', 'categoria', 'unidad_medida', 'cantidad', 'punto_reorden', 'precio_compra', 'valor_venta', 'created_at', 'observaciones'];
-        $filtered_data = array_intersect_key($data, array_flip($allowed_keys));
-
         $this->db->where($this->table_id, $id);
-        $this->db->update($this->table, $filtered_data);
+        $this->db->update($this->table_i, $data);
     }
 
     public function obtenerProducto($idProducto)

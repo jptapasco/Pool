@@ -16,19 +16,8 @@ class Usuarios extends CI_Controller
 
     public function listado()
     {
-        if (!$this->session->userdata('correo')) {
-            redirect('Login/index', 'refresh');
-        }elseif ($this->session->userdata('rol') === ROL_ADMIN) {
-            $vdata["respuesta"] = $this->Usuario->lista();
-            $this->load->view('Usuarios/usuarios', $vdata);
-        }else {
-            $alert = array(
-                'mensaje' => 'No tienes permisos.',
-                'color' => 'warning'
-            );
-            $this->session->set_flashdata('alert', $alert);
-            $this->load->view('DashboardCajero/plantillaCajero');
-        }
+        $vdata["respuesta"] = $this->Usuario->lista();
+        $this->load->view('Usuarios/usuarios', $vdata);
     }
 
     public function listadoEstado()
