@@ -158,7 +158,7 @@ public final class Entrada extends javax.swing.JPanel {
     }
     
     //Botón para editar parqueadero
-    private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaActionPerformed
+    private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {                                           
        
         placa = inputPlaca.getText();
         vehiculo = selectVehiculo.getSelectedItem().toString();
@@ -278,12 +278,16 @@ public final class Entrada extends javax.swing.JPanel {
 
                             GeneratingAlert alert = new GeneratingAlert("EXITO","REGISTRO EXITOSO");
                             alert.setVisible(true);
-                        } 
-
+                        }
+                    }
+                }
+            }
         }
+    }
+
 
     private void selectVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectVehiculoActionPerformed
-      
+        // TODO add your handling code here:
     }//GEN-LAST:event_selectVehiculoActionPerformed
 
     private void inputPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPlacaActionPerformed
