@@ -97,6 +97,10 @@
             </button>
         </div>
     </div>
+        <?php $this->load->view('Menu/menu'); ?>
+        <h1 class="text-center mt-3">Venta de productos</h1>
+    </div>
+
     <!-- Footer -->
     <?php $this->load->view('Footer/footer'); ?>
 
@@ -232,5 +236,5 @@
         });
     </script>
 </body>
-
+</body>
 </html>

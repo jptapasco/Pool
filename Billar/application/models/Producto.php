@@ -67,4 +67,10 @@ class Producto extends CI_Model
 
         return $query->result();
     }
+  
+    public function modificar_cantidad($id_producto, $cantidad){
+        $this->db->set('cantidad', $cantidad);
+        $this->db->where($this->table_id, $id_producto);
+        $this->db->update($this->table);
+    }
 }

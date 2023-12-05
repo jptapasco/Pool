@@ -64,7 +64,6 @@
         <div class="row">
 
           <div class="col-4"></div>
-
           <!-- /.col -->
           <div class="col-4">
             <?php echo form_submit('mysubmit', 'Ingresar', 'class="btn btn-primary btn-block"'); ?>

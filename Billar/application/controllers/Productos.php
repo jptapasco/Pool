@@ -94,4 +94,5 @@ class Productos extends CI_Controller
         $data['respuesta_productos']=$respuesta;
         $this->load->view('Caja/vender', $data);
     }
+
 }

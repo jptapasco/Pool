@@ -360,6 +360,7 @@
                         <?php echo form_submit('mysubmit', 'Agregar','class="btn btn-primary"');?> 
                     </div>
                 </div>
+                <?php echo form_close();?>
             </div>
         </div>
 

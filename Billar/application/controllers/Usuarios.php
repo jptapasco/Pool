@@ -37,6 +37,12 @@ class Usuarios extends CI_Controller
         $this->load->view('Usuarios/listado', $vdata);
     }
 
+    public function listadoEstado()
+    {
+        $vdata["estado"] = $this->Usuario->obtenerPorEstado();
+        $this->load->view('Usuarios/listado', $vdata);
+    }
+
     public function guardar($id_usuario = null)
     {
         $vdata["rol"] = $vdata["documento"] = $vdata["nombres"] = $vdata["telefono"] = $vdata["correo"] = $vdata["contrasena"] = "";
