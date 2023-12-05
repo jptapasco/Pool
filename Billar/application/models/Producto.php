@@ -42,7 +42,7 @@ class Producto extends CI_Model
 
     public function update($id,$data)
     {
-        $allowed_keys = ['nombre', 'categoria'];
+        $allowed_keys = ['nombre', 'categoria', 'unidad_medida', 'cantidad', 'punto_reorden', 'precio_compra', 'valor_venta', 'created_at', 'observaciones'];
         $filtered_data = array_intersect_key($data, array_flip($allowed_keys));
 
         $this->db->where($this->table_id, $id);
@@ -58,6 +58,16 @@ class Producto extends CI_Model
         return $query->row();
     }
 
+    public function obtenerProductoPorCategoria($categoriaElegida)
+    {
+        $this->db->select('*');
+        $this->db->from('productos');
+        $this->db->where('categoria',$categoriaElegida);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+  
     public function modificar_cantidad($id_producto, $cantidad){
         $this->db->set('cantidad', $cantidad);
         $this->db->where($this->table_id, $id_producto);

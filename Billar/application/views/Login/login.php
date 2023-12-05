@@ -60,16 +60,19 @@
             </div>
           </div>
         </div>
+
         <div class="row">
-          <div class="col-8"></div>
+
+          <div class="col-4"></div>
           <!-- /.col -->
           <div class="col-4">
-            <?php echo form_submit('mysubmit', 'Sign In', 'class="btn btn-primary btn-block"'); ?>
+            <?php echo form_submit('mysubmit', 'Ingresar', 'class="btn btn-primary btn-block"'); ?>
           </div>
           <!-- /.col -->
         </div>
+        
       <?php echo form_close(); ?>
-      <div class="row mt-3">
+      <div class="row mt-3">  
             <div class="col">
               <?php
                 $alert = $this->session->flashdata('alert');
