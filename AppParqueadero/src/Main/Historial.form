@@ -10,7 +10,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+      <Color blue="fd" green="e6" red="f1" type="rgb"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -31,7 +31,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" pref="671" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="727" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabelDireccion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -44,12 +44,19 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="282" max="-2" attributes="0"/>
+              <Component id="jLabelTarifas" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Component id="jLabelTarifas" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnBuscarHistorial" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="inputBuscarHistorial" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
@@ -57,7 +64,7 @@
                   <Component id="jLabelDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="319" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="388" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -73,6 +80,9 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tablaHistorial">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fd" green="e6" red="f1" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
@@ -138,6 +148,10 @@
                 </Column>
               </TableColumnModel>
             </Property>
+            <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ea" green="0" red="71" type="rgb"/>
+            </Property>
+            <Property name="showGrid" type="boolean" value="true"/>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
@@ -153,7 +167,7 @@
     <Component class="javax.swing.JButton" name="btnBuscarHistorial">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="72" green="3b" red="49" type="rgb"/>
+          <Color blue="ea" green="0" red="71" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
@@ -175,12 +189,26 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="1"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ea" green="0" red="71" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="FECHA:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="etq_fecha">
       <Properties>
         <Property name="text" type="java.lang.String" value="NO DISPONIBLE"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelTarifas">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="36" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ea" green="0" red="71" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="HISTORIAL"/>
       </Properties>
     </Component>
   </SubComponents>
