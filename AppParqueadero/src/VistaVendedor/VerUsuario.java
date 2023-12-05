@@ -16,7 +16,6 @@ public class VerUsuario extends javax.swing.JFrame {
     String nombre;
     String apellidos;
     String celular;
-    String parking;
     String email;
     String contrasenia;
     
@@ -254,7 +253,6 @@ public class VerUsuario extends javax.swing.JFrame {
         main.setVisible(true);
 
         this.contentVendedor.mostrarVendedores();
-
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 

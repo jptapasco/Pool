@@ -3,16 +3,11 @@ package VistaParqueadero;
 
 import Alerts.AlertConfirmarUpdateParking;
 import Alerts.GeneratingAlert;
-import Main.ConsumoApi;
-import Main.Main;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.HashMap;
-import java.util.Map;
 
 public class UpdateParking extends javax.swing.JFrame {
     
@@ -33,8 +28,6 @@ public class UpdateParking extends javax.swing.JFrame {
         initComponents();
         initAlternComponents();
         centrarPantalla();
-        
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -230,9 +223,7 @@ public class UpdateParking extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNombreActionPerformed
 
-    public void initAlternComponents(){
-        
-        
+    public void initAlternComponents(){        
         System.out.println("");
         System.out.println("JSON QUE ME LLEGO: "+jsonParqueadero);
         System.out.println("");
@@ -251,9 +242,7 @@ public class UpdateParking extends javax.swing.JFrame {
         campoNit.setText(nit);
         campoNombre.setText(nombre);
         campoDireccion.setText(direccion);
-        campoTelefono.setText(telefono); 
-        
-        
+        campoTelefono.setText(telefono);                 
     }   
     
     private void centrarPantalla(){

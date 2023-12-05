@@ -22,7 +22,7 @@ if (!empty($_POST['nit'])) {
         } else {
             $respuesta = [
                 'status' => false,
-                'message' => "No se encontraron resultados para los valores proporcionados en 'nit' o 'nombre'."
+                'message' => "No se encontraron resultados para los valores proporcionados en nit o nombre."
             ];
             echo json_encode($respuesta);
         }

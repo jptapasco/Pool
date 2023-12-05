@@ -181,11 +181,13 @@ public class Parqueaderos extends javax.swing.JPanel {
                     JsonObject viewParking = parking.get(i).getAsJsonObject();
                     String nit2 = viewParking.get("nit").getAsString();
                     String nombre = viewParking.get("nombre").getAsString();
-                    String direccion = viewParking.get("direccion").getAsString();       
+                    String direccion = viewParking.get("direccion").getAsString(); 
+                    
                     JButton btnEditar = new JButton("EDITAR");
                     btnEditar.setBackground(new Color(123,47,152));
                     btnEditar.setForeground(new Color(0, 0 ,0));
                     btnEditar.setFont(font);
+                    
                     JButton btnEliminar = new JButton("ELIMINAR");
                     btnEliminar.setBackground(new Color(255, 75, 75));
                     btnEliminar.setForeground(new Color(0,0,0));
@@ -277,11 +279,6 @@ public class Parqueaderos extends javax.swing.JPanel {
     }    
     
     public void accionClickBotonEditar(int fila) {
-        
-        
-        
-        
-        
         // Obtener los datos de la fila seleccionada
         String nit = (String) modelo.getValueAt(fila, 0);
         String nombre = (String) modelo.getValueAt(fila, 1);
@@ -299,7 +296,7 @@ public class Parqueaderos extends javax.swing.JPanel {
         Map<String, String> insertData = new HashMap<>();
         insertData.put("nit",nit);
         
-        String consultarParqueadero = consumo.consumoGET("http://localhost/APIenPHP/API-parqueadero/verificarParqueadero.php", insertData);
+        String consultarParqueadero = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/VerificarParqueadero.php", insertData);
         
         if( consultarParqueadero != null ){
               
@@ -309,7 +306,6 @@ public class Parqueaderos extends javax.swing.JPanel {
             
             // OCULTAMOS EL PANEL ACTUAL
             this.main.setVisible(false);
-            
         }
        
     }
@@ -323,7 +319,7 @@ public class Parqueaderos extends javax.swing.JPanel {
         
          // Ejemplo de cómo mostrar los datos en la consola
         System.out.println("");
-        System.out.println("Se hizo clic en el botón de edición en la fila " + fila);
+        System.out.println("Se hizo clic en el botón de Eliminar en la fila " + fila);
         System.out.println("NIT: " + nit);
         System.out.println("Nombre: " + nombre);
         System.out.println("Dirección: " + direccion);
@@ -333,14 +329,12 @@ public class Parqueaderos extends javax.swing.JPanel {
         Map<String, String> insertData = new HashMap<>();
         insertData.put("nit",nit);
         
-        String verificar = consumo.consumoGET("http://localhost/APIenPHP/API-parqueadero/verificarParqueadero.php", insertData);
-        
-         if( verificar != null ){
-              
+        String consultarParqueadero = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/VerificarParqueadero.php", insertData);
+        System.out.println("consumo verificar: " + consultarParqueadero);
+        if(consultarParqueadero != null){
             //HACEMOS EL CAMBIO DE VENTANA PARA MOSTRAR EL FORM DONDE EDITAMOS EL PARQUEADERO 
             DeleteParking mostrarFrame = new DeleteParking(nit,nombre,this);
             mostrarFrame.setVisible(true);
-            
             // OCULTAMOS EL PANEL ACTUAL
             this.main.dispose();
         }

@@ -201,10 +201,8 @@ public class DeleteParking extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
         AlertConfirmarDeleteParking confirmar = new AlertConfirmarDeleteParking(nit,this);
         confirmar.setVisible(true);
-
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -233,13 +231,11 @@ public class DeleteParking extends javax.swing.JFrame {
         insertData.put("nit",nit);
         
         //HACER LA PETICION
-        String obtenerDatos = consumo.consumoGET("http://localhost:8080/VerificarParqueadero", insertData);
-        
+        String obtenerDatos = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/VerificarParqueadero.php", insertData);        
         if(obtenerDatos != null ){
           
             System.out.println("Datos llegados: "+obtenerDatos);
             
-            //DECODIFICAR EL JSON
             JsonObject jsonTemp = gson.fromJson(obtenerDatos, JsonObject.class);
             JsonArray parking = jsonTemp.getAsJsonArray("registros");
             JsonObject parqueadero = parking.get(0).getAsJsonObject();

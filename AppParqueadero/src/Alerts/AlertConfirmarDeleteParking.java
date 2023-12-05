@@ -130,15 +130,13 @@ public class AlertConfirmarDeleteParking extends javax.swing.JFrame {
         Map<String, String> insertData = new HashMap<>();
         insertData.put("nit",nit);
 
-        String delete = consumo.consumoPOST("http://localhost:8080/eliminarParqueadero", insertData);
+        String delete = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/Delete.php", insertData);
 
         System.out.println("Lo que llego"+delete);
-
-        JsonObject jsonResponse = gson.fromJson(delete, JsonObject.class);
-
-        boolean status = jsonResponse.get("status").getAsBoolean();
-
-        if( status ){
+        JsonObject jsonTemp = gson.fromJson(delete, JsonObject.class);
+        boolean status = jsonTemp.get("status").getAsBoolean();
+        
+        if(status){
 
             //MOSTRAMOS VENTANA MAIN CON CONTENEDOR PARUQEADEROS
             Main main = new Main();
@@ -155,7 +153,6 @@ public class AlertConfirmarDeleteParking extends javax.swing.JFrame {
             //CERRA VETANA ACTUAL
             this.dispose();
         }else{
-
             //MOSTRAMOS VENTANA MAIN CON CONTENEDOR PARUQEADEROS
             this.delete.contentParqueadero.main.setVisible(true);
             this.delete.contentParqueadero.mostrarParqueaderos();

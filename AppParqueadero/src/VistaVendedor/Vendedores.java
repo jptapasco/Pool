@@ -6,8 +6,6 @@ import Clases.ButtonEditor;
 import Clases.ButtonRenderer;
 import Main.ConsumoApi;
 import Main.Main;
-import VistaParqueadero.DeleteParking;
-import VistaParqueadero.UpdateParking;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -30,7 +28,6 @@ public class Vendedores extends javax.swing.JPanel {
     public Main main;
     
     public Vendedores(Main main) {
-        
         consumo = new ConsumoApi();
         this.main = main;
         gson = new Gson();
@@ -38,6 +35,10 @@ public class Vendedores extends javax.swing.JPanel {
         initComponents();
         initAlternComponets();
         mostrarVendedores();
+    }
+
+    Vendedores() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @SuppressWarnings("unchecked")
@@ -212,7 +213,83 @@ public class Vendedores extends javax.swing.JPanel {
     }//GEN-LAST:event_BtnSinAsignarActionPerformed
 
     private void btnBuscarSellerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarSellerActionPerformed
+        // ACA VA EL CODIGO PARA BUSCAR USUARIO
+        System.out.println("\n SE APRETO EL BOTON DE BUSCAR USUARIO \n");
         
+        String cedula = inputBuscar.getText();
+        if(cedula != null && !cedula.isEmpty()) {
+            // MAPEAMOS LOS DATOS
+            Map<String, String> consultaUser = new HashMap<>();
+            consultaUser.put("cedula",cedula);
+            String consultarUsuario = consumo.consumoPOST("http://localhost/APIenPHP/API-Personas/VerificarPersona.php",consultaUser);
+            System.out.println("consultar usuario: " + consultarUsuario);
+            JsonObject jsonResponse = gson.fromJson(consultarUsuario, JsonObject.class);
+
+            boolean status = jsonResponse.get("status").getAsBoolean();
+            if (status) {
+                modelo.setRowCount(0);
+                JsonArray usuario = jsonResponse.getAsJsonArray("registros");
+                for(int i = 0; i < usuario.size(); i++ ){
+                    JsonObject viewUser = usuario.get(i).getAsJsonObject();
+                    String nombre = viewUser.get("nombre").getAsString();
+                    String apellido = viewUser.get("apellidos").getAsString();
+                    String cedulaB = viewUser.get("cedula").getAsString();   
+
+                    JButton btnVer = new JButton("VER");
+                    btnVer.setBackground(new Color(207,191,255));
+                    btnVer.setForeground(new Color(0,0,0));
+                    btnVer.setFont(font);
+
+                    JButton btnEditar = new JButton("EDITAR");
+                    btnEditar.setBackground(new Color(255,204,204));
+                    btnEditar.setForeground(new Color(0,0,0));
+                    btnEditar.setFont(font);
+
+                    JButton btnDesligar = new JButton("DESLIGAR");
+                    btnDesligar.setBackground(new Color(255, 75, 75));
+                    btnDesligar.setForeground(new Color(0,0,0));
+                    btnDesligar.setFont(font);
+
+                     // Crear un botón de edición para cada fila
+                    final int posicion = i;
+
+                     btnVer.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            accionClickBotonVer( posicion );
+                        }
+                    });
+
+                    btnEditar.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            accionClickBotonEditar( posicion );
+                        }
+                    });
+
+                    btnDesligar.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            accionClickBotonDesligar( posicion );
+                        }
+                    });
+                    
+                    Object[] fila = new Object[]{cedulaB,nombre,apellido,btnVer,btnEditar,btnDesligar};
+
+                    modelo.addRow(fila);
+                }
+            }else{
+                GeneratingAlert alert = new GeneratingAlert("ERROR", "VENDEDOR NO ENCONTRADO");
+                alert.setVisible(true);
+                inputBuscar.setText("");
+                mostrarVendedores();
+            }
+        }else {
+            //HACEMOS APARECER UNA ALERTA
+            GeneratingAlert mostrarFrame = new GeneratingAlert("ERROR","POR FAVOR INGRESE UN DATO");
+            mostrarFrame.setVisible(true);
+            mostrarVendedores();
+        }
     }//GEN-LAST:event_btnBuscarSellerActionPerformed
 
     private void inputBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputBuscarActionPerformed
@@ -288,7 +365,7 @@ public class Vendedores extends javax.swing.JPanel {
     }
     
     public void mostrarVendedoresSinAsignar(){
-          TituloInformativo.setText("USUARIOS CON PARQUEADEROS SIN ASOCIAR:");
+        TituloInformativo.setText("USUARIOS CON PARQUEADEROS SIN ASOCIAR:");
         
         String obtenerPersonas = consumo.consumoGET("http://localhost/APIenPHP/API-Personas/ObtenerPersonasSinAsignar.php");
          
@@ -350,8 +427,8 @@ public class Vendedores extends javax.swing.JPanel {
                 
             }
         }else{
-             System.out.println("NO SE ENCONTRO");
-         }
+            System.out.println("NO SE ENCONTRO");
+        }
     }
     
     public void accionClickBotonVer(int fila) {

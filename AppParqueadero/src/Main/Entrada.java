@@ -1,14 +1,11 @@
 package Main;
 import Alerts.GeneratingAlert;
-import Alerts.RegistroExitoso;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -157,12 +154,8 @@ public final class Entrada extends javax.swing.JPanel {
 
     //Inicializando tabla de vehiculos actuales
     public void initAlternComponets(){
-       
-        
         
     }
-    
-    
     
     //Botón para editar parqueadero
     private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaActionPerformed
@@ -240,7 +233,7 @@ public final class Entrada extends javax.swing.JPanel {
                 insertRegistroV.put("placa", placa);
                 insertRegistroV.put("responsable", encargado);
                 
-                String insetRegistrov = consumo.consumoPOST("http://localhost/APIenPHP/API-ticket/insertRegistro.php", insertRegistroV);
+                String insetRegistrov = consumo.consumoPOST("http://localhost/APIenPHP/API-Ticket/insertRegistro.php", insertRegistroV);
                 
                 System.out.println("INSERTANDO NUEVO REGISTRO: "+insetRegistrov);
                 
@@ -272,7 +265,7 @@ public final class Entrada extends javax.swing.JPanel {
                         ticket.put("id_asignacion", id_asignacion);
                         ticket.put("id_tarifa", idTarifaObtenido);
 
-                        String insertTicket = consumo.consumoPOST("http://localhost/APIenPHP/API-ticket/insertTicket.php", ticket);
+                        String insertTicket = consumo.consumoPOST("http://localhost/APIenPHP/API-Ticket/insertTicket.php", ticket);
 
                         JsonObject response1 = gson.fromJson(insertTicket, JsonObject.class);
 
@@ -287,11 +280,7 @@ public final class Entrada extends javax.swing.JPanel {
                             alert.setVisible(true);
                         } 
 
-                    }    
-                } 
-            }
         }
-    }//GEN-LAST:event_btnEntradaActionPerformed
 
     private void selectVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectVehiculoActionPerformed
       

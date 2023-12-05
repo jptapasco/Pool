@@ -201,14 +201,12 @@ public class CreateParking extends javax.swing.JFrame {
             comprobarParqueadero.put("nit", nit);
 
             // Hacemos la petición POST para verificar si el parqueadero ya existe
-            String verificarParqueadero = consumo.consumoPOST("http://localhost:8080/verificarParqueadero", comprobarParqueadero);
+            String verificarParqueadero = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/VerificarParqueadero.php", comprobarParqueadero);
 
-            JsonObject jsonResponse = gson.fromJson(verificarParqueadero, JsonObject.class);
-
-            boolean status = jsonResponse.get("status").getAsBoolean();
-
+            System.out.println("respuesta del API: " + verificarParqueadero);
+            JsonObject jsonTemp = gson.fromJson(verificarParqueadero, JsonObject.class);
+            boolean status = jsonTemp.get("status").getAsBoolean();
             if (status) {
-
                 // Mostramos una alerta de que el parqueadero ya existe
                 System.out.println("\n LA EMPRESA YA SE ENCUENTRA CREADA \n");
                 GeneratingAlert alerta = new GeneratingAlert("ERROR", "PARQUEADERO REPETIDO");
@@ -226,7 +224,7 @@ public class CreateParking extends javax.swing.JFrame {
                 insertData.put("telefono", telefono);
 
                 // Hacemos la petición para insertar la nueva empresa
-                String crearEmpresa = consumo.consumoPOST("http://localhost:8080/insertarParqueadero", insertData);
+                String crearEmpresa = consumo.consumoPOST("http://localhost/APIenPHP/API-parqueadero/Insert.php", insertData);
 
                 System.out.println("Respuesta: " + crearEmpresa);
 
