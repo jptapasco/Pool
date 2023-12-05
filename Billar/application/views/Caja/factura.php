@@ -33,6 +33,7 @@
                         <th scope="col">subtotal</th>
                     </tr>
                 </thead>
+                <!-- ... -->
                 <?php if (!empty($ventas)) : ?>
                     <tbody>
                         <?php foreach ($ventas as $key => $venta) : ?>
@@ -40,15 +41,17 @@
                                 <td><?php echo $venta['nombre']; ?></td>
                                 <td><?php echo $venta['valor']; ?></td>
                                 <td>
-                                    <button class="btn btn-primary" onclick="updateQuantity(<?php echo $key; ?>, -1)">-</button>
+                                    <button class="btn btn-primary" onclick="updateQuantity(<?php echo $key; ?>, -1, <?php echo $venta['valor']; ?>)">-</button>
                                     <span id="cantidad_<?php echo $key; ?>"><?php echo $venta['cantidad']; ?></span>
-                                    <button class="btn btn-primary" onclick="updateQuantity(<?php echo $key; ?>, 1)">+</button>
+                                    <button class="btn btn-primary" onclick="updateQuantity(<?php echo $key; ?>, 1, <?php echo $venta['valor']; ?>)">+</button>
                                 </td>
                                 <td id="subtotal_<?php echo $key; ?>"><?php echo $venta['cantidad'] * $venta['valor']; ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 <?php endif; ?>
+                <!-- ... -->
+
             </table>
         </div>
     </div>
@@ -75,16 +78,15 @@
     <!-- Buscar -->
     <script src="<?php echo base_url() ?>/assets/dist/js/buscar.js"></script>
     <script>
-        function updateQuantity(index, change) {
+        function updateQuantity(index, change, value) {
             // Obtener la celda de cantidad y subtotal
             var quantityCell = document.getElementById("cantidad_" + index);
             var subtotalCell = document.getElementById("subtotal_" + index);
-            
-            // Obtener la cantidad actual y el valor
-            var currentQuantity = parseInt(quantityCell.innerHTML);
-            var value = <?php echo json_encode($ventas[$key]['valor']); ?>;
 
-            // Actualizar la cantidad
+            // Obtener la cantidad actual
+            var currentQuantity = parseInt(quantityCell.innerHTML);
+
+            // Calcular la nueva cantidad
             var newQuantity = currentQuantity + change;
             if (newQuantity <= 0) {
                 newQuantity = 1;
@@ -93,7 +95,7 @@
             // Actualizar la cantidad en la celda de cantidad
             quantityCell.innerHTML = newQuantity;
 
-            // Actualizar el subtotal
+            // Actualizar el subtotal específico de la fila
             var newSubtotal = newQuantity * value;
             subtotalCell.innerHTML = newSubtotal;
         }

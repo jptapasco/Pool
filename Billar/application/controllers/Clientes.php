@@ -14,16 +14,9 @@ class Clientes extends CI_Controller {
     {   
         if (!$this->session->userdata('correo')) {
             redirect('Login/index', 'refresh');
-        }elseif ($this->session->userdata('rol') === ROL_ADMIN) {
+        }elseif ($this->session->userdata('rol') === ROL_CAJERO || $this->session->userdata('rol') === ROL_ADMIN) {
             $vdata["clientes"] = $this->Cliente->obtener_clientes();
             $this->load->view('Clientes/cliente', $vdata);
-        }else {
-            $alert = array(
-                'mensaje' => 'No tienes permisos.',
-                'color' => 'warning'
-            );
-            $this->session->set_flashdata('alert', $alert);
-            $this->load->view('DashboardCajero/plantillaCajero');
         }
     }
 

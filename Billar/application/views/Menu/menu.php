@@ -9,13 +9,10 @@
     <?php $rol = $this->session->userdata('rol');
       if($rol == 'cajero'){ ?>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Vender</a>
+        <a href="<?php echo site_url('Caja/indexCaja') ?>" class="nav-link">Vender</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link">Resumen</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Pedidos</a>
         </li>
       <?php
       }
@@ -167,6 +164,17 @@
               <p>Usuarios</p>
             </a>
           </li>
+        <?php
+        }elseif ($rol == 'cajero') { ?>
+          <li class="nav-item">
+            <a href="<?php echo site_url('Caja/indexCaja') ?>" class="nav-link">
+              <i class="fa-solid fa-shop ml-1 mr-1"></i>
+              <p>Caja</p>
+            </a>
+          </li>
+        <?php
+        }
+        ?>
           <li class="nav-item">
             <a href="<?php echo site_url('Productos/listado') ?>" class="nav-link">
               <i class="fa-solid fa-beer-mug-empty nav-icon"></i>
@@ -179,17 +187,6 @@
               <p>Clientes</p>
             </a>
           </li>
-        <?php
-        } elseif ($rol == 'cajero') { ?>
-          <li class="nav-item">
-            <a href="<?php echo site_url('Caja/indexCaja') ?>" class="nav-link">
-              <i class="fa-solid fa-shop"></i>
-              <p>Caja</p>
-            </a>
-          </li>
-        <?php
-        }
-        ?>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
