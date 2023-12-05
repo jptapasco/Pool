@@ -5,14 +5,12 @@ class DashboardCajero extends CI_Controller {
 
 	public function index(){
         if (!$this->session->userdata('correo')) {
-            $this->session->set_flashdata('mensaje', 'Por favor, inicia sesión para acceder.');
             redirect('Login/index', 'refresh');
-        } else if ($this->session->userdata('rol') === ROL_CAJERO) {
+        } else if ($this->session->userdata('rol') === 'cajero'){
             $this->load->view('DashboardCajero/plantillaCajero');
-        } else {
-            $this->session->set_flashdata('mensaje', 'No tienes permisos como cajero.');
-            redirect('Login/index', 'refresh');
+        }else {
+            echo "No tienes Permisos como Admin";
         }
     }
-    
+
 }

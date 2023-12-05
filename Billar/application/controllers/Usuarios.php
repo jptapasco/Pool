@@ -16,19 +16,14 @@ class Usuarios extends CI_Controller
 
     public function listado()
     {
-        if (!$this->session->userdata('correo')) {
-            redirect('Login/index', 'refresh');
-        }elseif ($this->session->userdata('rol') === ROL_ADMIN) {
-            $vdata["respuesta"] = $this->Usuario->lista();
-            $this->load->view('Usuarios/usuarios', $vdata);
-        }else {
-            $alert = array(
-                'mensaje' => 'No tienes permisos.',
-                'color' => 'warning'
-            );
-            $this->session->set_flashdata('alert', $alert);
-            $this->load->view('DashboardCajero/plantillaCajero');
-        }
+        $vdata["respuesta"] = $this->Usuario->lista();
+        $this->load->view('Usuarios/usuarios', $vdata);
+    }
+
+    public function listadoEstado()
+    {
+        $vdata["estado"] = $this->Usuario->obtenerPorEstado();
+        $this->load->view('Usuarios/listado', $vdata);
     }
 
     public function guardar($id_usuario = null)
@@ -55,7 +50,8 @@ class Usuarios extends CI_Controller
                 'nombres' => $this->input->post("nombres"),
                 'telefono' => $this->input->post("telefono"),
                 'correo' => $this->input->post("correo"),
-                'contrasena' => $this->input->post("contrasena")
+                'contrasena' => $this->input->post("contrasena"),
+                'estado' => "activo"
             );
 
             if (isset($id_usuario)) {
@@ -64,6 +60,6 @@ class Usuarios extends CI_Controller
                 $this->Usuario->insert($data);
             }
         }
-        $this->listado();
+        redirect('Usuarios/listado','refresh');
     }
 }

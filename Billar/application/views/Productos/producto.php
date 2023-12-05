@@ -281,6 +281,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <?php echo form_submit('mysubmit', 'Agregar','class="btn btn-primary"');?> 
                 </div>
+                <?php echo form_close();?>
             </div>
         </div>
     </div>

@@ -30,6 +30,15 @@ class Cliente extends CI_Model {
         // $query = $this->db->get();
         return $this->db->get()->result();
     }
+
+    public function agregar_cliente($data){
+        $this->db->insert($this->table, $data);
+    }
+
+    public function actualizar($id, $data){
+        $this->db->where($this->table_id, $id);
+        $this->db->update($this->table, $data);
+    }
 }
 
 ?>

@@ -91,4 +91,5 @@ class Productos extends CI_Controller
             $this->load->view('productos/editarProducto', $data);
         }
     }
+
 }
