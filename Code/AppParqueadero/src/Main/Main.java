@@ -28,10 +28,10 @@ public class Main extends javax.swing.JFrame {
         
         try {
             // Cargar la imagen desde el archivo en el directorio de recursos
-            BufferedImage originalImage = ImageIO.read(getClass().getResource("/Img/carrito.png"));
+            BufferedImage originalImage = ImageIO.read(getClass().getResource("/Img/tractor.png"));
 
             // Redimensionar la imagen al tamaño deseado
-            Image resizedImage = originalImage.getScaledInstance(125, 125, Image.SCALE_SMOOTH);
+            Image resizedImage = originalImage.getScaledInstance(140, 110, Image.SCALE_SMOOTH);
 
             // Crear un ImageIcon a partir de la imagen redimensionada
             ImageIcon imageIcon = new ImageIcon(resizedImage);
@@ -50,10 +50,13 @@ public class Main extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnParking = new javax.swing.JButton();
-        btnSeller = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         etq_img = new javax.swing.JLabel();
+        container_btn_parqueaderos_admin = new javax.swing.JPanel();
+        btnParking = new javax.swing.JButton();
+        container_btn_vendedores_admin = new javax.swing.JPanel();
+        btnSeller = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         panelPrincipal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,32 +65,13 @@ public class Main extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(227, 204, 251));
+        jPanel2.setBackground(new java.awt.Color(61, 103, 71));
 
-        btnParking.setBackground(new java.awt.Color(113, 0, 234));
-        btnParking.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnParking.setForeground(new java.awt.Color(255, 255, 255));
-        btnParking.setText("PARQUEADEROS");
-        btnParking.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnParkingActionPerformed(evt);
-            }
-        });
-
-        btnSeller.setBackground(new java.awt.Color(113, 0, 234));
-        btnSeller.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnSeller.setForeground(new java.awt.Color(255, 255, 255));
-        btnSeller.setText("VENDEDORES");
-        btnSeller.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSellerActionPerformed(evt);
-            }
-        });
-
-        jButton1.setBackground(new java.awt.Color(212, 179, 249));
+        jButton1.setBackground(new java.awt.Color(61, 103, 71));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("CERRAR SESION");
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -99,28 +83,74 @@ public class Main extends javax.swing.JFrame {
         etq_img.setMinimumSize(new java.awt.Dimension(125, 125));
         etq_img.setPreferredSize(new java.awt.Dimension(125, 125));
 
+        container_btn_parqueaderos_admin.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_parqueaderos_admin.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_parqueaderos_admin.setLayout(new java.awt.BorderLayout());
+
+        btnParking.setBackground(new java.awt.Color(61, 103, 71));
+        btnParking.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnParking.setForeground(new java.awt.Color(255, 255, 255));
+        btnParking.setText("PARQUEADEROS");
+        btnParking.setBorder(null);
+        btnParking.setBorderPainted(false);
+        btnParking.setContentAreaFilled(false);
+        btnParking.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnParking.setFocusPainted(false);
+        btnParking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnParkingActionPerformed(evt);
+            }
+        });
+        container_btn_parqueaderos_admin.add(btnParking, java.awt.BorderLayout.CENTER);
+
+        container_btn_vendedores_admin.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_vendedores_admin.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_vendedores_admin.setLayout(new java.awt.BorderLayout());
+
+        btnSeller.setBackground(new java.awt.Color(61, 103, 71));
+        btnSeller.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSeller.setForeground(new java.awt.Color(255, 255, 255));
+        btnSeller.setText("VENDEDORES");
+        btnSeller.setBorder(null);
+        btnSeller.setBorderPainted(false);
+        btnSeller.setContentAreaFilled(false);
+        btnSeller.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSellerActionPerformed(evt);
+            }
+        });
+        container_btn_vendedores_admin.add(btnSeller, java.awt.BorderLayout.CENTER);
+
+        jSeparator1.setBackground(new java.awt.Color(0, 255, 0));
+        jSeparator1.setForeground(new java.awt.Color(102, 255, 0));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnSeller, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnParking, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(container_btn_parqueaderos_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(container_btn_vendedores_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jSeparator1)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(btnParking, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(container_btn_parqueaderos_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(btnSeller, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addComponent(container_btn_vendedores_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -130,7 +160,7 @@ public class Main extends javax.swing.JFrame {
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGap(0, 749, Short.MAX_VALUE)
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,12 +246,15 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnParking;
-    private javax.swing.JButton btnSeller;
+    public javax.swing.JButton btnParking;
+    public javax.swing.JButton btnSeller;
+    public javax.swing.JPanel container_btn_parqueaderos_admin;
+    public javax.swing.JPanel container_btn_vendedores_admin;
     private javax.swing.JLabel etq_img;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel panelPrincipal;
     // End of variables declaration//GEN-END:variables
 }

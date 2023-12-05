@@ -3,6 +3,7 @@ package Main;
 import com.google.gson.Gson;
 import Alerts.AlertDatosErroneos;
 import Alerts.GeneratingAlert;
+import botones.Controller;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -15,7 +16,9 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 public class Login extends javax.swing.JFrame {
-
+    
+    public Controller controller;
+    
     private ConsumoApi consumo;
     private Gson gson;
     public MainVendedor main;
@@ -34,6 +37,7 @@ public class Login extends javax.swing.JFrame {
         gson = new Gson();
         initComponents();
         initComponentsAltern();
+        controller = new Controller(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -45,10 +49,11 @@ public class Login extends javax.swing.JFrame {
         etq_correo = new javax.swing.JLabel();
         campo_correo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        btn_ingresar = new javax.swing.JButton();
         campo_contrasena = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        container_btn_ingresar = new javax.swing.JPanel();
+        btn_ingresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -75,16 +80,6 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(61, 103, 71));
         jLabel1.setText("Contraseña:");
 
-        btn_ingresar.setBackground(new java.awt.Color(61, 103, 71));
-        btn_ingresar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btn_ingresar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ingresar.setText("INGRESAR");
-        btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ingresarActionPerformed(evt);
-            }
-        });
-
         campo_contrasena.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         campo_contrasena.setBorder(null);
         campo_contrasena.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +92,26 @@ public class Login extends javax.swing.JFrame {
 
         jSeparator2.setForeground(new java.awt.Color(61, 103, 71));
 
+        container_btn_ingresar.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_ingresar.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_ingresar.setLayout(new java.awt.BorderLayout());
+
+        btn_ingresar.setBackground(new java.awt.Color(61, 103, 71));
+        btn_ingresar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_ingresar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ingresar.setText("INGRESAR");
+        btn_ingresar.setAlignmentY(0.0F);
+        btn_ingresar.setBorder(null);
+        btn_ingresar.setContentAreaFilled(false);
+        btn_ingresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_ingresar.setFocusPainted(false);
+        btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ingresarActionPerformed(evt);
+            }
+        });
+        container_btn_ingresar.add(btn_ingresar, java.awt.BorderLayout.CENTER);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,34 +121,34 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etq_correo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(campo_correo, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                    .addComponent(campo_correo)
                     .addComponent(jSeparator1)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(campo_contrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                    .addComponent(campo_contrasena)
                     .addComponent(jSeparator2)
-                    .addComponent(btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(container_btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(45, 45, 45)
                 .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(etq_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(campo_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campo_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(campo_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campo_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
+                .addGap(40, 40, 40)
+                .addComponent(container_btn_ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -330,9 +345,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_ingresar;
+    public javax.swing.JButton btn_ingresar;
     private javax.swing.JPasswordField campo_contrasena;
     private javax.swing.JTextField campo_correo;
+    public javax.swing.JPanel container_btn_ingresar;
     private javax.swing.JLabel etq_correo;
     private javax.swing.JLabel etq_img;
     private javax.swing.JLabel jLabel1;
