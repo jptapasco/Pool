@@ -2,7 +2,7 @@ package Main;
 
 import VistaParqueadero.Parqueaderos;
 import VistaVendedor.Vendedores;
-import botones.Controller;
+import botones.Controller_Main;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -13,12 +13,13 @@ import javax.swing.ImageIcon;
 
 public class Main extends javax.swing.JFrame {
     
-    public Controller controller;
+    public Controller_Main controller;
     
     public Main() {
-        controller = new Controller(Login login, this);
         initComponents();
         centrarPantalla();
+        
+        controller = new Controller_Main(this);
         
         panelPrincipal.removeAll();
 
@@ -59,7 +60,7 @@ public class Main extends javax.swing.JFrame {
         btnParking = new javax.swing.JButton();
         container_btn_vendedores_admin = new javax.swing.JPanel();
         btnSeller = new javax.swing.JButton();
-        container_btn_ingresar = new javax.swing.JPanel();
+        container_btn_cerrar = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         panelPrincipal = new javax.swing.JPanel();
 
@@ -107,6 +108,7 @@ public class Main extends javax.swing.JFrame {
         btnSeller.setBorder(null);
         btnSeller.setBorderPainted(false);
         btnSeller.setContentAreaFilled(false);
+        btnSeller.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSeller.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSellerActionPerformed(evt);
@@ -114,9 +116,9 @@ public class Main extends javax.swing.JFrame {
         });
         container_btn_vendedores_admin.add(btnSeller, java.awt.BorderLayout.CENTER);
 
-        container_btn_ingresar.setBackground(new java.awt.Color(61, 103, 71));
-        container_btn_ingresar.setForeground(new java.awt.Color(61, 103, 71));
-        container_btn_ingresar.setLayout(new java.awt.BorderLayout());
+        container_btn_cerrar.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_cerrar.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_cerrar.setLayout(new java.awt.BorderLayout());
 
         jButton1.setBackground(new java.awt.Color(61, 103, 71));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -125,12 +127,13 @@ public class Main extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        container_btn_ingresar.add(jButton1, java.awt.BorderLayout.CENTER);
+        container_btn_cerrar.add(jButton1, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -144,7 +147,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(container_btn_vendedores_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(container_btn_ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(container_btn_cerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +159,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(container_btn_vendedores_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
-                .addComponent(container_btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(container_btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         panelPrincipal.setBackground(new java.awt.Color(255, 255, 255));
@@ -253,11 +256,11 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnParking;
     public javax.swing.JButton btnSeller;
-    public javax.swing.JPanel container_btn_ingresar;
+    public javax.swing.JPanel container_btn_cerrar;
     public javax.swing.JPanel container_btn_parqueaderos_admin;
     public javax.swing.JPanel container_btn_vendedores_admin;
     private javax.swing.JLabel etq_img;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel panelPrincipal;

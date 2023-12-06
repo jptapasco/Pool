@@ -3,7 +3,7 @@ package Main;
 import com.google.gson.Gson;
 import Alerts.AlertDatosErroneos;
 import Alerts.GeneratingAlert;
-import botones.Controller;
+import botones.Controller_Login;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 
 public class Login extends javax.swing.JFrame {
     
-    public Controller controller;
+    public Controller_Login controller;
     
     private ConsumoApi consumo;
     private Gson gson;
@@ -37,7 +37,7 @@ public class Login extends javax.swing.JFrame {
         gson = new Gson();
         initComponents();
         initComponentsAltern();
-        controller = new Controller(this, main);
+        controller = new Controller_Login(this);
     }
 
     @SuppressWarnings("unchecked")

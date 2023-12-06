@@ -82,7 +82,7 @@
                       <Component id="container_btn_vendedores_admin" min="-2" pref="209" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="container_btn_ingresar" alignment="0" max="32767" attributes="0"/>
+                  <Component id="container_btn_cerrar" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -95,7 +95,7 @@
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Component id="container_btn_vendedores_admin" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace pref="225" max="32767" attributes="0"/>
-                      <Component id="container_btn_ingresar" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="container_btn_cerrar" min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -200,6 +200,9 @@
                     </Property>
                     <Property name="borderPainted" type="boolean" value="false"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSellerActionPerformed"/>
@@ -215,7 +218,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="container_btn_ingresar">
+            <Container class="javax.swing.JPanel" name="container_btn_cerrar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="47" green="67" red="3d" type="rgb"/>
@@ -247,10 +250,16 @@
                     </Property>
                     <Property name="borderPainted" type="boolean" value="false"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                       <BorderConstraints direction="Center"/>
