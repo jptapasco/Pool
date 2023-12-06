@@ -175,6 +175,10 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         
+        Image icono = getToolkit().createImage( ClassLoader.getSystemResource("Img/tractor.png") );
+        setIconImage(icono);
+        setTitle("Parking");
+        
         int width = 200;
         int height = 150;
 

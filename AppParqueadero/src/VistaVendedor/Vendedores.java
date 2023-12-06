@@ -45,29 +45,24 @@ public class Vendedores extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaVendedor = new javax.swing.JTable();
         inputBuscar = new javax.swing.JTextField();
-        btnBuscarSeller = new javax.swing.JButton();
-        BtnConAsignar = new javax.swing.JButton();
-        BtnSinAsignar = new javax.swing.JButton();
         TituloInformativo = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        container_btn_vca = new javax.swing.JPanel();
+        BtnConAsignar = new javax.swing.JButton();
+        container_btn_buscar = new javax.swing.JPanel();
+        btnBuscarSeller = new javax.swing.JButton();
+        container_btn_vsa = new javax.swing.JPanel();
+        BtnSinAsignar = new javax.swing.JButton();
+        container_btn_crearvendedor = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(241, 230, 253));
-        setForeground(new java.awt.Color(241, 230, 253));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setBackground(new java.awt.Color(113, 0, 234));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("CREAR VENDEDOR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        tablaVendedor.setBackground(new java.awt.Color(241, 230, 253));
+        tablaVendedor.setBackground(new java.awt.Color(255, 255, 255));
         tablaVendedor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tablaVendedor.setForeground(new java.awt.Color(0, 0, 0));
         tablaVendedor.setModel(new javax.swing.table.DefaultTableModel(
@@ -81,91 +76,146 @@ public class Vendedores extends javax.swing.JPanel {
                 "DOCUMENTO", "NOMBRE", "APELLIDO", "VER", "EDITAR", "OPCION"
             }
         ));
-        tablaVendedor.setSelectionBackground(new java.awt.Color(113, 0, 234));
+        tablaVendedor.setSelectionBackground(new java.awt.Color(61, 103, 71));
         tablaVendedor.setShowGrid(true);
         jScrollPane1.setViewportView(tablaVendedor);
 
+        inputBuscar.setBackground(new java.awt.Color(255, 255, 255));
         inputBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         inputBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        inputBuscar.setBorder(null);
         inputBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputBuscarActionPerformed(evt);
             }
         });
 
-        btnBuscarSeller.setBackground(new java.awt.Color(113, 0, 234));
-        btnBuscarSeller.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnBuscarSeller.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarSeller.setText("BUSCAR");
-        btnBuscarSeller.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarSellerActionPerformed(evt);
-            }
-        });
+        TituloInformativo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        TituloInformativo.setForeground(new java.awt.Color(61, 103, 71));
+        TituloInformativo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TituloInformativo.setText("VENDEDORES");
 
-        BtnConAsignar.setBackground(new java.awt.Color(113, 0, 234));
+        container_btn_vca.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_vca.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_vca.setLayout(new java.awt.BorderLayout());
+
+        BtnConAsignar.setBackground(new java.awt.Color(61, 103, 71));
         BtnConAsignar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnConAsignar.setForeground(new java.awt.Color(255, 255, 255));
         BtnConAsignar.setText("VENDEDORES CON ASIGNACION");
+        BtnConAsignar.setBorder(null);
+        BtnConAsignar.setContentAreaFilled(false);
+        BtnConAsignar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnConAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnConAsignarActionPerformed(evt);
             }
         });
+        container_btn_vca.add(BtnConAsignar, java.awt.BorderLayout.CENTER);
 
-        BtnSinAsignar.setBackground(new java.awt.Color(113, 0, 234));
+        container_btn_buscar.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_buscar.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_buscar.setLayout(new java.awt.BorderLayout());
+
+        btnBuscarSeller.setBackground(new java.awt.Color(61, 103, 71));
+        btnBuscarSeller.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBuscarSeller.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarSeller.setText("BUSCAR");
+        btnBuscarSeller.setBorder(null);
+        btnBuscarSeller.setContentAreaFilled(false);
+        btnBuscarSeller.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarSeller.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarSellerActionPerformed(evt);
+            }
+        });
+        container_btn_buscar.add(btnBuscarSeller, java.awt.BorderLayout.CENTER);
+
+        container_btn_vsa.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_vsa.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_vsa.setLayout(new java.awt.BorderLayout());
+
+        BtnSinAsignar.setBackground(new java.awt.Color(61, 103, 71));
         BtnSinAsignar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnSinAsignar.setForeground(new java.awt.Color(255, 255, 255));
         BtnSinAsignar.setText("VENDEDORES SIN ASIGNACION");
+        BtnSinAsignar.setBorder(null);
+        BtnSinAsignar.setContentAreaFilled(false);
+        BtnSinAsignar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnSinAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSinAsignarActionPerformed(evt);
             }
         });
+        container_btn_vsa.add(BtnSinAsignar, java.awt.BorderLayout.CENTER);
 
-        TituloInformativo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        TituloInformativo.setForeground(new java.awt.Color(113, 0, 234));
-        TituloInformativo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TituloInformativo.setText("VENDEDORES");
+        container_btn_crearvendedor.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_crearvendedor.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_crearvendedor.setLayout(new java.awt.BorderLayout());
+
+        jButton2.setBackground(new java.awt.Color(61, 103, 71));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("CREAR VENDEDOR");
+        jButton2.setBorder(null);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        container_btn_crearvendedor.add(jButton2, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TituloInformativo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(BtnConAsignar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                        .addComponent(BtnSinAsignar))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(inputBuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscarSeller)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TituloInformativo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(container_btn_vca, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(inputBuscar)
+                                        .addGap(12, 12, 12)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(container_btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(container_btn_crearvendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(container_btn_vsa, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(15, 15, 15))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addComponent(TituloInformativo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(container_btn_crearvendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(container_btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscarSeller, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnConAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSinAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(container_btn_vca, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(container_btn_vsa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -497,13 +547,18 @@ public class Vendedores extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnConAsignar;
-    private javax.swing.JButton BtnSinAsignar;
+    public javax.swing.JButton BtnConAsignar;
+    public javax.swing.JButton BtnSinAsignar;
     private javax.swing.JLabel TituloInformativo;
-    private javax.swing.JButton btnBuscarSeller;
+    public javax.swing.JButton btnBuscarSeller;
+    public javax.swing.JPanel container_btn_buscar;
+    public javax.swing.JPanel container_btn_crearvendedor;
+    public javax.swing.JPanel container_btn_vca;
+    public javax.swing.JPanel container_btn_vsa;
     private javax.swing.JTextField inputBuscar;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tablaVendedor;
     // End of variables declaration//GEN-END:variables
 }
