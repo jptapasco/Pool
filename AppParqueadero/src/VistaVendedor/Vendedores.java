@@ -6,6 +6,7 @@ import Clases.ButtonEditor;
 import Clases.ButtonRenderer;
 import Main.ConsumoApi;
 import Main.Main;
+import botones.Controller_Vendedores;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -20,6 +21,7 @@ import javax.swing.JCheckBox;
 import javax.swing.table.DefaultTableModel;
 
 public class Vendedores extends javax.swing.JPanel {
+    public Controller_Vendedores controller;
     
     private ConsumoApi consumo;
     private Gson gson;
@@ -35,6 +37,7 @@ public class Vendedores extends javax.swing.JPanel {
         initComponents();
         initAlternComponets();
         mostrarVendedores();
+        controller = new Controller_Vendedores(this);
     }
 
     Vendedores() {
