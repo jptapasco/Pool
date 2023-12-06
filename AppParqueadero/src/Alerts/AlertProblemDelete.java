@@ -26,8 +26,8 @@ public class AlertProblemDelete extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(241, 230, 253));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(113, 0, 234));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(250,0,0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("ERROR AL ELIMINAR");
 
@@ -45,6 +45,8 @@ public class AlertProblemDelete extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("OK");
+        jButton3.setBorder(null);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -116,7 +118,7 @@ public class AlertProblemDelete extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

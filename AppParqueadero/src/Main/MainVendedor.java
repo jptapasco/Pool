@@ -1,5 +1,6 @@
 package Main;
 
+import botones.Controller_MainVendedor;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -9,6 +10,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 public class MainVendedor extends javax.swing.JFrame {
+    
+    public Controller_MainVendedor controller;
     
     String nit;
     String nombre;
@@ -26,6 +29,8 @@ public class MainVendedor extends javax.swing.JFrame {
         this.id_asignacion = id_asignacion;
         initComponents();
         
+        controller = new Controller_MainVendedor(this);
+        
         panelPrincipal.removeAll();
 
         Parqueadero mostrarPanel = new Parqueadero(this, nit, nombre, direccion, telefono, user);
@@ -38,10 +43,10 @@ public class MainVendedor extends javax.swing.JFrame {
         
         try {
             // Cargar la imagen desde el archivo en el directorio de recursos
-            BufferedImage originalImage = ImageIO.read(getClass().getResource("/Img/carrito.png"));
+            BufferedImage originalImage = ImageIO.read(getClass().getResource("/Img/tractor.png"));
 
             // Redimensionar la imagen al tamaño deseado
-            Image resizedImage = originalImage.getScaledInstance(125, 125, Image.SCALE_SMOOTH);
+            Image resizedImage = originalImage.getScaledInstance(140, 110, Image.SCALE_SMOOTH);
 
             // Crear un ImageIcon a partir de la imagen redimensionada
             ImageIcon imageIcon = new ImageIcon(resizedImage);
@@ -67,118 +72,154 @@ public class MainVendedor extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnEntrada = new javax.swing.JButton();
-        btnParqueadero = new javax.swing.JButton();
-        btnCerrarSesion = new javax.swing.JButton();
-        btnTarifas = new javax.swing.JButton();
-        btnHistorial = new javax.swing.JButton();
         etq_img = new javax.swing.JLabel();
+        container_btn_parqueaderos_vendedor = new javax.swing.JPanel();
+        btnParqueadero = new javax.swing.JButton();
+        container_btn_entrada_vendedor = new javax.swing.JPanel();
+        btnEntrada = new javax.swing.JButton();
+        container_btn_historial_vendedor = new javax.swing.JPanel();
+        btnHistorial = new javax.swing.JButton();
+        container_btn_tarifas_vendedor = new javax.swing.JPanel();
+        btnTarifas = new javax.swing.JButton();
+        container_btn_cerrar_vendedor = new javax.swing.JPanel();
+        btnCerrarSesion = new javax.swing.JButton();
         panelPrincipal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(227, 204, 251));
-
-        btnEntrada.setBackground(new java.awt.Color(113, 0, 234));
-        btnEntrada.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnEntrada.setForeground(new java.awt.Color(255, 255, 255));
-        btnEntrada.setText("ENTRADA");
-        btnEntrada.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnEntrada.setBorderPainted(false);
-        btnEntrada.setFocusPainted(false);
-        btnEntrada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntradaActionPerformed(evt);
-            }
-        });
-
-        btnParqueadero.setBackground(new java.awt.Color(113, 0, 234));
-        btnParqueadero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnParqueadero.setForeground(new java.awt.Color(255, 255, 255));
-        btnParqueadero.setText("PARQUEADERO");
-        btnParqueadero.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnParqueadero.setBorderPainted(false);
-        btnParqueadero.setFocusPainted(false);
-        btnParqueadero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnParqueaderoActionPerformed(evt);
-            }
-        });
-
-        btnCerrarSesion.setBackground(new java.awt.Color(212, 179, 249));
-        btnCerrarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        btnCerrarSesion.setText("CERRAR SESION");
-        btnCerrarSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnCerrarSesion.setBorderPainted(false);
-        btnCerrarSesion.setFocusPainted(false);
-        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarSesionActionPerformed(evt);
-            }
-        });
-
-        btnTarifas.setBackground(new java.awt.Color(113, 0, 234));
-        btnTarifas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnTarifas.setForeground(new java.awt.Color(255, 255, 255));
-        btnTarifas.setText("TARIFAS");
-        btnTarifas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnTarifas.setBorderPainted(false);
-        btnTarifas.setFocusPainted(false);
-        btnTarifas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTarifasActionPerformed(evt);
-            }
-        });
-
-        btnHistorial.setBackground(new java.awt.Color(113, 0, 234));
-        btnHistorial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
-        btnHistorial.setText("HISTORIAL");
-        btnHistorial.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnHistorial.setBorderPainted(false);
-        btnHistorial.setFocusPainted(false);
-        btnHistorial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHistorialActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(61, 103, 71));
 
         etq_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/login-icon.png"))); // NOI18N
         etq_img.setMaximumSize(new java.awt.Dimension(125, 125));
         etq_img.setMinimumSize(new java.awt.Dimension(125, 125));
         etq_img.setPreferredSize(new java.awt.Dimension(125, 125));
 
+        container_btn_parqueaderos_vendedor.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_parqueaderos_vendedor.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_parqueaderos_vendedor.setLayout(new java.awt.BorderLayout());
+
+        btnParqueadero.setBackground(new java.awt.Color(61, 103, 71));
+        btnParqueadero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnParqueadero.setForeground(new java.awt.Color(255, 255, 255));
+        btnParqueadero.setText("PARQUEADERO");
+        btnParqueadero.setBorder(null);
+        btnParqueadero.setBorderPainted(false);
+        btnParqueadero.setContentAreaFilled(false);
+        btnParqueadero.setFocusPainted(false);
+        btnParqueadero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnParqueaderoActionPerformed(evt);
+            }
+        });
+        container_btn_parqueaderos_vendedor.add(btnParqueadero, java.awt.BorderLayout.CENTER);
+
+        container_btn_entrada_vendedor.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_entrada_vendedor.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_entrada_vendedor.setLayout(new java.awt.BorderLayout());
+
+        btnEntrada.setBackground(new java.awt.Color(61, 103, 71));
+        btnEntrada.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnEntrada.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrada.setText("ENTRADA");
+        btnEntrada.setBorder(null);
+        btnEntrada.setBorderPainted(false);
+        btnEntrada.setContentAreaFilled(false);
+        btnEntrada.setFocusPainted(false);
+        btnEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntradaActionPerformed(evt);
+            }
+        });
+        container_btn_entrada_vendedor.add(btnEntrada, java.awt.BorderLayout.CENTER);
+
+        container_btn_historial_vendedor.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_historial_vendedor.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_historial_vendedor.setLayout(new java.awt.BorderLayout());
+
+        btnHistorial.setBackground(new java.awt.Color(61, 103, 71));
+        btnHistorial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
+        btnHistorial.setText("HISTORIAL");
+        btnHistorial.setBorder(null);
+        btnHistorial.setBorderPainted(false);
+        btnHistorial.setContentAreaFilled(false);
+        btnHistorial.setFocusPainted(false);
+        btnHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistorialActionPerformed(evt);
+            }
+        });
+        container_btn_historial_vendedor.add(btnHistorial, java.awt.BorderLayout.CENTER);
+
+        container_btn_tarifas_vendedor.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_tarifas_vendedor.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_tarifas_vendedor.setLayout(new java.awt.BorderLayout());
+
+        btnTarifas.setBackground(new java.awt.Color(61, 103, 71));
+        btnTarifas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnTarifas.setForeground(new java.awt.Color(255, 255, 255));
+        btnTarifas.setText("TARIFAS");
+        btnTarifas.setBorder(null);
+        btnTarifas.setBorderPainted(false);
+        btnTarifas.setContentAreaFilled(false);
+        btnTarifas.setFocusPainted(false);
+        btnTarifas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTarifasActionPerformed(evt);
+            }
+        });
+        container_btn_tarifas_vendedor.add(btnTarifas, java.awt.BorderLayout.CENTER);
+
+        container_btn_cerrar_vendedor.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_cerrar_vendedor.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_cerrar_vendedor.setLayout(new java.awt.BorderLayout());
+
+        btnCerrarSesion.setBackground(new java.awt.Color(61, 103, 71));
+        btnCerrarSesion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrarSesion.setText("CERRAR SESION");
+        btnCerrarSesion.setBorder(null);
+        btnCerrarSesion.setBorderPainted(false);
+        btnCerrarSesion.setContentAreaFilled(false);
+        btnCerrarSesion.setFocusPainted(false);
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
+        container_btn_cerrar_vendedor.add(btnCerrarSesion, java.awt.BorderLayout.CENTER);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
-            .addComponent(btnParqueadero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnTarifas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(container_btn_cerrar_vendedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(container_btn_tarifas_vendedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(container_btn_historial_vendedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(container_btn_parqueaderos_vendedor, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                .addComponent(container_btn_entrada_vendedor, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(btnParqueadero, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(container_btn_parqueaderos_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(btnEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(container_btn_entrada_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(btnHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(container_btn_historial_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(btnTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(container_btn_tarifas_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addComponent(container_btn_cerrar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         panelPrincipal.setBackground(new java.awt.Color(255, 255, 255));
@@ -187,7 +228,7 @@ public class MainVendedor extends javax.swing.JFrame {
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 751, Short.MAX_VALUE)
+            .addGap(0, 663, Short.MAX_VALUE)
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,11 +320,16 @@ public class MainVendedor extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCerrarSesion;
-    private javax.swing.JButton btnEntrada;
-    private javax.swing.JButton btnHistorial;
-    private javax.swing.JButton btnParqueadero;
-    private javax.swing.JButton btnTarifas;
+    public javax.swing.JButton btnCerrarSesion;
+    public javax.swing.JButton btnEntrada;
+    public javax.swing.JButton btnHistorial;
+    public javax.swing.JButton btnParqueadero;
+    public javax.swing.JButton btnTarifas;
+    public javax.swing.JPanel container_btn_cerrar_vendedor;
+    public javax.swing.JPanel container_btn_entrada_vendedor;
+    public javax.swing.JPanel container_btn_historial_vendedor;
+    public javax.swing.JPanel container_btn_parqueaderos_vendedor;
+    public javax.swing.JPanel container_btn_tarifas_vendedor;
     private javax.swing.JLabel etq_img;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelPrincipal;

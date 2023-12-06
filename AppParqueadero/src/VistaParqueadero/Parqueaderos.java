@@ -183,14 +183,16 @@ public class Parqueaderos extends javax.swing.JPanel {
                     String nombre = viewParking.get("nombre").getAsString();
                     String direccion = viewParking.get("direccion").getAsString(); 
                     
-                    JButton btnEditar = new JButton("EDITAR");
-                    btnEditar.setBackground(new Color(123,47,152));
-                    btnEditar.setForeground(new Color(0, 0 ,0));
+                    JButton btnEditar = new JButton("EDITAR");                      
+                    btnEditar.setBorderPainted(false);
+                    btnEditar.setContentAreaFilled(false);
+                    btnEditar.setForeground(new Color(39, 80, 49));
                     btnEditar.setFont(font);
                     
-                    JButton btnEliminar = new JButton("ELIMINAR");
-                    btnEliminar.setBackground(new Color(255, 75, 75));
-                    btnEliminar.setForeground(new Color(0,0,0));
+                    JButton btnEliminar = new JButton("ELIMINAR");          
+                    btnEliminar.setBorderPainted(false);
+                    btnEliminar.setContentAreaFilled(false);
+                    btnEliminar.setForeground(new Color(255, 0, 0));                
                     btnEliminar.setFont(font);
                     
                      // Crear un botón de edición para cada fila
@@ -244,14 +246,17 @@ public class Parqueaderos extends javax.swing.JPanel {
                 String nit = viewParking.get("nit").getAsString();
                 String nombre = viewParking.get("nombre").getAsString();
                 String direccion = viewParking.get("direccion").getAsString();       
-                JButton btnEditar = new JButton("EDITAR");
-                btnEditar.setBackground(new Color(255,204,204));
                 
-                btnEditar.setForeground(new Color(0, 0 ,0));
+                JButton btnEditar = new JButton("EDITAR");                      
+                btnEditar.setBorderPainted(false);
+                btnEditar.setContentAreaFilled(false);
+                btnEditar.setForeground(new Color(39, 80, 49));
                 btnEditar.setFont(font);
-                JButton btnEliminar = new JButton("ELIMINAR");
-                btnEliminar.setBackground(new Color(255, 75, 75));
-                btnEliminar.setForeground(new Color(0,0,0));
+                
+                JButton btnEliminar = new JButton("ELIMINAR");          
+                btnEliminar.setBorderPainted(false);
+                btnEliminar.setContentAreaFilled(false);
+                btnEliminar.setForeground(new Color(255, 0, 0));                
                 btnEliminar.setFont(font);
             
                  // Crear un botón de edición para cada fila

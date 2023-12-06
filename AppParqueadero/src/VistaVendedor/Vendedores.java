@@ -236,18 +236,21 @@ public class Vendedores extends javax.swing.JPanel {
                     String cedulaB = viewUser.get("cedula").getAsString();   
 
                     JButton btnVer = new JButton("VER");
-                    btnVer.setBackground(new Color(207,191,255));
-                    btnVer.setForeground(new Color(0,0,0));
+                    btnVer.setBorderPainted(false);
+                    btnVer.setContentAreaFilled(false);
+                    btnVer.setForeground(new Color(207,191,255));
                     btnVer.setFont(font);
 
-                    JButton btnEditar = new JButton("EDITAR");
-                    btnEditar.setBackground(new Color(255,204,204));
-                    btnEditar.setForeground(new Color(0,0,0));
+                    JButton btnEditar = new JButton("EDITAR");                      
+                    btnEditar.setBorderPainted(false);
+                    btnEditar.setContentAreaFilled(false);
+                    btnEditar.setForeground(new Color(39, 80, 49));
                     btnEditar.setFont(font);
 
-                    JButton btnDesligar = new JButton("DESLIGAR");
-                    btnDesligar.setBackground(new Color(255, 75, 75));
-                    btnDesligar.setForeground(new Color(0,0,0));
+                    JButton btnDesligar = new JButton("Desligar");          
+                    btnDesligar.setBorderPainted(false);
+                    btnDesligar.setContentAreaFilled(false);
+                    btnDesligar.setForeground(new Color(255, 0, 0));                
                     btnDesligar.setFont(font);
 
                      // Crear un botón de edición para cada fila
@@ -316,18 +319,21 @@ public class Vendedores extends javax.swing.JPanel {
                 String documento = viewParking.get("cedula").getAsString(); 
                 
                 JButton btnVer = new JButton("VER");
-                btnVer.setBackground(new Color(207,191,255));
-                btnVer.setForeground(new Color(0,0,0));
+                btnVer.setBorderPainted(false);
+                btnVer.setContentAreaFilled(false);
+                btnVer.setForeground(new Color(207,191,255));
                 btnVer.setFont(font);
-                
-                JButton btnEditar = new JButton("EDITAR");
-                btnEditar.setBackground(new Color(255,204,204));
-                btnEditar.setForeground(new Color(0,0,0));
+
+                JButton btnEditar = new JButton("EDITAR");                      
+                btnEditar.setBorderPainted(false);
+                btnEditar.setContentAreaFilled(false);
+                btnEditar.setForeground(new Color(39, 80, 49));
                 btnEditar.setFont(font);
-                
-                JButton btnDesligar = new JButton("DESLIGAR");
-                btnDesligar.setBackground(new Color(255, 75, 75));
-                btnDesligar.setForeground(new Color(0,0,0));
+
+                JButton btnDesligar = new JButton("Desligar");          
+                btnDesligar.setBorderPainted(false);
+                btnDesligar.setContentAreaFilled(false);
+                btnDesligar.setForeground(new Color(255, 0, 0));                
                 btnDesligar.setFont(font);
             
                  // Crear un botón de edición para cada fila
@@ -383,18 +389,21 @@ public class Vendedores extends javax.swing.JPanel {
                 String documento = viewParking.get("cedula").getAsString(); 
                 
                 JButton btnVer = new JButton("VER");
-                btnVer.setBackground(new Color(207,191,255));
-                btnVer.setForeground(new Color(0,0,0));
+                btnVer.setBorderPainted(false);
+                btnVer.setContentAreaFilled(false);
+                btnVer.setForeground(new Color(207,191,255));
                 btnVer.setFont(font);
-                
-                JButton btnEditar = new JButton("EDITAR");
-                btnEditar.setBackground(new Color(255,204,204));
-                btnEditar.setForeground(new Color(0,0,0));
+
+                JButton btnEditar = new JButton("EDITAR");                      
+                btnEditar.setBorderPainted(false);
+                btnEditar.setContentAreaFilled(false);
+                btnEditar.setForeground(new Color(39, 80, 49));
                 btnEditar.setFont(font);
-                
-                JButton btnAsociar = new JButton("ASOCIAR");
-                btnAsociar.setBackground(new Color(255, 75, 75));
-                btnAsociar.setForeground(new Color(0,0,0));
+
+                JButton btnAsociar = new JButton("ASOCIAR");                      
+                btnAsociar.setBorderPainted(false);
+                btnAsociar.setContentAreaFilled(false);
+                btnAsociar.setForeground(new Color(39, 80, 49));
                 btnAsociar.setFont(font);
             
                  // Crear un botón de edición para cada fila
