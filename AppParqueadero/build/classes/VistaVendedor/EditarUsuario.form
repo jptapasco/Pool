@@ -52,10 +52,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="2" attributes="0">
                           <Component id="container_btn_volver" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace pref="65" max="32767" attributes="0"/>
+                          <EmptySpace pref="71" max="32767" attributes="0"/>
                           <Component id="container_btn_editar" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel1" alignment="2" max="32767" attributes="0"/>
                       <Component id="campoContrasenia" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
                       <Component id="campoEmail" alignment="1" max="32767" attributes="0"/>
@@ -74,6 +73,7 @@
                       <Component id="jSeparator4" max="32767" attributes="0"/>
                       <Component id="jSeparator5" max="32767" attributes="0"/>
                       <Component id="jSeparator6" max="32767" attributes="0"/>
+                      <Component id="jLabel1" alignment="0" pref="371" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
               </Group>

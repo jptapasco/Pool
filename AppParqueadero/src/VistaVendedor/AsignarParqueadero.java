@@ -57,9 +57,9 @@ public class AsignarParqueadero extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        container_btn_crear = new javax.swing.JPanel();
+        container_btn_vincular = new javax.swing.JPanel();
         btnCrear = new javax.swing.JButton();
-        container_btn_crear1 = new javax.swing.JPanel();
+        container_btn_volver = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,9 +138,9 @@ public class AsignarParqueadero extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(61, 103, 71));
         jLabel8.setText("TELEFONO");
 
-        container_btn_crear.setBackground(new java.awt.Color(61, 103, 71));
-        container_btn_crear.setForeground(new java.awt.Color(61, 103, 71));
-        container_btn_crear.setLayout(new java.awt.BorderLayout());
+        container_btn_vincular.setBackground(new java.awt.Color(61, 103, 71));
+        container_btn_vincular.setForeground(new java.awt.Color(61, 103, 71));
+        container_btn_vincular.setLayout(new java.awt.BorderLayout());
 
         btnCrear.setBackground(new java.awt.Color(113, 0, 234));
         btnCrear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -154,11 +154,11 @@ public class AsignarParqueadero extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        container_btn_crear.add(btnCrear, java.awt.BorderLayout.CENTER);
+        container_btn_vincular.add(btnCrear, java.awt.BorderLayout.CENTER);
 
-        container_btn_crear1.setBackground(new java.awt.Color(153, 153, 153));
-        container_btn_crear1.setForeground(new java.awt.Color(153, 153, 153));
-        container_btn_crear1.setLayout(new java.awt.BorderLayout());
+        container_btn_volver.setBackground(new java.awt.Color(153, 153, 153));
+        container_btn_volver.setForeground(new java.awt.Color(153, 153, 153));
+        container_btn_volver.setLayout(new java.awt.BorderLayout());
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -171,7 +171,7 @@ public class AsignarParqueadero extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        container_btn_crear1.add(btnCancelar, java.awt.BorderLayout.CENTER);
+        container_btn_volver.add(btnCancelar, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,15 +181,15 @@ public class AsignarParqueadero extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(container_btn_crear1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(container_btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(71, 71, 71)
-                        .addComponent(container_btn_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(container_btn_vincular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator5)
                     .addComponent(jSeparator4)
                     .addComponent(jSeparator3)
                     .addComponent(jSeparator2)
                     .addComponent(jSeparator1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(campoCedula, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -199,7 +199,8 @@ public class AsignarParqueadero extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(campoTelefono, javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(selectParking, javax.swing.GroupLayout.Alignment.CENTER, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(selectParking, javax.swing.GroupLayout.Alignment.CENTER, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
         );
         jPanel1Layout.setVerticalGroup(
@@ -239,8 +240,8 @@ public class AsignarParqueadero extends javax.swing.JFrame {
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(container_btn_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(container_btn_crear1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(container_btn_vincular, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(container_btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
         );
 
@@ -389,14 +390,14 @@ public class AsignarParqueadero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCrear;
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnCrear;
     private javax.swing.JTextField campoApellido;
     private javax.swing.JTextField campoCedula;
     private javax.swing.JTextField campoNombre;
     private javax.swing.JTextField campoTelefono;
-    public javax.swing.JPanel container_btn_crear;
-    public javax.swing.JPanel container_btn_crear1;
+    public javax.swing.JPanel container_btn_vincular;
+    public javax.swing.JPanel container_btn_volver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

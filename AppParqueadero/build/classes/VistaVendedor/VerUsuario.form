@@ -57,7 +57,6 @@
                       <Component id="campoEmail" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
                       <Component id="jSeparator5" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
                       <Component id="selectParking" alignment="1" max="32767" attributes="0"/>
                       <Component id="jSeparator4" alignment="1" max="32767" attributes="0"/>
                       <Component id="campoTelefono" alignment="1" max="32767" attributes="0"/>
@@ -72,7 +71,8 @@
                       <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabel7" alignment="0" pref="403" max="32767" attributes="0"/>
+                      <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel1" alignment="0" pref="371" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
