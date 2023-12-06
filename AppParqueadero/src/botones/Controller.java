@@ -2,6 +2,7 @@
 package botones;
 
 import Main.Login;
+import Main.Main;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -9,14 +10,20 @@ import javax.swing.JPanel;
 
 
 public class Controller implements MouseListener {
-    private final Login view;
+    private final Login login;
+    private final Main main;
+
     
     public final void events(){
-        view.btn_ingresar.addMouseListener(this);
+        login.btn_ingresar.addMouseListener(this);
+        main.btnParking.addMouseListener(this);
+
     }
     
-    public Controller (Login view){
-        this.view = view;
+    public Controller (Login login, Main main){
+        this.login = login;
+        this.main = main;
+
         events();
     }
     
@@ -41,8 +48,10 @@ public class Controller implements MouseListener {
         
         Object evt = me.getSource();
         
-        if(evt.equals(view.btn_ingresar)){
-            changeBackground(view.container_btn_ingresar, new Color(61,103,71));
+        if(evt.equals(login.btn_ingresar)){
+            changeBackground(login.container_btn_ingresar, new Color(61,103,71));
+        }else if(evt.equals(main.btnParking)){
+            changeBackground(login.container_btn_ingresar, new Color(61,103,71));
         }
     }
 
@@ -51,8 +60,10 @@ public class Controller implements MouseListener {
         
         Object evt = me.getSource();
         
-        if(evt.equals(view.btn_ingresar)){
-            changeBackground(view.container_btn_ingresar, new Color(39,80,49));
+        if(evt.equals(login.btn_ingresar)){
+            changeBackground(login.container_btn_ingresar, new Color(39,80,49));
+        }else if(evt.equals(main.btnParking)){
+            changeBackground(login.container_btn_ingresar, new Color(39,80,49));
         }
     }
     

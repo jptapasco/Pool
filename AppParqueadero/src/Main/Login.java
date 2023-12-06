@@ -37,7 +37,7 @@ public class Login extends javax.swing.JFrame {
         gson = new Gson();
         initComponents();
         initComponentsAltern();
-        controller = new Controller(this);
+        controller = new Controller(this, main);
     }
 
     @SuppressWarnings("unchecked")
