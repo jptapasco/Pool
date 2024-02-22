@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Logout;
+use App\Http\Controllers\HomeController;
+use App\Livewire\DashboardAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+Route::middleware('auth')->group(function (){
+    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::get('dashboard_admin', DashboardAdmin::class)->name('dashboard_admin');
+    Route::post('logout', [Logout::class, 'logout'])->name('logout');
+});
 
 require __DIR__.'/auth.php';
